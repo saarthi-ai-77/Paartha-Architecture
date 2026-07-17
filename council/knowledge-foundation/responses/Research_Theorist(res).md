@@ -1124,3 +1124,593 @@ The cluster itself may be the most primitive level accessible within the current
 2. Reconsider whether a non-hierarchical, network-like theory structure is more appropriate for describing intelligence.
 
 I await the Council's review and direction.]
+
+response for prompt 3:[ I have read the Sprint 3 brief. I will now conduct a rigorous methodological investigation into how computational primitives can be scientifically validated or falsified, without defending any specific candidate or introducing new ones.
+
+---
+
+## 1. Problem Restatement
+
+Sprints 1 and 2 of the ACA program investigated the nature of knowledge and the criteria for computational primitiveness. Sprint 2 identified that no scientifically rigorous procedure exists for demonstrating that any concept is truly primitive. The Scientific Reviewer explicitly identified the absence of falsification methodology as the program's largest weakness.
+
+The current research bottleneck is therefore not ontological (what is primitive?) but methodological (how do we know?). Sprint 3 must answer:
+
+> **How can a computational primitive be scientifically validated or falsified?**
+
+This is a meta-scientific question. We are not evaluating candidates. We are designing the process by which candidates will be evaluated. Success requires a repeatable, objective protocol that any researcher can apply to any candidate, producing convergent conclusions.
+
+---
+
+## 2. Scientific Nature of Computational Primitives
+
+### What Makes a Foundational Concept Scientifically Acceptable?
+
+A foundational concept in science must satisfy three conditions:
+
+**C1: Explicitness.** The concept must be defined with sufficient precision that different researchers can identify the same phenomenon when they encounter it. Vagueness disqualifies a concept from scientific status.
+
+**C2: Consistency.** The concept must not lead to contradictions within the theory it supports. If accepting a primitive causes the theory to become inconsistent, the primitive is scientifically unacceptable.
+
+**C3: Productivity.** The concept must enable the derivation of non-obvious consequences. A primitive that explains nothing beyond itself is scientifically vacuous, even if logically consistent.
+
+These conditions are necessary but not sufficient. They distinguish scientific concepts from unscientific ones, but they do not distinguish primitives from derived concepts.
+
+### Are Primitives Discovered or Chosen?
+
+This is the central methodological tension. Two positions exist:
+
+**The Discovery View (Platonist/Realist):** Primitives exist independently of theory. We discover them through investigation, like physicists discover fundamental particles. Validation means demonstrating correspondence to reality.
+
+**The Convention View (FormalIST/Constructivist):** Primitives are chosen by convention. We select them based on criteria such as elegance, simplicity, or utility. Validation means demonstrating that the choice leads to a coherent, productive theory.
+
+For computational primitives, the discovery view faces a severe problem: computation is an abstract domain. There is no "reality" of computation independent of formal systems against which to test correspondence. The convention view faces a different problem: if primitives are purely conventional, then the ACA program's claim to derive foundations "from first principles" is hollow—we are merely choosing convenient starting points.
+
+**Resolution:** Primitives are **constrained conventions**. They are not discovered like physical particles, but they are not freely chosen either. They are selected under constraints imposed by the phenomena the theory must explain. The validation question becomes: does this primitive, under these constraints, support a theory that explains the phenomena better than alternatives?
+
+### Can Primitiveness Ever Be Objectively Proven?
+
+**No, not absolutely.** Primitiveness is theory-relative. A concept primitive in theory T may be derived in theory T'. Absolute proof of primitiveness would require proof that no more fundamental theory exists, which is impossible (it would require solving the problem of induction for theories).
+
+**However, primitiveness can be objectively demonstrated relative to a specified theoretical framework and a specified scope of explanation.** This is weaker than absolute proof but sufficient for scientific work. The task is not to prove primitiveness eternally but to establish it within a well-defined investigative scope.
+
+### What Kinds of Evidence Are Acceptable?
+
+Given the above, acceptable evidence for primitive status includes:
+
+1. **Impossibility of derivation:** Formal proof that the candidate cannot be defined using other concepts in the theory.
+2. **Explanatory necessity:** Demonstration that removing the candidate causes explanatory collapse.
+3. **Generative completeness:** Demonstration that all other concepts in the theory can be derived from the candidate set.
+4. **Independence from external concepts:** Demonstration that the candidate does not secretly depend on concepts outside the theory.
+5. **Comparative superiority:** Demonstration that theories built on this candidate explain more, with fewer assumptions, than theories built on alternatives.
+
+Evidence types 1 and 4 are formal. Evidence types 2, 3, and 5 are empirical/theoretical. All five are required for rigorous validation.
+
+---
+
+## 3. Existing Validation Approaches
+
+### Mathematical Logic (ZFC, First-Order Logic)
+
+**How primitives are treated:** Primitive concepts (e.g., "set," "belongs to") are introduced as undefined terms in axioms. Their meaning is fixed entirely by the axioms they satisfy.
+
+**Validation method:** Consistency and relative consistency. A primitive is acceptable if the axioms using it are consistent (or consistent relative to some accepted theory). Primitiveness is established by fiat—the terms are undefined because we choose not to define them.
+
+**Strengths:** Formal rigor, explicitness, well-understood metatheory.
+
+**Weaknesses:** Primitiveness is conventional, not demonstrated. Multiple equivalent axiomatizations exist with different primitives (e.g., ZFC with "set" vs. NBG with "class" and "set"). No falsification of primitive status exists—a primitive is simply the starting point.
+
+**Relevance to ACA:** Mathematical logic provides the gold standard for formal explicitness but offers no methodology for choosing between primitives. It validates consistency, not primitiveness.
+
+---
+
+### Axiomatic Systems (Euclidean Geometry, Peano Arithmetic)
+
+**How primitives are treated:** Primitive terms are explicitly listed (e.g., Euclid's "point," "line," "plane"). All other terms are defined from these.
+
+**Validation method:** Internal consistency and adequacy to intended domain. Euclid's primitives were accepted for millennia because they produced a geometry that matched spatial intuition. Non-Euclidean geometries later showed that different primitives (or different axioms about the same primitives) produce equally consistent systems.
+
+**Strengths:** Historical precedent, intuitive grounding, clear derivation structure.
+
+**Weaknesses:** Primitives were accepted based on intuition, not rigorous testing. The existence of non-Euclidean geometries shows that primitive choice is underdetermined by consistency alone.
+
+**Relevance to ACA:** Axiomatic systems show that primitives can be validated by their consequences (the theory they generate) but not by independent criteria. This supports the "constrained convention" view.
+
+---
+
+### Model Theory
+
+**How primitives are treated:** A theory's primitives are interpreted through models. A model assigns meanings (sets, relations, functions) to the primitive symbols.
+
+**Validation method:** Satisfiability and categoricity. A primitive set is valid if there exists at least one model (satisfiability) and ideally exactly one model up to isomorphism (categoricity).
+
+**Strengths:** Formal precision, connection to semantics, ability to compare theories through their models.
+
+**Weaknesses:** Model theory validates theories, not primitives directly. Multiple primitive sets can have equivalent models. Categoricity is rare and often impossible (per Gödel's incompleteness theorems).
+
+**Relevance to ACA:** Model theory provides tools for comparing theories but does not adjudicate between primitive candidates. It is useful for equivalence proofs but not for primitive selection.
+
+---
+
+### Category Theory
+
+**How primitives are treated:** Category theory takes "object" and "morphism" as primitive (or, in some formulations, just "morphism"). All other concepts (products, limits, functors) are defined categorically.
+
+**Validation method:** Universality and structural equivalence. A primitive is valid if it supports universal constructions that apply across many mathematical domains.
+
+**Strengths:** Extreme generality, structural insight, avoidance of set-theoretic commitment.
+
+**Weaknesses:** Primitives are highly abstract and may seem vacuous without examples. Category theory validates by structural fruitfulness, not by independent primitive testing.
+
+**Relevance to ACA:** Category theory's approach—validate primitives by the universal structures they generate—is promising. However, it requires that the "phenomena to explain" be formalizable as categorical structures, which may not be straightforward for intelligence.
+
+---
+
+### Type Theory (Martin-Löf, Homotopy Type Theory)
+
+**How primitives are treated:** Primitive concepts include "type," "term," "judgment," "equality." All else is built from these.
+
+**Validation method:** Computational content and constructivity. A primitive is valid if it has computational meaning—if terms of the type can be constructed, evaluated, and compared.
+
+**Strengths:** Computational grounding, explicit constructive content, connection to programming.
+
+**Weaknesses:** Type theory's primitives are chosen for computational tractability, not for ontological fundamentality. The validation is pragmatic, not scientific in the falsification sense.
+
+**Relevance to ACA:** Type theory's computational grounding is highly relevant. However, its validation method is engineering-oriented (does it compute?) rather than scientifically oriented (does it explain?).
+
+---
+
+### Theoretical Computer Science (Automata, Complexity, Computability)
+
+**How primitives are treated:** Primitives include "state," "transition," "symbol," "tape," "algorithm." These are formalized in models like Turing machines, lambda calculus, or circuit models.
+
+**Validation method:** Equivalence and expressiveness. A primitive set is valid if it captures the same computable functions as other accepted models (Church-Turing thesis). Primitives are validated by their equivalence to other primitive sets in terms of what they can compute.
+
+**Strengths:** Concrete, operational, empirically testable (via implementation).
+
+**Weaknesses:** The Church-Turing thesis is not a theorem; it is an empirical hypothesis about the limits of computation. Primitives are validated by mutual equivalence, not by independent criteria. This is circular if all models share hidden assumptions.
+
+**Relevance to ACA:** TCS provides the operational grounding that pure mathematics lacks. However, its validation method (equivalence to existing models) cannot adjudicate between fundamentally new primitives and existing ones.
+
+---
+
+### Algorithmic Information Theory (Kolmogorov Complexity)
+
+**How primitives are treated:** The primitive is "description" or "program" relative to a universal computer. Complexity is defined as the shortest description length.
+
+**Validation method:** Invariance up to additive constant. Kolmogorov complexity is validated by showing that the choice of universal computer affects complexity only by an additive constant that becomes negligible for long strings.
+
+**Strengths:** Objective measure of information content, formal precision, connection to randomness.
+
+**Weaknesses:** Kolmogorov complexity is uncomputable. The "universal computer" primitive is itself unvalidated—it is chosen by convention. The invariance theorem validates the measure, not the primitive.
+
+**Relevance to ACA:** AIT shows that primitives can be validated by invariance properties (the measure is robust across choices). This is a powerful idea: validate a primitive by showing that the theory is stable across variations of the primitive.
+
+---
+
+### Physics (Fundamental Particles, Fields, Spacetime)
+
+**How primitives are treated:** Physical primitives (mass, charge, spacetime) are validated by experiment. Their status as primitive is provisional—history shows that what was primitive (atoms, then electrons, then quarks) often yields to deeper primitives.
+
+**Validation method:** Experimental prediction and explanatory scope. A primitive is accepted if theories built on it make correct predictions and explain observed phenomena.
+
+**Falsification:** A primitive is rejected when a theory with different primitives makes better predictions or explains anomalies.
+
+**Strengths:** Empirical grounding, clear falsification criteria, progressive refinement.
+
+**Weaknesses:** Physical primitives are domain-specific. Their validation depends on experimental access, which is absent for abstract computational concepts.
+
+**Relevance to ACA:** Physics provides the paradigm for primitive validation through predictive power. However, computation lacks direct experimental access. The challenge is to find an analog of "experiment" for computational primitives.
+
+---
+
+### Philosophy of Science (Kuhn, Lakatos, Feyerabend)
+
+**How primitives are treated:** Scientific frameworks (paradigms) have primitive commitments that are not directly testable. They are validated by the research program's progressiveness (Lakatos) or by sociological consensus (Kuhn).
+
+**Validation method:** Progressive problem shift (Lakatos): a primitive is valid if the research program built on it consistently predicts novel facts and resolves anomalies.
+
+**Falsification:** A primitive is rejected when the research program becomes degenerative—when it only explains known facts through ad hoc adjustments.
+
+**Strengths:** Historical awareness, recognition of theory-ladenness, pragmatic criteria.
+
+**Weaknesses:** Sociological and historical criteria are not formally rigorous. They do not provide a decision procedure.
+
+**Relevance to ACA:** Lakatos's methodology of scientific research programs is highly relevant. ACA can be viewed as a research program whose primitives are validated by whether they lead to progressive or degenerative development.
+
+---
+
+## 4. Principles of Primitive Validation
+
+Synthesizing the above survey, I derive the following principles for validating computational primitives:
+
+### Principle 1: Formal Irreducibility (FI)
+A candidate primitive must be formally irreducible within the theory. This means:
+- No definition of the candidate using other concepts in the theory exists.
+- Any attempted definition leads to circularity or infinite regress.
+- **Test:** Exhaustive derivation attempt. Systematically try to define the candidate from every combination of other candidates. Document all attempts and their failure modes.
+
+### Principle 2: Explanatory Closure (EC)
+The candidate primitive set must be explanatorily closed. This means:
+- All phenomena in the theory's scope must be derivable from the primitive set.
+- No phenomena require concepts outside the primitive set for their explanation.
+- **Test:** Derivation coverage. For each phenomenon the theory must explain, construct a derivation from the primitive set. Identify gaps.
+
+### Principle 3: Theoretical Invariance (TI)
+The theory must be invariant under reasonable variations of the primitive's formalization. This means:
+- Different but equivalent formalizations of the primitive produce the same theoretical consequences.
+- The primitive is not an artifact of a particular formal notation.
+- **Test:** Formal variation. Express the primitive in multiple formalisms (set theory, category theory, type theory, process algebra). Verify that the theory's consequences remain unchanged.
+
+### Principle 4: Comparative Adequacy (CA)
+The primitive must produce a theory that is more adequate than theories built on alternative primitives. This means:
+- Greater explanatory scope (explains more phenomena).
+- Greater parsimony (fewer primitives or simpler derivations).
+- Greater predictive power (derives consequences not obvious from alternatives).
+- **Test:** Theory competition. Build the best theory possible on each candidate primitive. Compare across the criteria above.
+
+### Principle 5: Operational Grounding (OG)
+The primitive must have operational content. This means:
+- There exists a procedure (even if idealized) that determines whether the primitive applies to a given case.
+- The primitive is not purely metaphysical or intuitive.
+- **Test:** Operational specification. Define a decision procedure for identifying instances of the primitive. Verify that the procedure is executable in principle.
+
+### Principle 6: Falsifiability of Consequences (FC)
+The theory built on the primitive must have falsifiable consequences. This means:
+- There must exist possible observations (even if abstract) that would contradict the theory.
+- If the theory can accommodate any possible observation, it is not scientific.
+- **Test:** Counterexample search. Construct hypothetical scenarios that would violate the theory's predictions. Verify that such scenarios are logically possible and would indeed falsify the theory.
+
+---
+
+## 5. Formal Validation Framework
+
+I now design a computational methodology based on the six principles. The framework consists of five stages, each producing explicit deliverables.
+
+### Stage 1: Formalization
+**Objective:** Express the candidate primitive in a formal language.
+
+**Procedure:**
+1. Choose a formal framework (set theory, type theory, category theory, process calculus, or custom logic).
+2. Define the candidate primitive as a symbol or construction within that framework.
+3. Explicitly list all axioms or rules governing the primitive.
+4. Document any informal intuitions that guided the formalization.
+
+**Deliverable:** Formal specification document.
+
+**Validation criterion (OG):** The formalization must be complete enough that a competent researcher could implement a checker for whether the primitive applies in a given instance.
+
+---
+
+### Stage 2: Reducibility Testing
+**Objective:** Determine whether the candidate can be derived from other concepts.
+
+**Procedure:**
+1. Identify all other concepts in the theory's vocabulary.
+2. For each subset of other concepts, attempt to construct a definition of the candidate.
+3. Document each attempt, including:
+   - The subset used
+   - The attempted definition
+   - The point of failure (circularity, infinite regress, loss of generality)
+4. Attempt to prove impossibility using formal methods (consistency proofs, independence proofs, model constructions).
+
+**Deliverable:** Reducibility audit with exhaustive attempt log.
+
+**Validation criterion (FI):** The candidate passes if no successful derivation exists and formal impossibility has been demonstrated or strongly argued.
+
+---
+
+### Stage 3: Generative Testing
+**Objective:** Determine whether the candidate can generate the rest of the theory.
+
+**Procedure:**
+1. List all phenomena the theory must explain.
+2. For each phenomenon, attempt to derive it from the candidate primitive set.
+3. Document each derivation or identify gaps.
+4. Measure coverage: percentage of phenomena derivable, depth of derivation (number of steps), clarity of derivation.
+
+**Deliverable:** Generative coverage report.
+
+**Validation criterion (EC):** The candidate passes if all phenomena are derivable without importing external concepts.
+
+---
+
+### Stage 4: Invariance Testing
+**Objective:** Determine whether the theory is robust to formalization choices.
+
+**Procedure:**
+1. Re-express the candidate primitive in at least two alternative formal frameworks.
+2. Re-derive the theory's key consequences in each framework.
+3. Compare the consequences for equivalence.
+4. Identify any framework-specific artifacts.
+
+**Deliverable:** Invariance proof or counterexample.
+
+**Validation criterion (TI):** The candidate passes if the theory's consequences are invariant across formalizations.
+
+---
+
+### Stage 5: Comparative Evaluation
+**Objective:** Determine whether the candidate outperforms alternatives.
+
+**Procedure:**
+1. Identify all serious alternative primitive candidates for the same scope.
+2. For each alternative, construct the best possible theory.
+3. Evaluate each theory across:
+   - Explanatory scope (number of phenomena explained)
+   - Parsimony (number of primitives, complexity of axioms)
+   - Derivation depth (average steps to derive phenomena)
+   - Predictive novelty (consequences not built into the axioms)
+4. Perform blind evaluation where possible (independent researchers evaluate theories without knowing which primitive they are based on).
+
+**Deliverable:** Comparative evaluation matrix.
+
+**Validation criterion (CA):** The candidate passes if it ranks first or tied for first across the majority of criteria.
+
+---
+
+## 6. Falsification Methodology
+
+The Scientific Reviewer identified the absence of falsification as the largest weakness. I now address this directly.
+
+### Under What Conditions Should a Candidate Primitive Be Rejected?
+
+A candidate primitive should be rejected if any of the following conditions are met:
+
+**F1: Successful Reducibility.** If the candidate can be formally defined using other concepts in the theory, it is not primitive. It is derived.
+
+**F2: Explanatory Failure.** If the candidate cannot generate explanations for phenomena within the theory's scope, it is inadequate.
+
+**F3: Formal Inconsistency.** If the axioms governing the candidate lead to contradictions, the candidate is scientifically unacceptable.
+
+**F4: Framework Artifact.** If the candidate's theoretical power depends entirely on a specific formal framework and vanishes under translation to equivalent frameworks, it is an artifact, not a primitive.
+
+**F5: Inferiority to Alternatives.** If a theory built on the candidate is consistently outperformed by theories built on alternatives across multiple criteria, the candidate should be abandoned.
+
+**F6: Hidden Dependency.** If the candidate secretly depends on concepts outside the theory (e.g., anthropocentric intuition, physical assumptions, mathematical structures not explicitly included), it is not a true primitive for that theory.
+
+### What Observations Would Falsify Primitiveness?
+
+Since computational primitives are abstract, "observation" must be interpreted broadly:
+
+**O1: Derivation Observation.** The observation that the candidate has been successfully derived from other concepts. This is a formal observation, not an empirical one, but it is decisive.
+
+**O2: Explanatory Gap Observation.** The observation that a phenomenon within the theory's scope cannot be derived from the candidate despite sustained effort. This is a practical observation, not a proof, but it becomes compelling when the gap persists across multiple researchers and approaches.
+
+**O3: Inconsistency Observation.** The observation that the candidate leads to contradictions. This is formal and decisive.
+
+**O4: Equivalence Observation.** The observation that the candidate produces exactly the same theory as a clearly derived concept. This suggests the candidate is not adding explanatory power.
+
+**O5: Dependency Exposure.** The observation that the candidate's formalization smuggles in unstated assumptions. This is revealed through careful analysis of the formalization process.
+
+### Can Primitiveness Be Disproven Even If It Cannot Be Proven?
+
+**Yes, absolutely.** This is the critical insight.
+
+Primitiveness cannot be absolutely proven because:
+- One cannot prove that no future theory will reduce the candidate.
+- One cannot prove that all possible derivations have been attempted.
+
+But primitiveness can be disproven because:
+- A single successful derivation is sufficient to disprove it.
+- A single inconsistency is sufficient to disqualify it.
+- A single demonstration of hidden dependency is sufficient to expose it.
+
+**The asymmetry:** Proving primitiveness requires universal quantification over all possible theories and derivations (impossible). Disproving primitiveness requires only existential quantification over one successful counterexample (possible).
+
+This mirrors the asymmetry in physics: one cannot prove that a theory is the final theory of everything, but one can disprove a theory with a single anomalous observation.
+
+**Methodological consequence:** The scientific status of primitive candidates is established through **attempted falsification**, not through attempted proof. A candidate that survives rigorous, repeated attempts at falsification gains provisional acceptance. It never achieves final proof, but it achieves scientific standing.
+
+---
+
+## 7. Repeatable Council Evaluation Protocol
+
+I now define a protocol that the ACA Council can apply to any future primitive candidate. The protocol is designed to minimize subjective judgment and maximize reproducibility.
+
+### Protocol Name: PRIMITIVE (Protocol for Rigorous Investigation and Validation of Computational Primitives)
+
+### Phase 1: Candidate Registration (CR)
+**Duration:** 1 council session
+**Participants:** Proposer + at least 2 independent reviewers
+**Procedure:**
+1. The proposer submits:
+   - Candidate name and informal description
+   - Formal specification in a chosen framework
+   - Explicit list of intended scope (what phenomena must the theory explain?)
+   - List of all other concepts the candidate is claimed to be independent of
+2. Independent reviewers verify that the formal specification is complete and unambiguous.
+3. The candidate is registered and assigned a tracking identifier.
+
+**Deliverable:** Candidate dossier with formal specification.
+
+---
+
+### Phase 2: Reducibility Challenge (RC)
+**Duration:** Minimum 2 council sessions
+**Participants:** All council members + external challengers invited
+**Procedure:**
+1. The council publishes the candidate dossier.
+2. Challengers have a defined period to attempt derivation of the candidate from other registered concepts.
+3. Each attempt must include:
+   - The exact subset of concepts used
+   - The step-by-step derivation
+   - The point of failure (if derivation fails)
+4. The council maintains a public registry of all attempts.
+5. If any derivation succeeds, the candidate is rejected (F1).
+6. If no derivation succeeds after exhaustive attempts, the candidate passes RC.
+
+**Deliverable:** Reducibility challenge registry.
+
+**Subjectivity mitigation:** All attempts are documented. Success or failure is determined by formal criteria, not consensus.
+
+---
+
+### Phase 3: Generative Audit (GA)
+**Duration:** Variable, up to multiple sprints
+**Participants:** Derivation teams assigned to specific phenomena
+**Procedure:**
+1. The council lists all phenomena in the theory's scope.
+2. Teams attempt to derive each phenomenon from the candidate primitive set.
+3. Each derivation is peer-reviewed.
+4. Gaps are documented as "explanatory debts."
+5. If any phenomenon cannot be derived and no path is visible, the candidate is flagged for explanatory failure (F2).
+6. If all phenomena are derivable, the candidate passes GA.
+
+**Deliverable:** Generative coverage map with derivation proofs.
+
+**Subjectivity mitigation:** Derivation teams work independently. Convergence of independent derivations supports validity.
+
+---
+
+### Phase 4: Invariance Verification (IV)
+**Duration:** 1-2 council sessions
+**Participants:** Formal methods specialists
+**Procedure:**
+1. The candidate is re-expressed in at least two alternative formal frameworks.
+2. Key derivations from GA are reconstructed in each framework.
+3. Equivalence is formally verified or counterexamples documented.
+4. If framework-specific artifacts are found, the candidate is flagged (F4).
+
+**Deliverable:** Invariance proof or artifact report.
+
+**Subjectivity mitigation:** Formal equivalence is mathematically decidable (or at least arguable) in many cases.
+
+---
+
+### Phase 5: Comparative Tournament (CT)
+**Duration:** 1 council session per alternative
+**Participants:** Independent evaluation panel
+**Procedure:**
+1. All viable alternative candidates are identified.
+2. For each alternative, a theory is constructed by an independent team.
+3. Theories are evaluated blind (evaluators do not know which primitive each theory is built on).
+4. Evaluation uses standardized criteria: scope, parsimony, depth, novelty.
+5. The candidate passes if it ranks first or tied for first.
+
+**Deliverable:** Comparative evaluation matrix with blind rankings.
+
+**Subjectivity mitigation:** Blind evaluation eliminates bias toward familiar or favored candidates.
+
+---
+
+### Phase 6: Falsification Surveillance (FS)
+**Duration:** Ongoing
+**Participants:** Entire research community
+**Procedure:**
+1. The accepted primitive set is published with all supporting documentation.
+2. The community is invited to submit falsification attempts (F1-F6).
+3. Each submission is formally evaluated by the council.
+4. If a submission succeeds, the primitive is rejected and the council initiates a new sprint.
+
+**Deliverable:** Living falsification log.
+
+**Subjectivity mitigation:** Falsification criteria are explicit. A submission either meets them or does not.
+
+---
+
+### Protocol Summary
+
+| Phase | Objective | Falsification Trigger |
+|-------|-----------|----------------------|
+| CR | Register candidate | Incomplete formalization |
+| RC | Test irreducibility | Successful derivation (F1) |
+| GA | Test generative power | Explanatory gap (F2) |
+| IV | Test formal robustness | Framework artifact (F4) |
+| CT | Test comparative adequacy | Inferiority to alternative (F5) |
+| FS | Ongoing surveillance | Any F1-F6 satisfied |
+
+---
+
+## 8. Assumptions
+
+**A1: Computational theories can be formalized.**
+The entire protocol assumes that candidate primitives can be expressed in formal languages. If some computational concepts are inherently informal, the protocol cannot evaluate them.
+
+**A2: The council can identify the scope of explanation.**
+The protocol requires that the phenomena to be explained are listed in advance. If the scope is vague or expands unpredictably, generative testing becomes impossible.
+
+**A3: Exhaustive derivation attempts are possible in practice.**
+Reducibility testing assumes that the council can attempt all plausible derivations. For complex candidates, this may be computationally infeasible.
+
+**A4: Alternative candidates can be identified.**
+Comparative evaluation requires alternatives. If only one candidate exists, comparison is impossible.
+
+**A5: Independent evaluation is achievable.**
+Blind evaluation and independent derivation teams assume that researchers can set aside prior commitments. This may be psychologically difficult.
+
+**A6: Falsification is decisive.**
+The protocol assumes that a single successful falsification is sufficient to reject a candidate. This is methodologically conservative but may reject candidates prematurely if the falsification itself is flawed.
+
+---
+
+## 9. Limitations
+
+**L1: The protocol cannot prove primitiveness.**
+It can only establish that a candidate has survived falsification attempts. This is provisional acceptance, not certainty.
+
+**L2: The protocol is resource-intensive.**
+Full execution of PRIMITIVE for a single candidate could require multiple sprints and significant formal work. The council must balance thoroughness against progress.
+
+**L3: The protocol may not scale to highly complex candidates.**
+If the candidate's formalization is extremely complex (e.g., involving higher-order logic or advanced category theory), reducibility testing may be intractable.
+
+**L4: The protocol assumes a static theory.**
+If the ACA program's scope evolves, previously accepted primitives may become inadequate. The protocol handles this through ongoing surveillance but cannot prevent it.
+
+**L5: The protocol does not address the "right" formal framework.**
+It tests invariance across frameworks but does not adjudicate which framework is correct. This is a deeper philosophical question that the protocol brackets.
+
+**L6: The protocol may be gamed.**
+A proposer could formalize a candidate in a way that makes derivation difficult but not impossible. The protocol relies on the integrity of challengers and the competence of reviewers.
+
+---
+
+## 10. Confidence
+
+| Aspect | Confidence |
+|--------|-----------|
+| That primitiveness is theory-relative, not absolute | **High** |
+| That the six principles (FI, EC, TI, CA, OG, FC) are sound | **Moderate-High** |
+| That the PRIMITIVE protocol is scientifically rigorous | **Moderate** |
+| That the protocol can be executed by the council | **Moderate** |
+| That falsification is possible and decisive for computational primitives | **Moderate-High** |
+| That the protocol will produce convergent conclusions across independent researchers | **Moderate** |
+| That no better methodology exists | **Low-Moderate** |
+
+**Overall confidence in Sprint 3 outcome:** **Moderate**
+
+I am confident in the principles and the falsification asymmetry. I am less confident that the protocol can be fully executed without significant resource investment and potential subjective judgment at the margins.
+
+---
+
+## 11. Open Questions
+
+**Q1: Can the protocol be partially automated?**
+Reducibility testing and invariance verification seem amenable to automated theorem provers. Can the council leverage existing tools (Coq, Lean, Isabelle) to reduce subjectivity and effort?
+
+**Q2: What is the appropriate threshold for "exhaustive" derivation attempts?**
+The protocol requires exhaustive reducibility testing, but exhaustiveness is a continuum. How many failed attempts are sufficient? How long should the challenge period be?
+
+**Q3: How should the council handle mutually interdependent primitive clusters?**
+Sprint 2 identified that Distinction, Difference, and Relation may form a single primitive cluster. Can the protocol evaluate clusters, or is it designed for individual candidates?
+
+**Q4: What happens if no candidate survives the protocol?**
+If all candidates fail at some phase, does the council conclude that no primitives exist for this scope, or that the scope itself is ill-defined?
+
+**Q5: How does the protocol relate to Sprint 1 and Sprint 2 conclusions?**
+Should the council retroactively apply PRIMITIVE to Distinction and Constraint? Or should it only apply to future candidates?
+
+**Q6: Is there a meta-protocol for validating the protocol itself?**
+If PRIMITIVE is accepted, on what grounds? Does it require its own validation, leading to infinite regress?
+
+---
+
+## Conclusion
+
+Sprint 3 has established that computational primitives cannot be absolutely proven but can be rigorously falsified. The scientific validation of primitives proceeds through **attempted falsification across six dimensions: formal irreducibility, explanatory closure, theoretical invariance, comparative adequacy, operational grounding, and falsifiability of consequences.**
+
+The PRIMITIVE protocol provides a repeatable, six-phase procedure for evaluating any candidate primitive: Candidate Registration, Reducibility Challenge, Generative Audit, Invariance Verification, Comparative Tournament, and ongoing Falsification Surveillance.
+
+This methodology transforms the ACA program's primitive evaluation from intuitive judgment into structured scientific process. It does not guarantee truth, but it establishes the conditions under which claims to primitiveness can be tested, rejected, or provisionally accepted.
+
+The council now possesses the scientific process required before making further foundational claims. Sprint 3 is complete.]
