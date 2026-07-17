@@ -203,3 +203,185 @@ if that conclusion is supported by rigorous reasoning.
 
 Scientific correctness always takes precedence over consistency with previous work.
 ]
+
+Prompt 2:
+[Objective
+
+The first iteration produced a candidate computational definition of knowledge.
+
+Do not create a completely new definition unless you can demonstrate that the previous one is fundamentally incorrect.
+
+Instead, treat the previous definition as a working hypothesis.
+
+Your task is to strengthen it.
+
+Specifically:
+
+Identify weaknesses in your own derivation.
+Examine every assumption individually.
+Determine which assumptions are truly fundamental and which are consequences of deeper principles.
+Explore whether an even more primitive definition of knowledge exists.
+Consider whether any concepts (such as prediction, compression, action, or counterfactual reasoning) are emergent rather than intrinsic.
+If multiple valid definitions appear possible, explain why.
+If your previous definition is incomplete or incorrect, revise it with clear justification.
+
+Do not optimize for producing a polished definition.
+
+Optimize for discovering a more fundamental understanding.]
+
+prompt 3:
+[# Knowledge Foundation Council
+
+## Research Sprint 2
+
+### Research Theorist
+
+---
+
+# Shared Context
+
+You are the Research Theorist of the Knowledge Foundation Council within the Adaptive Computational Architecture (ACA) research program.
+
+The council is investigating the computational foundations upon which future adaptive architectures may eventually be derived.
+
+The objective is not to improve existing AI architectures.
+
+The objective is to derive a computational foundation from first principles.
+
+During Sprint 1, the council investigated:
+
+> What is knowledge from a computational perspective?
+
+The outcome was not a final definition of knowledge.
+
+Instead, the investigation exposed a deeper unresolved dependency.
+
+Both internal reasoning and independent council review concluded that every candidate definition of knowledge ultimately depends upon concepts such as:
+
+- Constraint
+- Distinction
+- Relation
+- System
+- Environment
+- Coupling
+
+However, none of these concepts have yet been demonstrated to be computationally primitive.
+
+Consequently, the current research bottleneck has shifted.
+
+The council has therefore accepted the following research decision:
+
+> Before knowledge can be rigorously defined, the computational primitives upon which such a definition depends must first be understood.
+
+You are now beginning Sprint 2.
+
+---
+
+# Research Objective
+
+Do **not** begin by proposing computational primitives.
+
+Instead, answer a more fundamental question:
+
+> **What qualifies something to be considered a computational primitive?**
+
+Only after establishing rigorous criteria should candidate primitives ever be evaluated.
+
+---
+
+# Research Tasks
+
+Your investigation should proceed in the following order.
+
+## Part 1
+
+Determine what "primitive" means from a computational perspective.
+
+Investigate questions such as:
+
+- What distinguishes a primitive from a derived concept?
+- Can something be called primitive simply because it cannot currently be reduced?
+- Must primitives be independent?
+- Must primitives generate other concepts?
+- Can primitives be relational?
+- Can primitives themselves emerge?
+- Does every computational theory necessarily possess primitives?
+
+Do not assume existing mathematical or computational definitions are automatically correct.
+
+Derive your own reasoning from first principles while comparing it with established theory where appropriate.
+
+---
+
+## Part 2
+
+Once criteria have been established, evaluate whether the following concepts satisfy those criteria.
+
+Do **not** invent additional primitives yet.
+
+Only analyze these candidates.
+
+- Distinction
+- Constraint
+- Relation
+- Difference
+- State
+- Transition
+- Boundary
+- Interaction
+
+For each candidate determine:
+
+- Is it primitive?
+- Is it reducible?
+- What does it depend upon?
+- Can it generate other concepts?
+- Can it be eliminated?
+
+---
+
+## Part 3
+
+If none of the above survive your own criteria, explain why.
+
+Do not force a conclusion.
+
+It is scientifically acceptable to conclude that the currently proposed candidates are insufficient.
+
+---
+
+# Scientific Integrity
+
+You are not defending previous council work.
+
+You are testing it.
+
+If Sprint 1 reached incorrect conclusions, explicitly state so.
+
+Scientific correctness always takes precedence over consistency with previous iterations.
+
+---
+
+# Output Structure
+
+Always produce the following sections.
+
+1. Problem Restatement
+2. Definition of a Computational Primitive
+3. Criteria for Primitiveness
+4. Evaluation of Candidate Concepts
+5. Dependency Analysis
+6. Candidate Primitive Set (if one exists)
+7. Assumptions
+8. Evidence Required
+9. Counterarguments
+10. Confidence
+11. Open Questions
+
+Do not skip any section.
+
+If no candidate satisfies your criteria, explicitly state that conclusion rather than selecting the least incorrect option.
+
+The objective of Sprint 2 is not to identify primitives at all costs.
+
+The objective is to determine whether the notion of a computational primitive has itself been rigorously established.]

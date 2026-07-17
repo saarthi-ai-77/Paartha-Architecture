@@ -27,3 +27,22 @@ This file tracks unresolved questions.
 - **Evidence Collected:** The Scientific Reviewer identified logical gaps where the current working definition fails to exclude passive physical traces (e.g., a crack in a rock) or degenerate constraints.
 - **Next Investigation:** Formulate a rigorous discriminator between informational constraints and purely physical dynamics.
 
+
+- **ID:** KFC-Q-004
+- **Question:** What constitutes a rigorous proof of irreducibility for a computational primitive?
+- **Current Status:** Active Investigation (Sprint 3 Focus)
+- **Evidence Collected:** The council appeals to irreducibility but has not defined a formal procedure for proving it, rendering claims of primitiveness unscientific.
+- **Next Investigation:** Develop a formal methodology for validating irreducibility.
+
+- **ID:** KFC-Q-005
+- **Question:** How can the council construct a robust falsification procedure for candidate primitives?
+- **Current Status:** Active Investigation (Sprint 3 Focus)
+- **Evidence Collected:** The Scientific Reviewer criticized the current framework for lacking a mechanism to mathematically or computationally reject incorrect primitive candidates.
+- **Next Investigation:** Build a falsification methodology alongside the proof of irreducibility.
+
+- **ID:** KFC-Q-006
+- **Question:** Can the four evaluation criteria for primitiveness be collapsed into just two: Irreducibility and Generativity?
+- **Current Status:** Open
+- **Evidence Collected:** The Reductionist demonstrated that Irreducibility, Generative Necessity, Explanatory Ineliminability, and Non-Decomposability can plausibly collapse into two orthogonal criteria.
+- **Next Investigation:** Verify if Irreducibility and Generativity are jointly necessary and sufficient.
+

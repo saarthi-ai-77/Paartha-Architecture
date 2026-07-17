@@ -17,3 +17,18 @@ Each accepted conclusion produced by this council is permanently recorded here.
 - **Date:** 2026-07-17
 - **Status:** Active
 
+
+- **ID:** KFC-DEC-002
+- **Decision:** Constraint, System, Environment, and Coupling are not computational primitives.
+- **Rationale:** These concepts are structural consequences of deeper distinctions rather than foundational entities themselves.
+- **Supporting Evidence:** The Reductionist successfully collapsed System, Environment, and Coupling into Distinction. The Scientific Reviewer and Research Theorist confirmed that Constraint is derived and belongs downstream.
+- **Date:** 2026-07-17
+- **Status:** Active
+
+- **ID:** KFC-DEC-003
+- **Decision:** Sprint 3 will focus on developing a formal validation methodology for computational primitives rather than proposing new candidates.
+- **Rationale:** Without a rigorous procedure for proving irreducibility and providing falsifiability, any claim of primitiveness remains philosophical rather than scientific.
+- **Supporting Evidence:** The Scientific Reviewer's primary critique in Sprint 2 was the lack of a falsification procedure and formal proof mechanism for the proposed primitives.
+- **Date:** 2026-07-17
+- **Status:** Active
+
