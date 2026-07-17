@@ -54,3 +54,11 @@ Each accepted conclusion produced by this council is permanently recorded here.
 - **Date:** 2026-07-17
 - **Status:** Active
 
+
+- **ID:** KFC-DEC-007
+- **Decision:** Normative behavior (including safety, usefulness, corrigibility, and robustness) shall be investigated as a foundational research domain prior to architectural development rather than treated solely as a post-training alignment technique.
+- **Rationale:** Safety and usefulness must be integral architectural properties, not externally imposed constraints or post-training modifications.
+- **Supporting Evidence:** Aligns with foundational principle P-007 and the overarching ACA Research Vision.
+- **Date:** 2026-07-17
+- **Status:** Active
+

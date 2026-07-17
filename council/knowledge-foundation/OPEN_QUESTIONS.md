@@ -77,3 +77,10 @@ This file tracks unresolved questions.
 - **Evidence Collected:** The Reductionist argued these three principles are sufficient. The Scientific Reviewer noted their independence and sufficiency have not yet been formally demonstrated.
 - **Next Investigation:** Evaluate whether the reduced three-principle framework is sufficient or if additional principles are required.
 
+
+- **ID:** KFC-Q-012
+- **Question:** How can normative behavior be represented as a computational foundation rather than a post-training alignment mechanism?
+- **Current Status:** Open
+- **Evidence Collected:** N/A (Newly identified foundational challenge)
+- **Next Investigation:** Will be assigned to the Normative Foundation Council.
+
