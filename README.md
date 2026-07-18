@@ -7,8 +7,8 @@ The current research investigates whether intelligence should be implemented thr
 ## Current Status
 
 **Status:** Active Research
-**Current Milestone:** EXP-004 — Integration Test. Combining two independently-validated architectural mechanisms (a competence-aware episodic memory allocator, and a validation-driven rule/family-selection module) into one small model to test whether they compose without interfering.
-**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-003); the dynamic-scheduling layer that would route between them is not yet built or tested.
+**Current Milestone:** EXP-004 complete — the two independently-validated mechanisms (competence-aware episodic memory allocator; validation-driven rule/family-selection module) compose in one model without interfering, under a disjoint-parameter design. Next: EXP-006, testing whether they can share a real substrate (e.g. one token embedding space), which EXP-004 deliberately did not test.
+**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces, and their composability (in isolation from shared-substrate and learned-routing questions) is now also validated (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-004). The dynamic-scheduling layer and shared-substrate integration are not yet built or tested.
 **Latest Research Direction:** As of DEC-005 (2026-07-18), ACA's primary methodology shifted from council-driven first-principles derivation to build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; test it against an honest baseline with multiple seeds; report the result — including falsification — before generalizing. See `docs/05_research/Decisions.md` (DEC-005) and `docs/01_background/HISTORY.md` (Phase 5) for the full rationale and what changed.
 
 ## Repository Overview

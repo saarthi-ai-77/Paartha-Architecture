@@ -13,14 +13,14 @@ Architecture is not derived from a prior knowledge taxonomy. It is built one val
 * **EXP-001: Episodic Memory Allocation** — ✅ Complete. Competence-aware write/eviction beats naive caching ~2x on tail-fact recall at equal capacity.
 * **EXP-002: Rule Module for Compositional Generalization** — ✅ Complete. Falsified in general form; confirmed in a narrow, mechanistically-understood form (constrain the operator to the true symmetry family).
 * **EXP-003: Automatic Family Selection** — ✅ Complete. Confirmed that selection must be validation-driven, not loss-driven.
-* **EXP-004: Integration Test** — In progress. Do the EXP-001 and EXP-002/003 mechanisms compose in one model without interfering?
+* **EXP-004: Integration Test** — ✅ Complete. Confirmed: the two mechanisms compose in one model, one optimizer, without interference — under a disjoint-parameter design that deliberately did not test a shared substrate or learned routing (both remain open, see below).
 * **EXP-005 (planned): Family Discovery** — Extend EXP-003's selection-among-a-known-library result toward discovering/constructing a suitable family for an unfamiliar domain — the central open problem flagged by EXP-002/003.
-* **EXP-006 (planned): Dynamic Scheduler Prototype** — A routing mechanism between validated components, built to satisfy the validation-driven-selection constraint from EXP-003 (see `docs/04_architecture/Dynamic_Computation.md`).
+* **EXP-006 (planned): Shared-Substrate Integration** — Test whether the two pathways can share a real substrate (e.g. one token embedding space) without the rule pathway's validated constraint breaking, per EXP-004's flagged limitation.
+* **EXP-007 (planned): Dynamic Scheduler Prototype** — Replace EXP-004's explicit, non-learned dispatch with a learned router, built to satisfy the validation-driven-selection constraint from EXP-003 (see `docs/04_architecture/Dynamic_Computation.md`).
 * **Beyond EXP-006:** real-backbone/real-data integration, then a small trainable SLM POC benchmarked on English fluency (with the architecture kept extensible to code/math/reasoning, per standing design constraint — see conversational record and `docs/02_vision/Success_Criteria.md`), then India AI compute grant readiness.
 
 ## Immediate Research Priorities
-1. Complete EXP-004 (composability of the two validated components).
-2. Based on EXP-004's result, decide between EXP-005 (family discovery) and EXP-006 (scheduler prototype) as the next unit of work.
+1. EXP-004 complete and confirmed (see `docs/06_experiments/Completed.md`). Decide next between EXP-005 (family discovery), EXP-006 (shared-substrate integration), and EXP-007 (scheduler prototype) — EXP-006 is arguably the more pressing gap, since EXP-004 specifically avoided the shared-substrate case that a real architecture will eventually need.
 
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).

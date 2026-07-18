@@ -5,11 +5,7 @@
 *Note: this file tracks experiments not yet run. Once an experiment is executed, its write-up moves to `docs/06_experiments/Completed.md` (or, if actively in progress, `Running.md`) with this entry marked accordingly.*
 
 ## EXP-004: Integration Test — Memory Allocator + Rule/Family-Selection Module
-* **Objective:** Determine whether the two independently-validated components (EXP-001's competence-aware episodic memory allocator, and EXP-002/003's constrained, validation-selected rule module) can be combined into a single small model without either mechanism degrading the other.
-* **Hypothesis:** A model containing both a memory pathway and a rule pathway will retain the validated benefits of each in isolation (tail-fact recall advantage from the memory allocator; exact compositional generalization from the rule module) when tested on a combined task requiring both kinds of knowledge.
-* **Method:** Construct a synthetic task with two sub-components — a long-tail associative-recall slice (as in EXP-001) and a compositional operator-application slice (as in EXP-002/003) — routed to the appropriate validated component. Compare against (a) memory-only, (b) rule-only, and (c) a uniform baseline of matched parameter count.
-* **Expected Outcome:** Combined model matches or exceeds each component's isolated performance on its respective task slice; no cross-interference (e.g. the memory write policy misfiring on rule-module inputs, or vice versa).
-* **Status:** Next up — see `docs/07_future/Roadmap.md`.
+* **Status:** ✅ Complete — moved to `docs/06_experiments/Completed.md`. Confirmed: no interference between the two disjoint-parameter pathways under joint training. See Completed.md for the full write-up, including what this does and doesn't establish (does not test a shared substrate or learned routing — both remain open, tracked in `docs/07_future/Roadmap.md`).
 
 ---
 

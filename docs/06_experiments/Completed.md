@@ -160,3 +160,50 @@ This validates a specific, actionable design rule for a real rule module: **fami
 2. Test validation-driven selection with a much larger family library (5–10 candidate structures) and more operators, to see whether the approach still cleanly separates correct families as the search space grows, or whether the small selection-split (2 points/operator here) becomes a reliability bottleneck.
 3. Investigate the λ=0.5 "backwards" pattern directly — is it something specific to op1's non-bijectivity, or a more general property of how parsimony penalties interact with per-operator training-fit confidence? This could itself be an important (and currently unexplained) finding.
 4. Integration test: combine the validated pieces from EXP-001 (surprise-gated episodic memory) and EXP-002/003 (validation-selected rule module) into a single small end-to-end toy model with both a memory pathway and a rule pathway, to check the two validated mechanisms compose without interfering with each other — neither has been tested alongside the other yet.
+
+**Follow-up 4 above was executed as EXP-004 (below), immediately following this experiment in the same research effort.**
+
+---
+
+## EXP-004: Integration Test — Do the Memory and Rule Pathways Compose?
+
+**Epistemic Status:** Working Hypothesis — CONFIRMED at the engineering-composability level tested here. Explicitly does not test the harder question of a shared substrate (shared embeddings, learned routing) — see scope note below.
+
+### Objective
+EXP-001 (episodic memory allocation) and EXP-002/003 (constrained, validation-selected rule module) were each validated in isolation, on separate toy tasks, by separate model classes. Determine whether combining both into one model, trained jointly via one optimizer and one training loop, causes either mechanism to degrade relative to its own isolated-training performance.
+
+### Research Question
+Does joint training of two disjoint-parameter, structurally different pathways (a memory allocator and a rule module) in a single model produce any interference, or does each pathway perform as if trained alone?
+
+### Design Decision Worth Flagging
+The two pathways were kept with **fully disjoint parameters** — critically, the rule pathway kept its validated fixed (non-learned) sin/cos operand encoding rather than being given a learned embedding shared with the recall pathway. Sharing a learned embedding would have reintroduced exactly the free-embedding degree of freedom EXP-002 falsified, undermining the mechanism under test. This means EXP-004 tests **engineering composability** (can one training loop and one optimizer correctly carry both mechanisms without bugs, loss-scale imbalance, or optimizer-state issues) — it does **not** test the harder question of whether the two mechanisms could share a real substrate (e.g. a common token embedding space in an actual language model), which remains open.
+
+### Hypothesis (stated before running)
+Since the two pathways share no parameters, joint training should closely match each isolated baseline — Adam updates each parameter independently based on its own gradient, so there is no principled mathematical reason for disjoint pathways to interfere. A meaningful gap would indicate a real engineering interaction (e.g. a bug, or an unexpected effect of shared optimizer state) worth diagnosing.
+
+### Methodology
+Same worlds as EXP-001 (1000-fact Zipfian recall task, 200-slot competence-aware memory) and EXP-002 stage 5 (4-operator rotation/reflection task, 8 held-out combinations). Three conditions, 5 seeds each: **recall_isolated** (memory pathway trained alone, re-run here for an apples-to-apples comparison under identical code), **rule_isolated** (rule pathway trained alone), **joint** (both pathways in one model, one Adam optimizer with per-pathway parameter groups at each pathway's validated learning rate, mixed batches every step — a recall sub-batch and a rule sub-batch each step, losses summed, one `backward()`/`step()` call).
+
+### Results (mean ± std over 5 seeds)
+
+| Metric | Isolated | Joint |
+|---|---|---|
+| Recall tail-fact accuracy (with memory) | 0.444 ± 0.021 | 0.480 ± 0.017 |
+| Rule held-out accuracy | 0.750 ± 0.000 | 0.750 ± 0.000 |
+
+Full data: `experiments/exp004_integration_test/results.json`. Code: `experiments/exp004_integration_test/run.py`.
+
+*(Note: the isolated recall tail accuracy here, ~0.44, is higher than EXP-001's originally-reported ~0.18 — this is because EXP-004 runs recall training for 2000 steps rather than EXP-001's 1250, to match the rule pathway's step count for a fair joint-training schedule, giving the memory backbone more total exposure and more opportunity for the surprise-gated write policy to populate useful slots. This is an artifact of the step-count choice, not a contradiction of EXP-001 — the isolated and joint conditions here both use the same 2000-step budget, so the isolated-vs-joint comparison is still apples-to-apples.)*
+
+### Conclusion
+**Hypothesis confirmed.** The rule pathway's held-out accuracy is bit-for-bit identical between isolated and joint training (0.750 ± 0.000 in both conditions, every seed). The recall pathway's tail accuracy shows no degradation under joint training — if anything, joint training slightly outperformed isolated training (0.480 vs 0.444), though this difference is well within normal seed-to-seed noise and should not be read as joint training being *better*, only as clear evidence of no interference. Two independently-validated, structurally different mechanisms can be trained together in one model, with one optimizer, without either one's validated behavior degrading — at least under the disjoint-parameter design tested here.
+
+### What This Does and Doesn't Establish
+**Establishes:** a real architecture can plausibly contain both a memory-allocation component and a rule/family-selection component without them stepping on each other during training, as long as they don't share the parameters whose constraints made them work in isolation.
+
+**Does not establish:** whether the two mechanisms can share a common substrate (e.g. one token embedding space serving both a memory lookup and a rule operand role) without interference — this is a harder, more realistic integration question deferred to future work, since sharing a learned embedding would specifically threaten the rule pathway's validated constraint (see EXP-002). Also does not establish anything about a learned *routing* mechanism between the two pathways — this experiment used an explicit, non-learned dispatch (recall examples always go to the recall pathway, rule examples always go to the rule pathway), which is a simpler problem than the dynamic scheduling question tracked in `docs/04_architecture/Dynamic_Computation.md`.
+
+### Follow-up Research
+1. Test a version where the two pathways share a real substrate (e.g. a common embedding space), to see whether the interference risk EXP-002's design specifically avoided actually materializes when forced.
+2. Replace the explicit non-learned dispatch with a learned router, applying EXP-003's validation-driven-selection constraint, as the first real test of `docs/04_architecture/Dynamic_Computation.md`'s open scheduling question.
+3. Move beyond synthetic toy tasks entirely — integrate a version of these validated mechanisms into a small real transformer backbone on real (or semi-real) data, per `docs/03_foundations/OPEN.md`'s standing open question on scale transfer.
