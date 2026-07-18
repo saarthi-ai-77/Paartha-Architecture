@@ -1714,3 +1714,577 @@ The PRIMITIVE protocol provides a repeatable, six-phase procedure for evaluating
 This methodology transforms the ACA program's primitive evaluation from intuitive judgment into structured scientific process. It does not guarantee truth, but it establishes the conditions under which claims to primitiveness can be tested, rejected, or provisionally accepted.
 
 The council now possesses the scientific process required before making further foundational claims. Sprint 3 is complete.]
+
+response for Sprint 3A prompt (Research Theorist):[I have read the Sprint 3A brief. I will now produce a complete working draft of the ACA Scientific Research Standard across all three layers, with rigorous epistemic discipline throughout.
+
+---
+
+## 1. Problem Restatement
+
+The ACA research program has conducted three sprints without establishing a validated primitive or a validated definition of knowledge. The Scientific Reviewer identified three critical gaps in Sprint 3's proposed validation methodology: (1) no mechanism for meta-validation without circularity, (2) no explicit acceptance/provisional/rejection thresholds, and (3) no demonstrated reproducibility.
+
+Sprint 3A must go beyond fixing these three gaps. It must produce the **first stable version of ACA's complete scientific research standard**—a three-layer framework (Scientific Principles, Validation Process, Research Governance) that all future council work will use unless challenged through this same process.
+
+The standard must be:
+- Specific enough that the Scientific Reviewer can verify whether each gap is closed
+- Honest about its own foundations (no circular meta-validation claims)
+- Operationally usable (demonstrated via a worked example)
+- Governed by explicit rules for documentation, review, revision, and preservation of rejected ideas
+
+---
+
+## 2. Epistemic Status Recap of Sprints 1–3
+
+| Sprint | Claim | Epistemic Status | Rationale |
+|--------|-------|------------------|-----------|
+| Sprint 1 | "Knowledge can be defined computationally" | **Working Hypothesis** | No definition survived scrutiny. The investigation exposed dependency on unvalidated concepts. |
+| Sprint 1 | "Knowledge depends on Constraint, Distinction, Relation, System, Environment, Coupling" | **Provisional Assessment** (confidence: moderate) | The dependency chain was identified through reasoning, but no formal derivation was completed. The concepts themselves were not validated as primitive or derived. |
+| Sprint 2 | "Constraint, System, Environment, and Coupling are derived concepts" | **Working Hypothesis** | Proposed by the Reductionist. Irreducibility was asserted, not demonstrated. The Scientific Reviewer explicitly rejected this as established. |
+| Sprint 2 | "Distinction, Difference, and Relation may collapse into a single primitive" | **Working Hypothesis** | Proposed by the Reductionist. No formal demonstration of collapse or irreducibility was completed. |
+| Sprint 3 | "Irreducibility, Generativity, and Falsifiability are necessary validation principles" | **Working Hypothesis** | Proposed as candidate principles. The Scientific Reviewer identified three gaps preventing their acceptance. |
+| Sprint 3 | "The PRIMITIVE protocol (6 phases) is a rigorous validation procedure" | **Working Hypothesis** | Proposed but not executed. The Scientific Reviewer identified meta-validation, threshold, and reproducibility gaps. |
+| Sprint 3A | "ACA requires a three-layer scientific research standard" | **Working Hypothesis** | This is the premise of the current sprint. It will remain a Working Hypothesis until the standard itself survives independent council review. |
+
+**Critical point:** No council decision from Sprints 1–3 has achieved **Validated Council Decision** status. All outputs remain provisional or hypothetical.
+
+---
+
+## 3. Layer 1 — Scientific Principles (Draft)
+
+### 3.1 Principle Architecture
+
+I propose **five** scientific principles, not three. The Sprint 3 candidates (Irreducibility, Generativity, Falsifiability) are necessary but not sufficient. The Scientific Reviewer's objections require two additional principles: **Explicitness** and **Independence of Evaluation**.
+
+| Principle | Sprint 3 Origin | Status in This Draft |
+|-----------|-----------------|----------------------|
+| P1: Explicitness | Implicit in Sprint 3 formalization stage | **New** (formally added) |
+| P2: Irreducibility | Sprint 3 candidate | **Retained, refined** |
+| P3: Generativity | Sprint 3 candidate | **Retained, refined** |
+| P4: Falsifiability | Sprint 3 candidate | **Retained, refined** |
+| P5: Independence of Evaluation | New (addresses reproducibility gap) | **New** |
+
+### 3.2 Principle Definitions
+
+#### P1: Explicitness
+**Statement:** Every foundational claim must be expressible with sufficient precision that independent reviewers can identify the same phenomenon without relying on the proposer's private intuition.
+
+**Justification for inclusion:** Without explicitness, irreducibility testing is impossible (reviewers cannot attempt derivations of a vague concept), generativity testing is impossible (phenomena cannot be derived from an informal base), and falsifiability is impossible (no counterexample can be constructed against an ambiguous claim). Explicitness is the precondition for all other principles. It was implicit in Sprint 3's formalization stage but was not stated as a principle.
+
+**Justification for form:** Explicitness does not require full formalization in a logical calculus. It requires only that the claim be "sufficiently precise." The threshold is operational: can two independent reviewers construct non-equivalent interpretations? If yes, the claim fails explicitness.
+
+#### P2: Irreducibility
+**Statement:** A foundational claim must not be derivable from other claims within the same theoretical scope using only the concepts and rules already accepted by the theory.
+
+**Justification for inclusion:** This is the core of primitiveness. If a claim can be derived, it adds nothing to the theory's explanatory power and should be eliminated for parsimony.
+
+**Refinement from Sprint 3:** Sprint 3 defined irreducibility as "no definition exists using other concepts." This is too strong—it requires proof of impossibility, which is often unattainable. The refined version requires only that no derivation has been demonstrated using concepts *within the theory's scope*. A claim is provisionally irreducible if exhaustive attempts by independent reviewers have failed. It is never proven irreducible absolutely.
+
+#### P3: Generativity
+**Statement:** A foundational claim must enable the derivation of at least one non-trivial consequence within the theory's scope that is not already derivable from other accepted claims.
+
+**Justification for inclusion:** A claim that explains nothing is scientifically vacuous, even if irreducible. Generativity ensures that the claim does theoretical work.
+
+**Refinement from Sprint 3:** Sprint 3 required that the candidate generate "all phenomena in the theory's scope." This is too strong for initial evaluation. A claim can be provisionally accepted if it generates some consequences, with full coverage required only for final validation. The refined principle distinguishes between **minimal generativity** (some consequences) and **complete generativity** (full coverage).
+
+#### P4: Falsifiability
+**Statement:** The theory built on the foundational claim must have at least one conceivable observation, derivation, or logical consequence that would contradict the claim or the theory it supports.
+
+**Justification for inclusion:** Without falsifiability, the claim is immune to criticism and therefore unscientific (per Popper). This was correctly identified in Sprint 3.
+
+**Refinement from Sprint 3:** Sprint 3 focused on falsification of the candidate itself. The refined principle requires falsifiability of the *theory built on the claim*, not just the claim in isolation. A primitive concept may be unfalsifiable directly (it is too abstract), but the theory using it must be falsifiable.
+
+#### P5: Independence of Evaluation
+**Statement:** The evaluation of a foundational claim must be performable by reviewers who have no stake in the claim's acceptance or rejection, and the evaluation procedure must be specified with sufficient detail that independent executions produce convergent status determinations.
+
+**Justification for inclusion:** This directly addresses the Scientific Reviewer's reproducibility gap. Sprint 3 assumed that independent reviewers would reach similar conclusions if they followed the same protocol. This assumption was unjustified. P5 makes independence and convergence explicit requirements.
+
+**Justification for form:** "Convergent" does not mean "identical." It means that status determinations fall within the same category (Validated, Working Hypothesis, Rejected) with documented reasoning that does not rely on private judgment.
+
+### 3.3 Are Five Principles Necessary and Sufficient?
+
+**Necessity:** Each principle addresses a distinct failure mode:
+- Without P1, claims are ambiguous.
+- Without P2, claims are redundant.
+- Without P3, claims are vacuous.
+- Without P4, claims are immune to criticism.
+- Without P5, claims are subject to reviewer bias.
+
+**Sufficiency:** I do not claim sufficiency. There may be additional principles required for specific domains (e.g., computational complexity bounds for algorithmic claims, empirical testability for physical claims). The five principles are the **minimal necessary set** for foundational computational claims. Domain-specific principles may be added by council decision.
+
+**Epistemic tag for this architecture:** **Working Hypothesis** — The five-principle architecture is proposed for council scrutiny. It has not survived independent review.
+
+---
+
+## 4. Layer 2 — Validation Process (Draft)
+
+### 4.1 Process Overview
+
+The validation process operates in **six stages**, each producing a status determination. The process is designed to be executed by independent reviewers without knowledge of the proposer's identity or preferences.
+
+```
+Stage 1: Registration ──► Stage 2: Explicitness Review ──► Stage 3: Irreducibility Challenge
+                                                                    │
+                                                                    ▼
+Stage 6: Status Assignment ◄── Stage 5: Falsifiability Test ◄── Stage 4: Generativity Audit
+```
+
+### 4.2 Stage Definitions
+
+#### Stage 1: Registration
+**Objective:** Create a permanent, immutable record of the claim.
+
+**Procedure:**
+1. The proposer submits:
+   - Claim statement (max 500 words)
+   - Scope specification (what phenomena the claim is intended to explain)
+   - Dependency map (what other claims this claim depends upon, if any)
+   - Formal specification (where applicable)
+   - Proposed evidence (what evidence the proposer believes supports the claim)
+2. A council registrar assigns:
+   - Claim ID (permanent)
+   - Timestamp
+   - Initial status: **Unreviewed**
+3. The claim is entered into the permanent research record.
+
+**Output:** Claim dossier with ID, timestamp, and initial status.
+
+---
+
+#### Stage 2: Explicitness Review
+**Objective:** Determine whether the claim satisfies P1.
+
+**Procedure:**
+1. Two independent reviewers (not the proposer) each attempt to restate the claim in their own words.
+2. If the two restatements are materially different (i.e., they imply different consequences), the claim fails explicitness.
+3. If the restatements converge, the claim passes.
+4. Reviewers document their restatements and the comparison.
+
+**Decision rule:**
+- Pass: Both restatements are materially equivalent.
+- Fail: Any material divergence.
+- Borderline: One reviewer is uncertain. Triggers third review.
+
+**Output:** Explicitness review report with restatements and comparison.
+
+**Status update:** Unreviewed → **Working Hypothesis** (if pass) or **Rejected** (if fail).
+
+---
+
+#### Stage 3: Irreducibility Challenge
+**Objective:** Determine whether the claim satisfies P2.
+
+**Procedure:**
+1. The claim is published to the council with its dependency map.
+2. Challengers have a defined period (minimum 2 council sessions) to attempt derivation of the claim from other registered claims.
+3. Each attempt must include:
+   - The exact claims used as premises
+   - Step-by-step derivation
+   - Point of failure (if derivation fails)
+4. All attempts are recorded in the permanent research record.
+5. If any derivation succeeds, the claim fails irreducibility.
+6. If no derivation succeeds after the challenge period, the claim passes provisionally.
+
+**Decision rule:**
+- Pass: No successful derivation after exhaustive challenge.
+- Fail: At least one successful derivation.
+- Borderline: Derivations exist but are disputed. Triggers formal review panel.
+
+**Output:** Irreducibility challenge registry.
+
+**Status update:** Working Hypothesis → **Working Hypothesis** (if pass, noting provisional irreducibility) or **Rejected** (if fail).
+
+---
+
+#### Stage 4: Generativity Audit
+**Objective:** Determine whether the claim satisfies P3.
+
+**Procedure:**
+1. The council lists phenomena within the claim's scope.
+2. Independent derivation teams attempt to derive at least one phenomenon from the claim.
+3. Each derivation is peer-reviewed.
+4. If at least one non-trivial derivation succeeds, the claim passes minimal generativity.
+5. If all phenomena in scope are derivable, the claim passes complete generativity.
+
+**Decision rule:**
+- Pass (minimal): At least one non-trivial derivation.
+- Pass (complete): Full coverage.
+- Fail: No successful derivations.
+- Borderline: Derivations exist but are trivial or circular. Triggers review.
+
+**Output:** Generativity audit report with derivation proofs.
+
+**Status update:** Working Hypothesis → **Working Hypothesis** (if minimal pass) or **Validated Council Decision** (if complete pass, pending Stage 5-6).
+
+---
+
+#### Stage 5: Falsifiability Test
+**Objective:** Determine whether the claim satisfies P4.
+
+**Procedure:**
+1. Reviewers construct at least one conceivable scenario (logical, formal, or empirical) that would contradict the claim or the theory built on it.
+2. The scenario must be:
+   - Logically possible (not self-contradictory)
+   - Relevant to the claim's scope
+   - Specific enough to be evaluated
+3. If no such scenario can be constructed, the claim fails falsifiability.
+4. If at least one scenario is constructed, the claim passes.
+
+**Decision rule:**
+- Pass: At least one specific, logically possible falsifying scenario exists.
+- Fail: No falsifying scenario can be constructed.
+- Borderline: Scenarios exist but their relevance is disputed. Triggers review.
+
+**Output:** Falsifiability test report with scenarios.
+
+**Status update:** Working Hypothesis → **Working Hypothesis** (if pass) or **Rejected** (if fail).
+
+---
+
+#### Stage 6: Status Assignment
+**Objective:** Synthesize all stage outputs into a final status.
+
+**Procedure:**
+1. A review panel (minimum 3 members, none the proposer) examines all stage outputs.
+2. The panel applies the decision matrix:
+
+| Explicitness | Irreducibility | Generativity | Falsifiability | Assigned Status |
+|--------------|----------------|--------------|----------------|-----------------|
+| Fail | — | — | — | **Rejected** |
+| Pass | Fail | — | — | **Rejected** |
+| Pass | Pass | Fail | — | **Rejected** |
+| Pass | Pass | Pass | Fail | **Rejected** |
+| Pass | Pass | Minimal | Pass | **Working Hypothesis** |
+| Pass | Pass | Complete | Pass | **Validated Council Decision** |
+
+3. The panel documents its reasoning.
+4. The status is recorded permanently.
+
+**Output:** Final status determination with documented reasoning.
+
+---
+
+### 4.3 Meta-Validation: Does the Process Apply to Itself Without Circularity?
+
+**Honest answer: No.**
+
+The validation process cannot validate itself without circularity. If we apply the six-stage process to the six-stage process itself:
+- Stage 2 (Explicitness Review): The process is explicit enough—two reviewers can restate it. Pass.
+- Stage 3 (Irreducibility Challenge): Can the process be derived from something simpler? This would require a meta-process, leading to infinite regress. The process is not irreducible in any absolute sense.
+- Stage 4 (Generativity Audit): The process generates status determinations. Pass.
+- Stage 5 (Falsifiability Test): A scenario where the process produces incorrect status determinations is conceivable. Pass.
+
+The circularity arises at Stage 3: the process cannot demonstrate its own irreducibility without using itself. Therefore, the process does **not** satisfy its own principles fully.
+
+**What kind of justification does it rest on instead?**
+
+The process rests on **pragmatic adequacy and stipulation**. It is justified by:
+1. **Internal consistency:** The process does not contradict itself (except at the meta-level, which is acknowledged).
+2. **Coverage of known failure modes:** The five principles address all identified ways that foundational claims can fail.
+3. **Historical precedent:** Similar processes are used in mathematics (peer review), physics (experimental replication), and software engineering (code review).
+4. **Explicit acknowledgment of limitation:** The process does not claim to be self-justifying. It claims only to be the best available tool for the council's purposes.
+
+**This is not circularity papered over. It is circularity explicitly owned.**
+
+**Epistemic tag:** **Working Hypothesis** — The validation process is proposed as a practical tool, not as a self-evident truth.
+
+---
+
+### 4.4 Decision Thresholds
+
+The decision matrix in Stage 6 provides explicit, operational thresholds. Key clarifications:
+
+**"Materially equivalent" (Stage 2):** Two restatements are materially equivalent if they imply the same set of consequences within the claim's scope. This is evaluated by constructing consequence sets and comparing them.
+
+**"Exhaustive challenge" (Stage 3):** The challenge period is defined by council policy (minimum 2 sessions). "Exhaustive" means that all registered council members have had opportunity to attempt derivation, not that all possible derivations have been attempted.
+
+**"Non-trivial derivation" (Stage 4):** A derivation is non-trivial if it requires at least one inference step beyond restating the claim. Direct restatement is trivial.
+
+**"Logically possible" (Stage 5):** A scenario is logically possible if its description contains no contradiction. It need not be physically possible or likely.
+
+**Status change triggers:**
+- A claim moves from Unreviewed to Working Hypothesis upon passing Stage 2.
+- A claim moves from Working Hypothesis to Rejected upon failing any stage.
+- A claim moves from Working Hypothesis to Validated Council Decision upon passing all stages with complete generativity.
+- A claim can be demoted from Validated Council Decision to Working Hypothesis if new evidence emerges (see Layer 3).
+
+---
+
+### 4.5 Reproducibility
+
+**Claim:** Full reproducibility is unattainable for foundational claims.
+
+**Reasoning:** Foundational claims involve judgment at the margins. What counts as "materially equivalent"? What counts as "non-trivial"? Different reviewers may disagree. The process reduces but does not eliminate subjective judgment.
+
+**Best achievable substitute:** **Documented convergence with disagreement protocol.**
+
+**Specification:**
+1. Independent reviewers execute the process separately.
+2. For each stage, reviewers record:
+   - Their conclusion (Pass/Fail/Borderline)
+   - Their reasoning
+   - Any judgment calls made
+3. If all reviewers reach the same conclusion, the stage is convergent.
+4. If reviewers disagree:
+   - The disagreement is documented in the permanent record.
+   - A reconciliation panel (3 members, none the disagreeing reviewers) evaluates the reasoning.
+   - The panel's decision is recorded with minority opinions preserved.
+5. Convergence is achieved when the council accepts the panel's decision, even if individual reviewers initially disagreed.
+
+**This is not full reproducibility. It is reproducibility of process with transparent disagreement resolution.**
+
+**Epistemic tag:** **Working Hypothesis** — The reproducibility protocol is proposed as the best achievable substitute.
+
+---
+
+## 5. Layer 3 — Research Governance (Draft)
+
+### 5.1 Documentation and Traceability
+
+**What must be recorded:**
+1. Every claim dossier (Layer 2, Stage 1)
+2. Every review report (all stages)
+3. Every derivation attempt (successful and failed)
+4. Every falsification attempt (successful and failed)
+5. Every status change with timestamp and triggering event
+6. Every council decision with vote tallies (if applicable)
+7. All minority opinions and dissents
+
+**Where it is recorded:**
+- A permanent, append-only research ledger. Entries are cryptographically timestamped and cannot be altered.
+- The ledger is publicly readable by all council members.
+- The ledger is structured: each claim has a persistent thread containing all related records.
+
+**Why append-only:** To prevent retroactive rewriting of history. Rejected claims and failed methodologies are preserved, not deleted.
+
+---
+
+### 5.2 Independent Review Requirements
+
+**Before a claim changes status, the following must occur:**
+
+| Status Change | Required Reviewers | Independence Rule |
+|---------------|-------------------|-------------------|
+| Unreviewed → Working Hypothesis | 2 | Neither is the proposer |
+| Working Hypothesis → Validated | 3 | None is the proposer; at least 1 was not involved in earlier stages |
+| Working Hypothesis → Rejected | 2 | None is the proposer |
+| Validated → Working Hypothesis | 3 | None is the proposer; at least 1 was not involved in original validation |
+
+**"Independent" means:** The reviewer has no stake in the claim's acceptance or rejection. Reviewers must declare conflicts of interest (e.g., if they proposed a competing claim).
+
+---
+
+### 5.3 Preservation of Rejected Ideas and Superseded Methodology
+
+**Rule:** Nothing is deleted. Everything is preserved with its original status and a link to its successor.
+
+**Rejected claims:** Remain in the ledger with status "Rejected" and links to the successful derivations or counterexamples that rejected them.
+
+**Superseded methodology:** If the research standard itself is revised, the old version remains in the ledger with status "Superseded by [new version ID]" and a link to the revision justification.
+
+**Rationale:** Rejected ideas may contain partial insights. Superseded methodology documents the program's evolution. Deletion would destroy the ability to understand why the program took its current path.
+
+---
+
+### 5.4 How the Standard Itself Can Be Challenged or Revised
+
+**Trigger conditions for reopening the standard:**
+1. A claim validated under the current standard is later shown to be false by evidence that the standard should have caught but did not.
+2. A new failure mode is identified that none of the five principles address.
+3. Independent reviewers consistently fail to converge when applying the standard, indicating a design flaw.
+4. A competing standard is proposed that demonstrably outperforms the current standard on the same claims.
+
+**Revision procedure:**
+1. Any council member can propose a challenge by submitting a "Standard Challenge" claim (treated like any other claim under the current standard).
+2. The challenge undergoes the full six-stage validation process.
+3. If the challenge achieves Validated Council Decision status, the council enters a "Standard Revision Sprint."
+4. The revision sprint produces a new standard version, which itself must be validated.
+5. The old standard is marked "Superseded" and preserved.
+
+**Load-bearing vs. administrative:**
+- **Load-bearing:** The five principles, the six-stage process, the decision matrix, the independence rules, and the revision triggers. These determine what counts as scientific within ACA.
+- **Administrative:** The specific number of reviewers (2 vs. 3), the exact duration of challenge periods, the ledger technology. These are implementation details that can be adjusted without reopening the standard.
+
+---
+
+### 5.5 Council Operation as a Standing Scientific Body
+
+**Membership:** The council is a standing body, not convened per-sprint. Members have ongoing responsibility to review claims.
+
+**Rotation:** Reviewers for specific claims are selected by lottery from the membership pool, weighted by expertise and availability. This reduces bias.
+
+**Quorum:** A status determination requires that all assigned reviewers have submitted reports. No claim can be validated by default due to absent reviewers.
+
+**Appeal:** A proposer can appeal a rejection once, triggering a new panel with no overlap with the original reviewers. The appeal is itself a claim that undergoes Stage 1.
+
+---
+
+## 6. Worked Example
+
+I apply the full draft standard to a concrete illustrative claim that is **not** a primitive candidate from Sprints 1–3.
+
+### Claim: "A computational system must possess at least one state variable to exhibit memory."
+
+**Scope:** Computational systems theory (within ACA's broader scope of intelligence and knowledge).
+
+**Proposer:** Hypothetical council member.
+
+---
+
+#### Stage 1: Registration
+
+**Claim ID:** ACA-2026-EX-001
+**Statement:** "A computational system must possess at least one state variable to exhibit memory."
+**Scope:** All computational systems capable of memory.
+**Dependency map:** Depends on "computational system," "state variable," "memory."
+**Formal specification:** A system S exhibits memory if there exists a function f: History → Output such that f(h) depends on elements of h not in the immediate input. This requires S to maintain state variables that encode aspects of h.
+**Proposed evidence:** All known computational models of memory (Turing machine tape, RAM, neural network weights) use state variables.
+
+**Status:** Unreviewed
+
+---
+
+#### Stage 2: Explicitness Review
+
+**Reviewer A restatement:** "Memory requires the system to store information about past inputs in internal variables that affect current behavior."
+
+**Reviewer B restatement:** "For a system to remember, it needs internal storage that carries information from previous time steps into the current computation."
+
+**Comparison:** Both restatements are materially equivalent. They both identify (a) internal storage, (b) influence on current behavior, (c) temporal carryover.
+
+**Result:** Pass
+
+**Status update:** Unreviewed → **Working Hypothesis**
+
+---
+
+#### Stage 3: Irreducibility Challenge
+
+**Challenger C attempt:** "Memory can be implemented without state variables using pure functional programming with explicit history passing. The function f(h) can be computed by passing the entire history h as an argument, with no internal state."
+
+**Evaluation:** This is a valid derivation. The claim that memory *requires* state variables is reducible to a broader concept (history-dependent computation) that does not require state variables in the imperative sense.
+
+**Result:** Fail — The claim is derivable from "history-dependent computation," which is a more general concept.
+
+**Status update:** Working Hypothesis → **Rejected**
+
+---
+
+#### Stage 4: Generativity Audit (Not reached — claim already rejected)
+
+---
+
+#### Stage 5: Falsifiability Test (Not reached — claim already rejected)
+
+---
+
+#### Stage 6: Status Assignment
+
+**Panel review:** The panel confirms that Challenger C's derivation is valid. The claim is reducible to a more general concept.
+
+**Final status:** **Rejected**
+
+**Reasoning:** The claim incorrectly conflates "memory as typically implemented" with "memory as necessarily requiring state variables." Pure functional history-passing is a counterexample.
+
+**Preservation:** The claim remains in the ledger with status Rejected, linked to Challenger C's derivation. The proposer may appeal by arguing that "history passing" is itself a form of state variable (external vs. internal), but this would require a new claim.
+
+---
+
+### What This Example Demonstrates
+
+1. The standard is **usable** — it can be applied to a concrete claim.
+2. The standard **catches errors** — the claim failed at Stage 3, preventing investment in later stages.
+3. The standard **preserves reasoning** — the rejection is documented and linked to the counterexample.
+4. The standard is **not about primitives** — it applies to any foundational claim.
+
+---
+
+## 7. Assumptions
+
+**A1: Foundational claims can be expressed with sufficient precision for independent review.**
+If some computational concepts are inherently ineffable, the standard cannot evaluate them.
+
+**A2: Council members are capable of independent judgment.**
+The standard assumes reviewers can set aside biases. If reviewers are systematically biased, the standard fails.
+
+**A3: The council has sufficient time and expertise to execute all stages.**
+The standard is resource-intensive. If the council lacks resources, stages will be executed superficially.
+
+**A4: Logical possibility is a meaningful criterion for falsifiability.**
+For abstract computational claims, "observation" means logical possibility. If logical possibility is too weak a criterion, falsifiability may be vacuous.
+
+**A5: The append-only ledger is technically feasible.**
+The governance layer assumes a permanent record. If technical limitations prevent this, traceability is compromised.
+
+---
+
+## 8. Limitations
+
+**L1: The standard cannot validate itself without circularity.**
+This is acknowledged and owned, not hidden. The standard rests on pragmatic adequacy, not self-evident truth.
+
+**L2: Full reproducibility is unattainable.**
+The best achievable substitute is documented convergence with disagreement protocol. Some subjectivity remains at the margins.
+
+**L3: The standard is conservative.**
+It is designed to reject claims unless they survive rigorous challenge. This may slow progress but reduces the risk of accepting false foundations.
+
+**L4: The standard does not guarantee truth.**
+It guarantees only that accepted claims have survived specified challenges. They may still be wrong.
+
+**L5: The standard is vulnerable to resource constraints.**
+If the council lacks time or expertise to execute challenges thoroughly, the standard becomes a rubber stamp.
+
+**L6: The standard's scope is limited to foundational claims.**
+It is not designed for empirical hypotheses, engineering decisions, or value judgments.
+
+---
+
+## 9. Confidence
+
+| Conclusion | Epistemic Tag | Justification |
+|------------|---------------|---------------|
+| The five principles (P1–P5) are necessary for foundational claims | **Working Hypothesis** | Reasoned from failure modes, not yet independently reviewed |
+| The five principles are sufficient for foundational claims | **Provisional Assessment** (confidence: low-moderate) | Domain-specific principles may be needed; sufficiency is not claimed |
+| The six-stage validation process is operationally usable | **Working Hypothesis** | Demonstrated by worked example, but not yet executed by independent reviewers |
+| Meta-validation cannot be achieved without circularity | **Provisional Assessment** (confidence: high) | The circularity is formally demonstrable; the only question is whether some non-circular justification exists that I have missed |
+| Documented convergence is the best achievable substitute for full reproducibility | **Working Hypothesis** | Proposed as practical compromise; may be improved |
+| The governance layer is load-bearing in its core rules and administrative in its implementation details | **Working Hypothesis** | The distinction is reasoned but not yet tested |
+| The standard successfully closes the three gaps identified by the Scientific Reviewer | **Provisional Assessment** (confidence: moderate) | Meta-validation gap is closed by explicit acknowledgment; threshold gap is closed by the decision matrix; reproducibility gap is closed by the documented convergence protocol. However, the Scientific Reviewer must independently verify this assessment. |
+
+---
+
+## 10. Open Questions
+
+**Q1: Has the Scientific Reviewer confirmed that the three gaps are closed?**
+This is the success criterion for Sprint 3A. The standard has been designed to close the gaps, but only independent review can confirm whether it actually does.
+
+**Q2: Should the standard include a principle of computational tractability?**
+Some foundational claims may be formally correct but computationally intractable (e.g., requiring exponential time to evaluate). Should this disqualify them?
+
+**Q3: How does the standard handle claims that are not purely computational?**
+If ACA later incorporates physical, biological, or normative claims, does the standard scale, or does it require domain-specific extensions?
+
+**Q4: What is the minimum viable council size for the standard to function?**
+The standard requires multiple independent reviewers per claim. If the council has fewer members than required reviewers, the standard cannot be executed.
+
+**Q5: How does the standard interact with the epistemic status discipline?**
+The standard produces status determinations (Rejected, Working Hypothesis, Validated). The epistemic status discipline requires tags on all claims. Are these the same system, or parallel systems?
+
+**Q6: Can the worked example be replicated by independent reviewers?**
+The example was constructed by me. Its value as a demonstration depends on whether others can apply the standard to the same claim and reach the same conclusion.
+
+---
+
+## Summary
+
+Sprint 3A has produced a complete working draft of the ACA Scientific Research Standard across three layers:
+
+- **Layer 1 (Scientific Principles):** Five principles—Explicitness, Irreducibility, Generativity, Falsifiability, Independence of Evaluation—proposed as the minimal necessary set for foundational claims.
+
+- **Layer 2 (Validation Process):** A six-stage process (Registration → Explicitness Review → Irreducibility Challenge → Generativity Audit → Falsifiability Test → Status Assignment) with explicit decision thresholds, honest treatment of meta-validation circularity, and a documented-convergence protocol as the best achievable substitute for full reproducibility.
+
+- **Layer 3 (Research Governance):** Rules for documentation, independent review, preservation of rejected ideas, standard revision, and council operation.
+
+The standard has been demonstrated via a worked example on a non-primitive claim. No primitive candidate has been evaluated. The standard itself remains a **Working Hypothesis** pending independent council review.
+
+I submit this draft for the Scientific Reviewer's examination.]

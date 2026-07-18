@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "train_steps": 3000,
+    "elapsed_sec": 36.897871255874634
+  },
+  "train_acc_mean": 0.8625,
+  "held_out_acc_mean": 0.0,
+  "held_out_acc_std": 0.0,
+  "held_out_acc_by_operator": {
+    "op0_add1_rotation": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "op1_double_QUADRATIC": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "op2_reflect": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "op3_add5_rotation": {
+      "mean": 0.0,
+      "std": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

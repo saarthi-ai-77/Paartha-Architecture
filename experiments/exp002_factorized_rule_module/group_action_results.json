@@ -1,0 +1,22 @@
+{
+  "per_operator": {
+    "op0_add1_rotation": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "op1_double_QUADRATIC": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "op2_reflect": {
+      "mean": 1.0,
+      "std": 0.0
+    },
+    "op3_add5_rotation": {
+      "mean": 1.0,
+      "std": 0.0
+    }
+  },
+  "overall_mean": 0.75,
+  "overall_std": 0.0
+}

@@ -39,12 +39,20 @@ The current question is now: *"What is the intrinsic nature of different kinds o
 
 Before searching for computational primitives, we must first understand the nature of knowledge itself. The architecture should not determine how different knowledge is processed. Instead, the intrinsic structure of each knowledge class should determine how it is represented, how it should be learned, and how it should be reasoned about. This represents the current philosophical direction and the new starting point of our research.
 
+## Second Philosophical Shift: From Council-Derived First Principles to Build-Experiment-Validate
+
+The "understand knowledge before proposing primitives" direction above was pursued through a council-driven methodology: propose a theory, subject it to critique, reduce it, repeat. After four sprints (Knowledge Foundation Council Sprints 1 through 3A), this had produced an increasingly refined *methodology for evaluating claims*, but no validated primitive, no architecture, and no contact with real data. Every sprint's conclusion had the same shape — "the previous validation approach wasn't rigorous enough" — with nothing external to the process forcing convergence, since the same kind of system was both proposing and critiquing every claim.
+
+**We no longer believe philosophical derivation, on its own, is a reliable way to find a computationally efficient architecture.** As of DEC-005, the research methodology is build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; implement it; test it against an honest baseline across multiple seeds; report the result — including outright falsification — before generalizing anything. The council system is retained, but demoted to a diagnostic tool used to root-cause an experiment's failure, not the primary way a claim gets established.
+
+This does not mean the underlying research question changed. It means we no longer believe we can answer "what computational structure does this kind of knowledge need?" by argument alone — the answer has to be discovered by building the candidate structure and observing whether it actually works, the same way the field's own scaling and architecture progress has actually happened. First-principles reasoning still has a role: it's how a candidate mechanism gets proposed and how a failure gets diagnosed. It is no longer treated as sufficient, by itself, to validate a claim.
+
 ---
 
 **Purpose:** Document the philosophical evolution and current worldview of the research.
 **Current Status:** Active
-**Historical Context:** Reflects the transition from the CCA v0.1 era to the current adaptive computation focus.
-**Known Facts:** Philosophy dictates a multi-mechanism approach to cognition.
-**Hypotheses:** Intelligence emerges from dynamic selection of different mechanisms.
-**Unknowns:** The complete taxonomy of necessary cognitive classes.
-**References:** `RESEARCH_MANIFESTO.md`, `docs/02_vision/VISION.md`, `archive/CCA_v0.1.md`
+**Historical Context:** Reflects the transition from the CCA v0.1 era to the current adaptive computation focus, and the subsequent DEC-005 pivot from council-derived first principles to build-experiment-validate-iterate.
+**Known Facts:** Philosophy dictates a multi-mechanism approach to cognition. Two specific mechanisms (a competence-aware memory allocator, a validation-driven rule/family-selection module) have been empirically validated at small scale — see `docs/06_experiments/Completed.md`.
+**Hypotheses:** Intelligence emerges from dynamic selection of different mechanisms; this is now being tested by building and combining validated components rather than derived by argument alone.
+**Unknowns:** The complete taxonomy of necessary cognitive classes; how a dynamic scheduler would route between validated mechanisms at scale.
+**References:** `RESEARCH_MANIFESTO.md`, `docs/02_vision/VISION.md`, `archive/CCA_v0.1.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/06_experiments/Completed.md`

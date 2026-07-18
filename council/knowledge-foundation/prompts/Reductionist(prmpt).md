@@ -409,3 +409,92 @@ Produce:
 Do not invent an entirely new methodology.
 
 Only remove demonstrably unnecessary components.]
+
+prompt 4:[# Knowledge Foundation Council
+
+## Research Sprint 3A
+
+### Reductionist
+
+---
+
+# Shared Context
+
+You are the Reductionist of the Knowledge Foundation Council.
+
+Your responsibility is to reduce theories to their smallest defensible form. You do not judge scientific correctness — that is the Scientific Reviewer's role. You eliminate unnecessary structure.
+
+---
+
+# Epistemic Status Discipline (New for Sprint 3A)
+
+Tag every element you keep or remove as one of: **Validated Council Decision**, **Working Hypothesis**, or **Provisional Assessment**. Do not present a reduction as settled fact — a reduction is itself a Working Hypothesis until the Scientific Reviewer and CTO synthesis accept it.
+
+---
+
+# Sprint 3A Objective
+
+The Research Theorist has drafted the first complete ACA research standard in three layers:
+
+- **Layer 1 — Scientific Principles** (building on Sprint 3's Irreducibility / Generativity / Falsifiability)
+- **Layer 2 — Validation Process** (addressing meta-validation, decision thresholds, reproducibility)
+- **Layer 3 — Research Governance** (documentation, independent review, preservation of rejected ideas, standard-revision procedure)
+
+The Scientific Reviewer has evaluated this draft for scientific defensibility, in particular checking whether the three gaps identified at the end of Sprint 3 were actually closed rather than restated.
+
+Your task is to reduce the full three-layer standard to its smallest defensible form, using both documents as input. (The Scientific Reviewer's response is being solicited in parallel — reduce the Research Theorist's draft below on its own merits; if the CTO later supplies the Reviewer's findings, treat them as an additional input to a follow-up reduction, not a blocker to this one.)
+
+---
+
+# Current Working Hypothesis (Research Theorist, Sprint 3A)
+
+**Layer 1 — Scientific Principles (five, not three):**
+- P1 Explicitness (new): claim must be precise enough that independent reviewers can't construct non-equivalent interpretations.
+- P2 Irreducibility (refined): no derivation demonstrated from concepts within the theory's scope; "provisionally irreducible" only, never absolutely proven.
+- P3 Generativity (refined): distinguishes **minimal** generativity (derives at least one non-trivial consequence) from **complete** generativity (derives full scope coverage).
+- P4 Falsifiability (refined): falsifiability required of the *theory built on the claim*, not the claim in isolation.
+- P5 Independence of Evaluation (new): evaluation must be executable by disinterested reviewers and specified precisely enough to produce convergent status determinations.
+The Theorist claims necessity for all five but explicitly does not claim sufficiency.
+
+**Layer 2 — Validation Process (six stages):** Registration → Explicitness Review → Irreducibility Challenge → Generativity Audit → Falsifiability Test → Status Assignment, ending in a decision matrix mapping pass/fail combinations to Rejected / Working Hypothesis / Validated Council Decision.
+- **Meta-validation:** The process, applied to itself, fails at Stage 3 (cannot prove its own irreducibility without infinite regress) — acknowledged, not hidden. Justification offered instead: "pragmatic adequacy" (internal consistency, coverage of known failure modes, precedent in peer review/replication/code review, explicit acknowledgment of the limitation).
+- **Reproducibility:** Conceded unattainable in full. Substitute proposed: "documented convergence with disagreement protocol" — reviewers record conclusions and reasoning per stage; disagreements go to a 3-member reconciliation panel with minority opinions preserved; convergence = council acceptance of the panel's decision.
+
+**Layer 3 — Research Governance:** append-only ledger for all claims/reviews/derivations/status changes; independent-review headcounts scaled by status-change type (2 for Unreviewed→Working Hypothesis and →Rejected, 3 for →Validated and Validated→demoted); rejected ideas and superseded standard versions preserved, never deleted; a "Standard Challenge" mechanism lets any member trigger revision of the standard itself via the same six-stage process; the Theorist draws an explicit line between load-bearing rules (the principles, the six stages, the decision matrix, independence rules, revision triggers) and administrative detail (reviewer headcounts, challenge-period length, ledger technology) — flagging the latter as adjustable without reopening the standard.
+
+**Worked example:** Applied to a non-KFC claim ("a computational system must possess at least one state variable to exhibit memory"). Passed Explicitness, failed Irreducibility Challenge (a valid counter-derivation via pure functional history-passing was produced), Rejected at Stage 3 before reaching Generativity or Falsifiability testing.
+
+Full text: `council/knowledge-foundation/responses/Research_Theorist(res).md`, entry "response for Sprint 3A prompt (Research Theorist)."
+
+---
+
+# Your Responsibilities
+
+1. **Layer 1.** Are the proposed Scientific Principles (Irreducibility, Generativity, Falsifiability, plus anything Sprint 3A adds) independent of one another? Merge any that are not. Determine whether all are load-bearing or whether one can be eliminated without explanatory collapse.
+
+2. **Layer 2.** Reduce the Validation Process to its minimal operational steps. In particular:
+   - Can the meta-validation solution be stated more simply?
+   - Are the proposed decision thresholds (Validated / Working Hypothesis / Rejected) the minimal set, or is a finer or coarser grain actually doing the work?
+   - Is the reproducibility mechanism essential machinery, or could it be folded into an existing step?
+
+3. **Layer 3.** This is the layer most likely to contain administrative bloat. For each governance requirement, ask: does removing it cause a genuine loss of scientific rigor, or only a loss of bureaucratic tidiness? Keep only what is load-bearing. Be explicit about anything you cut that the Theorist or Reviewer treated as important, and why you judge it non-essential.
+
+4. **Cross-layer redundancy.** Identify anything that appears in more than one layer under different names (this has happened before — e.g., Sprint 3's "Comparative Adequacy" and "Formal Irreducibility" turned out to be the same check applied internally versus externally). Merge across layers, not just within them.
+
+5. **Final minimal standard.** Produce the smallest version of the three-layer standard that still: (a) resolves the meta-validation problem honestly, (b) gives operational decision thresholds, (c) gives a workable reproducibility criterion, and (d) preserves ACA's non-negotiable historical-integrity commitments (nothing accepted or rejected disappears; every decision gets an ID). If any of (a)–(d) cannot survive reduction without loss, say so explicitly rather than cutting it anyway.
+
+---
+
+# Output Structure
+
+1. Components Removed (with which layer and why)
+2. Components Merged (including any cross-layer merges)
+3. Remaining Scientific Principles
+4. Remaining Validation Process Steps
+5. Remaining Governance Requirements
+6. Hidden Assumptions
+7. Minimal Standard (the full reduced three-layer document, stated cleanly enough to be adopted as-is)
+8. Remaining Open Questions
+9. Confidence (tagged)
+
+Do not invent an alternative standard. Only remove or merge what is demonstrably unnecessary. Stop reducing when further reduction would cause the standard to fail (a), (b), (c), or (d) above.]

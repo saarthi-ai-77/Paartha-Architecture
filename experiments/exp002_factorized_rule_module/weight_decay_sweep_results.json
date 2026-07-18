@@ -1,0 +1,32 @@
+{
+  "0.0": {
+    "train_acc_mean": 0.8625,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  },
+  "0.001": {
+    "train_acc_mean": 0.8625,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  },
+  "0.01": {
+    "train_acc_mean": 0.84375,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  },
+  "0.1": {
+    "train_acc_mean": 0.55,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  },
+  "0.3": {
+    "train_acc_mean": 0.45,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  },
+  "1.0": {
+    "train_acc_mean": 0.36875,
+    "held_out_acc_mean": 0.0,
+    "held_out_acc_std": 0.0
+  }
+}

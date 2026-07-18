@@ -7,9 +7,9 @@ The current research investigates whether intelligence should be implemented thr
 ## Current Status
 
 **Status:** Active Research
-**Current Milestone:** RP-001: Taxonomy of Knowledge and Computation. Determining if different knowledge classes intrinsically require different computational structures.
-**Current Architecture Status:** Transitioning from CCA (Cognitive Computational Architecture) v0.1. Architectural design is paused pending the taxonomy of knowledge classes.
-**Latest Research Direction:** Investigating the intrinsic nature of different kinds of knowledge to understand what computational processes naturally emerge from those structures, before proposing computational primitives.
+**Current Milestone:** EXP-004 — Integration Test. Combining two independently-validated architectural mechanisms (a competence-aware episodic memory allocator, and a validation-driven rule/family-selection module) into one small model to test whether they compose without interfering.
+**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-003); the dynamic-scheduling layer that would route between them is not yet built or tested.
+**Latest Research Direction:** As of DEC-005 (2026-07-18), ACA's primary methodology shifted from council-driven first-principles derivation to build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; test it against an honest baseline with multiple seeds; report the result — including falsification — before generalizing. See `docs/05_research/Decisions.md` (DEC-005) and `docs/01_background/HISTORY.md` (Phase 5) for the full rationale and what changed.
 
 ## Repository Overview
 
@@ -26,9 +26,11 @@ This repository serves as the official historical record and technical archive f
 * `docs/03_foundations/` - Explicitly categorized research foundations (Accepted, Rejected, Open, Archived).
 * `docs/04_architecture/` - Current conceptual understanding of the architecture.
 * `docs/05_research/` - Research logs, council decisions, and hypothesis registers.
-* `docs/06_experiments/` - Templates and planned experiments based on current hypotheses.
+* `docs/06_experiments/` - Templates, planned experiments, and the completed-experiment record (real code-based results, not prose hypotheses).
 * `docs/07_future/` - Roadmaps, milestones, and outstanding unknowns.
 * `archive/` - Deprecated and historical documentation (e.g., CCA v0.1).
+* `experiments/` - Actual runnable code for each completed/in-progress experiment (`expNNN_name/`), with results data alongside the write-up in `docs/06_experiments/Completed.md`.
+* `tooling/` - Supporting engineering tools for the research process (e.g. the Architecture Test Harness spec), separate from the research documentation itself.
 
 ## Reading Order for New Researchers
 
@@ -41,7 +43,8 @@ To fully understand the context, progression, and current state of this research
 5. `docs/01_background/HISTORY.md`
 6. `docs/02_vision/VISION.md`
 7. `docs/04_architecture/CURRENT_ARCHITECTURE.md`
-8. `docs/05_research/DECISIONS.md`
+8. `docs/05_research/Decisions.md` (see DEC-005 for the current methodology)
+9. `docs/06_experiments/Completed.md` (the actual validated results this program currently stands on)
 
 ## Contribution Philosophy
 
@@ -49,7 +52,9 @@ We are maintaining the official research repository for a long-term investigatio
 
 ## Research Methodology
 
-Our methodology relies on rigorous discussions within a hierarchical, modular council system, continuous critique, and architectural revisions based on first principles. Research progresses through independent domain councils (e.g., Knowledge Foundation Council) before mature theories and major architectural decisions are validated by the Main Council. Hypotheses must be separated from accepted facts, and all decisions must be tracked chronologically. We seek to build architecture from evidence rather than copying existing models.
+**As of DEC-005, ACA's primary methodology is build-experiment-validate-iterate:** propose a small, concrete, trainable architectural mechanism; implement it in code; test it against an honest baseline across multiple seeds; report the result — including outright falsification — before generalizing anything. Negative results are reported as prominently as positive ones (`docs/06_experiments/Completed.md`). Findings are only promoted to `docs/03_foundations/ACCEPTED.md` after they've actually been observed to work in a reproducible experiment, not after surviving argument alone.
+
+The prior methodology — rigorous discussion within a hierarchical, modular council system, with domain councils (e.g., Knowledge Foundation Council) feeding a Main Council — is retained as a **secondary, diagnostic tool**: used to root-cause an experiment's failure and propose a revised mechanism, not as the primary way new claims get established. See `council/README.md` for its current role, and `docs/01_background/HISTORY.md` (Phase 5) for why this changed. Hypotheses must still be separated from accepted facts, and all decisions must still be tracked chronologically, under either methodology.
 
 ---
 

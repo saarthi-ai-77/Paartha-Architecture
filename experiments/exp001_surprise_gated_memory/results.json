@@ -1,0 +1,472 @@
+{
+  "meta": {
+    "n_facts": 1000,
+    "memory_capacity": 200,
+    "train_steps": 1250,
+    "batch_size": 32,
+    "zipf_exponent": 1.3,
+    "n_tail_facts": 434,
+    "n_head_facts": 96,
+    "surprise_write_threshold": 2.0,
+    "mastered_threshold": 0.3,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "elapsed_sec": 62.38553047180176
+  },
+  "summary": {
+    "no_memory_baseline": {
+      "tail_with_memory_acc": {
+        "mean": 0.05023041516542435,
+        "std": 0.01885462789572024,
+        "values": [
+          0.04377880319952965,
+          0.057603687047958374,
+          0.02304147556424141,
+          0.04608295112848282,
+          0.08064515888690948
+        ]
+      },
+      "tail_param_only_acc": {
+        "mean": 0.05023041516542435,
+        "std": 0.01885462789572024,
+        "values": [
+          0.04377880319952965,
+          0.057603687047958374,
+          0.02304147556424141,
+          0.04608295112848282,
+          0.08064515888690948
+        ]
+      },
+      "tail_memory_coverage": {
+        "mean": 0.0,
+        "std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "head_with_memory_acc": {
+        "mean": 1.0,
+        "std": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "head_memory_coverage": {
+        "mean": 0.0,
+        "std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "naive_cache": {
+      "tail_with_memory_acc": {
+        "mean": 0.0981566846370697,
+        "std": 0.01690685338216861,
+        "values": [
+          0.0875576063990593,
+          0.10829493403434753,
+          0.0714285746216774,
+          0.10368663817644119,
+          0.11981566995382309
+        ]
+      },
+      "tail_param_only_acc": {
+        "mean": 0.05023041516542435,
+        "std": 0.01885462789572024,
+        "values": [
+          0.04377880319952965,
+          0.057603687047958374,
+          0.02304147556424141,
+          0.04608295112848282,
+          0.08064515888690948
+        ]
+      },
+      "tail_memory_coverage": {
+        "mean": 0.05898617511520737,
+        "std": 0.005374149211838985,
+        "values": [
+          0.059907834101382486,
+          0.06451612903225806,
+          0.055299539170506916,
+          0.06451612903225806,
+          0.05069124423963134
+        ]
+      },
+      "head_with_memory_acc": {
+        "mean": 1.0,
+        "std": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "head_memory_coverage": {
+        "mean": 0.7333333333333334,
+        "std": 0.02916666666666665,
+        "values": [
+          0.6770833333333334,
+          0.7395833333333334,
+          0.7604166666666666,
+          0.7395833333333334,
+          0.75
+        ]
+      }
+    },
+    "surprise_gated": {
+      "tail_with_memory_acc": {
+        "mean": 0.1820276528596878,
+        "std": 0.024901855685382984,
+        "values": [
+          0.1589861810207367,
+          0.1912442445755005,
+          0.15437787771224976,
+          0.1820276528596878,
+          0.22350230813026428
+        ]
+      },
+      "tail_param_only_acc": {
+        "mean": 0.05023041516542435,
+        "std": 0.01885462789572024,
+        "values": [
+          0.04377880319952965,
+          0.057603687047958374,
+          0.02304147556424141,
+          0.04608295112848282,
+          0.08064515888690948
+        ]
+      },
+      "tail_memory_coverage": {
+        "mean": 0.14562211981566822,
+        "std": 0.011694541511935039,
+        "values": [
+          0.12672811059907835,
+          0.15668202764976957,
+          0.14055299539170507,
+          0.14516129032258066,
+          0.15898617511520738
+        ]
+      },
+      "head_with_memory_acc": {
+        "mean": 1.0,
+        "std": 0.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "head_memory_coverage": {
+        "mean": 0.01875,
+        "std": 0.010206207261596576,
+        "values": [
+          0.03125,
+          0.010416666666666666,
+          0.010416666666666666,
+          0.03125,
+          0.010416666666666666
+        ]
+      }
+    }
+  },
+  "per_seed": {
+    "no_memory_baseline": [
+      {
+        "seed": 0,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04377880319952965,
+          "with_memory_acc": 0.04377880319952965,
+          "memory_coverage": 0.0,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.0,
+          "n": 96
+        },
+        "final_memory_size": 0
+      },
+      {
+        "seed": 1,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.057603687047958374,
+          "with_memory_acc": 0.057603687047958374,
+          "memory_coverage": 0.0,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.0,
+          "n": 96
+        },
+        "final_memory_size": 0
+      },
+      {
+        "seed": 2,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.02304147556424141,
+          "with_memory_acc": 0.02304147556424141,
+          "memory_coverage": 0.0,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.0,
+          "n": 96
+        },
+        "final_memory_size": 0
+      },
+      {
+        "seed": 3,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04608295112848282,
+          "with_memory_acc": 0.04608295112848282,
+          "memory_coverage": 0.0,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.0,
+          "n": 96
+        },
+        "final_memory_size": 0
+      },
+      {
+        "seed": 4,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.08064515888690948,
+          "with_memory_acc": 0.08064515888690948,
+          "memory_coverage": 0.0,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.0,
+          "n": 96
+        },
+        "final_memory_size": 0
+      }
+    ],
+    "naive_cache": [
+      {
+        "seed": 0,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04377880319952965,
+          "with_memory_acc": 0.0875576063990593,
+          "memory_coverage": 0.059907834101382486,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.6770833333333334,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 1,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.057603687047958374,
+          "with_memory_acc": 0.10829493403434753,
+          "memory_coverage": 0.06451612903225806,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.7395833333333334,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 2,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.02304147556424141,
+          "with_memory_acc": 0.0714285746216774,
+          "memory_coverage": 0.055299539170506916,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.7604166666666666,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 3,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04608295112848282,
+          "with_memory_acc": 0.10368663817644119,
+          "memory_coverage": 0.06451612903225806,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.7395833333333334,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 4,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.08064515888690948,
+          "with_memory_acc": 0.11981566995382309,
+          "memory_coverage": 0.05069124423963134,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.75,
+          "n": 96
+        },
+        "final_memory_size": 200
+      }
+    ],
+    "surprise_gated": [
+      {
+        "seed": 0,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04377880319952965,
+          "with_memory_acc": 0.1589861810207367,
+          "memory_coverage": 0.12672811059907835,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.03125,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 1,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.057603687047958374,
+          "with_memory_acc": 0.1912442445755005,
+          "memory_coverage": 0.15668202764976957,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.010416666666666666,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 2,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.02304147556424141,
+          "with_memory_acc": 0.15437787771224976,
+          "memory_coverage": 0.14055299539170507,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.010416666666666666,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 3,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.04608295112848282,
+          "with_memory_acc": 0.1820276528596878,
+          "memory_coverage": 0.14516129032258066,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.03125,
+          "n": 96
+        },
+        "final_memory_size": 200
+      },
+      {
+        "seed": 4,
+        "final_tail": {
+          "label": "tail",
+          "param_only_acc": 0.08064515888690948,
+          "with_memory_acc": 0.22350230813026428,
+          "memory_coverage": 0.15898617511520738,
+          "n": 434
+        },
+        "final_head": {
+          "label": "head",
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "memory_coverage": 0.010416666666666666,
+          "n": 96
+        },
+        "final_memory_size": 200
+      }
+    ]
+  }
+}

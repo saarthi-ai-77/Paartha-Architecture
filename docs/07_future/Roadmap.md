@@ -1,68 +1,42 @@
-﻿**Status: Active**
+﻿**Status: Active** (revised 2026-07-18 per DEC-005; prior RP-001…RP-006 roadmap preserved in `docs/archive/Deprecated.md`)
 
 # Future Research
 
-## Working Research Framework
+## Working Research Model (DEC-005)
 
-The current working research model follows this progression (Note: this is a hypothesis, not a final architecture):
+`Propose a small, concrete, trainable mechanism` &rarr; `Implement it in code` &rarr; `Test against an honest baseline, multiple seeds` &rarr; `Report the result, including falsification` &rarr; `Diagnose and revise on failure` &rarr; `Promote to docs/03_foundations/ACCEPTED.md only after actually working`
 
-`Reality` &rarr; `Knowledge Class` &rarr; `Representation` &rarr; `Learning Objective` &rarr; `Inference Computation` &rarr; `Output`
+Architecture is not derived from a prior knowledge taxonomy. It is built one validated component at a time, and any taxonomy this program eventually needs will be derived from what those components' experiments actually show.
 
 ## Current Roadmap
 
-Architecture is no longer the starting point. It becomes the consequence of earlier discoveries regarding the structure of knowledge.
-
-* **RP-001: Taxonomy of Knowledge and Computation**
-  * *Purpose:* Determine whether different classes of knowledge naturally require different representations, learning objectives, and inference computations. (Note: We are investigating if multiple domains share common computational characteristics, not proposing one engine per academic subject).
-* **RP-002: Representations for Each Knowledge Family**
-* **RP-003: Learning Objectives for Each Knowledge Family**
-* **RP-004: Inference Computation for Each Knowledge Family**
-* **RP-005: Derivation of Computational Primitives**
-* **RP-006: Adaptive Computational Architecture**
-
-## Superseded Roadmap (Historical)
-
-*Note: The following phases and milestones are preserved for historical context and have been superseded by DEC-004.*
-
-### Phase 1: Conceptual Foundation (Superseded)
-* Define the taxonomy of necessary computational primitives.
-* Conceptualize the dynamic scheduling mechanism.
-* Finalize the shared representation substrate.
-
-### Phase 2: Primitive Prototyping (Superseded)
-* Engineer isolated prototypes of 2-3 distinct computational primitives.
-* Test primitives against constrained, domain-specific tasks.
-
-### Phase 3: Integration and Scheduling (Superseded)
-* Develop the v0.2 Architecture integrating the prototyped primitives.
-* Implement the dynamic scheduler.
-
-### Phase 4: Domain Evaluation (Superseded)
-* Test the integrated adaptive architecture against the original web design evaluation domain.
-
-## Major Milestones (Superseded)
-* **Milestone 1:** Approval of the Primitive Taxonomy document. (Replaced by RP-001)
-* **Milestone 2:** Successful execution of EXP-001 (Primitive Isolation Test).
+* **EXP-001: Episodic Memory Allocation** — ✅ Complete. Competence-aware write/eviction beats naive caching ~2x on tail-fact recall at equal capacity.
+* **EXP-002: Rule Module for Compositional Generalization** — ✅ Complete. Falsified in general form; confirmed in a narrow, mechanistically-understood form (constrain the operator to the true symmetry family).
+* **EXP-003: Automatic Family Selection** — ✅ Complete. Confirmed that selection must be validation-driven, not loss-driven.
+* **EXP-004: Integration Test** — In progress. Do the EXP-001 and EXP-002/003 mechanisms compose in one model without interfering?
+* **EXP-005 (planned): Family Discovery** — Extend EXP-003's selection-among-a-known-library result toward discovering/constructing a suitable family for an unfamiliar domain — the central open problem flagged by EXP-002/003.
+* **EXP-006 (planned): Dynamic Scheduler Prototype** — A routing mechanism between validated components, built to satisfy the validation-driven-selection constraint from EXP-003 (see `docs/04_architecture/Dynamic_Computation.md`).
+* **Beyond EXP-006:** real-backbone/real-data integration, then a small trainable SLM POC benchmarked on English fluency (with the architecture kept extensible to code/math/reasoning, per standing design constraint — see conversational record and `docs/02_vision/Success_Criteria.md`), then India AI compute grant readiness.
 
 ## Immediate Research Priorities
-1. Execute RP-001 to understand the intrinsic nature of different kinds of knowledge.
-2. Formulate hypotheses on which domains (e.g., Mathematics, Programming, Spatial Design) share computational families.
+1. Complete EXP-004 (composability of the two validated components).
+2. Based on EXP-004's result, decide between EXP-005 (family discovery) and EXP-006 (scheduler prototype) as the next unit of work.
 
 ## Outstanding Unknowns
-* Is it computationally feasible to dynamically route execution in real-time without massive latency penalties?
-* How do disparate computational primitives share memory and context?
+See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).
 
 ## Research Risks
-* **Complexity:** The engineering overhead of managing multiple distinct computational mechanisms may outpace our ability to test them effectively.
-* **Scheduler Bottleneck:** The dynamic scheduler could become a single point of failure or an overly rigid rule-engine, defeating the purpose of adaptive computation.
+* **Toy-task overfitting to the researcher's own expectations:** every completed experiment (EXP-001–003) was designed by the same process that interprets its results. Mitigation: the falsification track record so far (EXP-002's original hypothesis, EXP-003's naive/parsimony conditions) shows the process does produce and report negative results rather than only confirming hypotheses — but this risk doesn't go away and should be watched for in EXP-004 onward.
+* **Scale-transfer risk:** every validated finding is on a small synthetic task. None of it has been tested at any scale closer to a real SLM. This is the single biggest open risk to the entire roadmap.
+* **Scheduler complexity:** as before — a dynamic scheduler could become a bottleneck or an overly rigid rule engine, defeating the purpose of adaptive computation. Now additionally informed by EXP-003: a scheduler trained the naive way is expected to fail structurally, not just be suboptimal.
 
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
 **Current Status:** Active
-**Historical Context:** N/A
-**Known Facts:** N/A
+**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`.
+**Known Facts:** EXP-001 through EXP-003 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
 **Hypotheses:** N/A
-**Unknowns:** Highlighted in the document.
-**References:** `docs/03_foundations/OPEN.md`
+**Unknowns:** See `docs/07_future/Unknowns.md`.
+**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005)
 

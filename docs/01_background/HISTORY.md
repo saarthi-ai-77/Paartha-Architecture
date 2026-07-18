@@ -23,6 +23,14 @@ The objective fundamentally shifted. The research question evolved from "How do 
 
 Following this discovery, web design was downgraded from the ultimate goal to merely one evaluation domain among many. The project transitioned its focus to discovering the computational foundations of true adaptive intelligence.
 
+## Phase 5: The Pivot from Council-Driven Derivation to Build-Experiment-Validate
+
+Following the design-to-foundations pivot, the project pursued a council-driven, first-principles methodology: a Knowledge Foundation Council of specialized roles (Research Theorist, Scientific Reviewer, Reductionist) progressively investigated "What is knowledge?" (Sprint 1), "What is a computational primitive?" (Sprint 2), "How should primitive claims be validated?" (Sprint 3), and finally attempted to freeze a complete scientific research standard (Sprint 3A). A parallel, less formally tracked thread (`council/main`) explored a knowledge taxonomy directly; it was later quarantined pending provenance recovery after review found it referenced prior artifacts (an "RP-003," a "subsumption decision," a "GTC" mechanism) that do not exist anywhere in the repository.
+
+After four sprints, the program had produced a progressively more sophisticated *methodology for evaluating claims*, but no validated primitive, no architecture, no code, and no contact with real data or experiments — each sprint's conclusion was structurally the same as the last ("the previous validation approach wasn't rigorous enough"), with nothing external to the process forcing it to converge. This was identified as a serious risk: the same kind of system was both generating and critiquing every claim, and the closest historical analogue (cybernetics-era first-principles programs) has a poor track record of producing systems that actually got built.
+
+DEC-005 records the resulting decision: ACA's primary methodology shifted to building small, real, trainable models that test specific architectural mechanisms against honest baselines, reporting negative results as prominently as positive ones, and using the council system only afterward, as a diagnostic tool for root-causing experiment failures — not as the primary discovery method. Three experiments (EXP-001, EXP-002, EXP-003; see `docs/06_experiments/Completed.md`) were run within the same session this decision was made, producing more validated, falsifiable, and reproducible findings than the entire prior council-driven phase. The Knowledge Foundation Council's work and the quarantined `council/main` material remain in the repository as permanent historical record — this pivot changed the primary method going forward, it did not retroactively invalidate work already completed.
+
 ---
 
 **Purpose:** Provide a chronological narrative of the project's inception and evolution.
