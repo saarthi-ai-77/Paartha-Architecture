@@ -1,4 +1,4 @@
-**Status: Active — First Concrete Architecture (v0.4)**
+**Status: Active — First Concrete Architecture (v0.4), EVALUATE Design Revised Post-EXP-009**
 
 # ACA v0.4: The Function-Substrate Architecture
 
@@ -53,15 +53,19 @@ Routing state and self-model state were considered as candidates for their own d
 
 **Concrete design, two realizations with different evidence status:**
 
-**(a) Supervised/labeled-target EVALUATE** — `evaluate(output, known_target) → discrepancy_score`. *Traces to:* ME-03's write-gating half, RC-02's family-selection signal. *Evidence:* **Validated by ACA experiments** — this is exactly EXP-001's surprise-threshold and EXP-002/003's held-out accuracy computation.
+**REVISED after EXP-009 (`docs/06_experiments/Completed.md`; `docs/08_requirements/ARS-001.md` Section 6): EVALUATE is not one function. It is two, with different evidence and different realizations. The single-function design below (superseded) is struck through in spirit, not in text — preserved for the record per this document's own revision policy — and replaced by 2.2a/2.2b as now defined.**
 
-**(b) Unsupervised/self-consistency EVALUATE** — required because SR-01 and DP-03 both need an evaluation signal in contexts with no ground truth (open-ended deployment, self-generated probes). Candidate designs: ensemble disagreement across multiple COMPOSE pathways processing the same input; a learned calibration head trained to predict the system's own error rate; cross-consistency between a module's forward and (if invertible) reverse computation. *Traces to:* SR-01 (the general form), DP-03. *Evidence:* **Reasoned hypothesis, supported by external literature** (calibration and uncertainty-estimation research broadly) — **not validated by any ACA experiment.** This is included because SR-01/DP-03 clearly require some realization of it (they pass the "traceable to a requirement" bar) and external literature supports its plausibility, but it must not be mistaken for something ACA has actually tested. EXP-009 (Section 7) is the concrete next step to close this gap before relying on it in any real deployment decision.
+**(a) EVALUATE-LOCAL — per-instance confidence/discrepancy** — `evaluate_local(output, known_target | self) → discrepancy_score`. *Traces to:* ME-03's write-gating, the empirical proxy tested for SR-01/SR-02. *Evidence:* **Validated by ACA experiments** — EXP-001's surprise-threshold (supervised realization) and, as of EXP-009, **entropy, ensemble disagreement, and a learned self-assessment head all validated as label-free realizations**, statistically tied with the true-label oracle at memory-gating and strong (entropy/ensemble: 0.990 AUC) at wrongness-detection. This is the one part of EVALUATE that generalizes beyond a fixed threshold, as ARS-001 had flagged needing testing.
 
-**Reference implementations:** the broader calibration/uncertainty-estimation literature (ensembling, temperature scaling, learned confidence heads) — no single existing architecture is being reproduced here; these are cited as evidence the general approach is plausible, not as a template.
+**(b) EVALUATE-GENERALIZATION — does this generalize, or does it merely fit what's been seen** — same signature, semantically distinct: must distinguish overfitting from correctness, not just measure output sharpness. *Traces to:* RC-02's family-selection signal; by structural analogy, not direct test, DP-03. *Evidence:* **Validated by ACA experiments for the labeled-held-out realization only** (EXP-002/003's held-out accuracy). **EXP-009 directly falsified all three label-free candidates as substitutes**: entropy and the self-assessment head failed completely (0% held-out accuracy, every seed) — both are proxies for output sharpness, and an overfit, non-generalizing computation family achieves *higher* sharpness on selection-adjacent data precisely because it has overfit to it, the same failure EXP-003 already found for raw training loss. Ensemble disagreement partially escaped this (0.250 ± 0.158) but remains far below the oracle and too unreliable to deploy. **No validated label-free realization of this function currently exists.** Any architecture relying on EVALUATE-GENERALIZATION without ground truth is relying on an open research problem (EXP-013), not a solved one.
+
+**Reference implementations:** the broader calibration/uncertainty-estimation literature (ensembling, temperature scaling, learned confidence heads, Yoo & Kweon's loss-prediction head) supplied the three candidates actually tested in EXP-009 — this is the rare case in this document where the reference literature's techniques were tried and one use case (2.2a) confirmed them while another (2.2b) refuted them as adequate. No single existing architecture was reproduced; three specific candidate mechanisms were.
 
 ### 2.3 SELECT
 
 **Concrete design:** `select(scored_candidates) → choice`, where scores must come from EVALUATE run against a held-out/generalization-oriented probe, never from raw training loss (this specific constraint is itself evidence-backed, not a stylistic preference — see below). Hard argmax selection is the validated default; soft/weighted-mixture selection is a plausible variant with no ACA test behind it.
+
+**Post-EXP-009 note:** SELECT used for RC-02's family choice specifically requires EVALUATE-GENERALIZATION (Section 2.2b) as its score source — and 2.2b currently has no validated label-free realization. This means RC-02's SELECT, as designed, still requires access to real held-out labels at decision time; it is not yet a fully label-free, deployment-ready mechanism, unlike SELECT used for ME-03's write/evict decision or SR-02's action policy, which can run on EVALUATE-LOCAL (2.2a) and are label-free today.
 
 *Traces to:* RC-02 (family choice: **Validated by ACA experiments**, EXP-003; compute-amount choice: **Reasoned hypothesis**, untested), SR-02 (**Reasoned hypothesis**), ME-03's write/evict decision (**Validated**, EXP-001), DP-03 (**Speculative**, a degenerate two-option case of this function).
 
@@ -159,9 +163,11 @@ Named and excluded because no requirement or evidence traces to them, even thoug
 | S_semantic (slow parameters) | — (substrate) | S_semantic | ME-02 | Supported by literature |
 | Routing/self-model as S_episodic content, not new substrates | UPDATE, EVALUATE | S_episodic | ME-01, ME-03, RC-02, SR-01 | Reasoned hypothesis |
 | Typed COMPOSE library, structure-matched per module | COMPOSE | S_semantic (params) | RC-01 | Validated (EXP-002) |
-| Supervised EVALUATE (known target) | EVALUATE | — | ME-03, RC-02 | Validated (EXP-001, EXP-002/003) |
-| Unsupervised/self-consistency EVALUATE | EVALUATE | — | SR-01, DP-03 | Reasoned hypothesis / literature |
-| Held-out-driven, hard-argmax family SELECT | SELECT | S_episodic (routing) | RC-02 | Validated (EXP-003) |
+| EVALUATE-LOCAL (supervised realization) | EVALUATE-LOCAL | — | ME-03 | Validated (EXP-001) |
+| EVALUATE-LOCAL (label-free: entropy/ensemble/self-assessment) | EVALUATE-LOCAL | — | SR-01, SR-02 | Validated (EXP-009) |
+| EVALUATE-GENERALIZATION (labeled held-out realization) | EVALUATE-GENERALIZATION | — | RC-02 | Validated (EXP-002/003) |
+| EVALUATE-GENERALIZATION (label-free realizations) | EVALUATE-GENERALIZATION | — | RC-02, DP-03 | **Falsified** (entropy, self-assessment — EXP-009); unreliable (ensemble — EXP-009) |
+| Held-out-driven, hard-argmax family SELECT | SELECT | S_episodic (routing) | RC-02 | Validated (EXP-003), still requires real labels (EXP-009) |
 | Variable compute-amount SELECT | SELECT | — | RC-02 | Reasoned hypothesis |
 | Confidence-conditioned action SELECT | SELECT | — | SR-02 | Reasoned hypothesis |
 | Competence-gated episodic write/evict | UPDATE | S_episodic | ME-01, ME-03 | Validated (EXP-001) |
@@ -175,7 +181,9 @@ Named and excluded because no requirement or evidence traces to them, even thoug
 
 ## 7. What Remains Unvalidated — Concrete Next Experiments
 
-- **EXP-009: General-purpose EVALUATE.** Does any of the candidate unsupervised/self-consistency designs (Section 2.2b) produce a usable, calibrated signal outside a labeled-target setting? Currently the least-validated, most load-bearing piece of the entire architecture (per ARS-001 §5.7).
+- **EXP-009: General-purpose EVALUATE. ✅ Complete — falsified as a single function.** EVALUATE splits into EVALUATE-LOCAL (validated label-free, Section 2.2a) and EVALUATE-GENERALIZATION (no validated label-free realization exists, Section 2.2b). See `docs/06_experiments/Completed.md` and `docs/08_requirements/ARS-001.md` Section 6.
+- **EXP-013 (new, raised by EXP-009): Is there any adequate label-free proxy for EVALUATE-GENERALIZATION?** Ensemble disagreement partially works (0.250 ± 0.158 vs. the 0.750 oracle) but is unreliable. Worth testing: sharpness-aware/flatness-of-minima measures, disagreement under input perturbation rather than across independently-trained instances, or PAC-Bayes-style bounds. If nothing adequate is found, RC-02/DP-03 must be designed around requiring real held-out labels, not around eliminating them.
+- **EXP-014 (new, raised by EXP-009): Where does RC-04 (planning termination) fall?** Does it need EVALUATE-LOCAL (a per-step "good enough" judgment) or EVALUATE-GENERALIZATION (if "good enough" implicitly means "will generalize")? Not tested; currently unclassified.
 - **EXP-010: Explicit consolidation via replay.** Does actively sampling mastered S_episodic entries into S_semantic's training (rather than relying on the backbone to passively catch up, as EXP-001 did) measurably transfer competence, and does it respect LN-02's stability constraint?
 - **EXP-011: Routing-as-episodic-content.** Does storing routing decisions in S_episodic under the same write/evict policy as facts (Section 1.1) match EXP-003's dedicated-mechanism accuracy, or does reusing the substrate degrade selection quality?
 - **EXP-012 (refines EXP-005): Novel-input fallback and family discovery.** What should actually happen when an input class has no routing entry — is generic-module fallback plus low-confidence flagging (Section 3) adequate, or does it silently fail in a way EXP-002/003's clean synthetic tasks never exposed?
@@ -191,10 +199,10 @@ Named and excluded because no requirement or evidence traces to them, even thoug
 
 ---
 
-**Purpose:** The first concrete ACA architecture, built exclusively from the four functions and state substrates identified in ARS-001, with every component traced to a specific requirement and evidence tier.
-**Current Status:** Active — v0.4, designed but not yet implemented or tested as an integrated system.
-**Historical Context:** Produced 2026-07-18, immediately following ARS-001's completion (both reduction passes) — the first architecture-design phase this research program has entered, after four prior phases (design-generation origin, CCA v0.1, council-driven v0.2, build-experiment-validate v0.3) that each stopped short of one.
-**Known Facts:** See Section 6's traceability table for exactly what is and isn't validated per component.
+**Purpose:** The first concrete ACA architecture, built exclusively from the four functions and state substrates identified in ARS-001, with every component traced to a specific requirement and evidence tier — and revised in place when a component's design was empirically falsified, rather than left inconsistent with the evidence.
+**Current Status:** Active — v0.4, designed but not yet implemented or tested as an integrated system. EVALUATE (Section 2.2) revised following EXP-009's falsification of the unified-function design.
+**Historical Context:** Produced 2026-07-18, immediately following ARS-001's completion (both reduction passes) — the first architecture-design phase this research program has entered, after four prior phases (design-generation origin, CCA v0.1, council-driven v0.2, build-experiment-validate v0.3) that each stopped short of one. Revised the same day after EXP-009.
+**Known Facts:** See Section 6's traceability table for exactly what is and isn't validated per component, including the EVALUATE-LOCAL/EVALUATE-GENERALIZATION split.
 **Hypotheses:** Every component tagged "Reasoned hypothesis" or "Speculative" in Sections 1–3 and 6.
-**Unknowns:** Section 7's four experiments; whether the assembled flow (Section 3) behaves coherently as an integrated system at all, which has not been tested even where individual components are validated.
-**References:** `docs/08_requirements/ARS-001.md`, `docs/06_experiments/Completed.md` (EXP-001–004), `docs/04_architecture/Memory.md`, `docs/04_architecture/Cognitive_Primitives.md`, `docs/04_architecture/Dynamic_Computation.md`, `docs/04_architecture/Scheduler.md`
+**Unknowns:** Section 7's now six experiments (EXP-009 complete; EXP-010–014 open), with EXP-013 (any adequate label-free proxy for EVALUATE-GENERALIZATION) now the single highest-priority gap; whether the assembled flow (Section 3) behaves coherently as an integrated system at all, which has not been tested even where individual components are validated.
+**References:** `docs/08_requirements/ARS-001.md` (Section 6), `docs/06_experiments/Completed.md` (EXP-001–004, EXP-009), `docs/04_architecture/Memory.md`, `docs/04_architecture/Cognitive_Primitives.md`, `docs/04_architecture/Dynamic_Computation.md`, `docs/04_architecture/Scheduler.md`

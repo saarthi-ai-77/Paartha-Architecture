@@ -39,13 +39,18 @@ This document catalogues the foundational principles that have survived rigorous
 * **Confidence:** High — empirically confirmed, 5 seeds; naive and parsimony-regularized selection both measured at exactly 0% held-out accuracy across all settings tested, validation-driven selection matched the EXP-002 oracle exactly (75%).
 * **Notes:** See `docs/06_experiments/Completed.md`, EXP-003, for an important caveat: the mechanism can select the "wrong" family for an operator that no available family actually handles, without this being detectable from the final metric alone.
 
+## 8. EVALUATE-LOCAL Generalizes Label-Free; EVALUATE-GENERALIZATION Does Not (EXP-009)
+* **Description:** A single per-instance confidence/discrepancy signal (entropy, ensemble disagreement, or a learned self-assessment head — none requiring the true label at decision time) is statistically interchangeable with the true-label oracle for memory write/eviction gating, and strong (entropy/ensemble: 0.990 AUC) at separating inputs the system will get right from ones it will get wrong. This validates that EVALUATE-LOCAL is a genuinely general, label-free-realizable function, not merely EXP-001's narrow fixed-threshold instance.
+* **Confidence:** High — empirically confirmed, 5 seeds, three independent candidate realizations converging on the same result.
+* **Notes:** This is the positive half of EXP-009's finding — see item 4 in `docs/03_foundations/REJECTED.md` for the negative half (the same candidates fail completely at a structurally different use). See `docs/06_experiments/Completed.md`, EXP-009.
+
 ---
 
 **Purpose:** Track principles that act as the current ground-truth for the project.
 **Current Status:** Active
-**Historical Context:** Established post CCA v0.1 pivot. Items 1–4 predate DEC-005 and reflect philosophical consensus from the Council era; items 5–7 (added 2026-07-18) are the first principles in this file established by empirical experiment rather than argument, per DEC-005's build-experiment-validate methodology.
-**Known Facts:** Items 1–4 rely on philosophical consensus from the Council; items 5–7 rely on reproducible, multi-seed experimental results with code preserved in `experiments/`.
+**Historical Context:** Established post CCA v0.1 pivot. Items 1–4 predate DEC-005 and reflect philosophical consensus from the Council era; items 5–8 (added 2026-07-18) are principles in this file established by empirical experiment rather than argument, per DEC-005's build-experiment-validate methodology.
+**Known Facts:** Items 1–4 rely on philosophical consensus from the Council; items 5–8 rely on reproducible, multi-seed experimental results with code preserved in `experiments/`.
 **Hypotheses:** N/A
 **Unknowns:** N/A
-**References:** `RESEARCH_PHILOSOPHY.md`, `docs/03_foundations/REJECTED.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005)
+**References:** `RESEARCH_PHILOSOPHY.md`, `docs/03_foundations/REJECTED.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/08_requirements/ARS-001.md` (Section 6)
 

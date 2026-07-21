@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "elapsed_sec": 213.51820993423462,
+    "oracle_test_acc_reference": 0.75
+  },
+  "summary": {
+    "entropy": {
+      "test_acc_mean": 0.0,
+      "test_acc_std": 0.0,
+      "correct_selections_mean": 1.0
+    },
+    "ensemble": {
+      "test_acc_mean": 0.25,
+      "test_acc_std": 0.15811388300841897,
+      "correct_selections_mean": 2.2
+    },
+    "selfassess": {
+      "test_acc_mean": 0.0,
+      "test_acc_std": 0.0,
+      "correct_selections_mean": 1.0
+    }
+  },
+  "raw": {
+    "entropy": [
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      }
+    ],
+    "ensemble": [
+      {
+        "chosen_family": [
+          "A",
+          "B",
+          "B",
+          "A"
+        ],
+        "test_acc": 0.5,
+        "correct_selections": 3
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "A",
+          "A"
+        ],
+        "test_acc": 0.25,
+        "correct_selections": 3
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "A"
+        ],
+        "test_acc": 0.25,
+        "correct_selections": 2
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "A"
+        ],
+        "test_acc": 0.25,
+        "correct_selections": 2
+      }
+    ],
+    "selfassess": [
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      },
+      {
+        "chosen_family": [
+          "B",
+          "B",
+          "B",
+          "B"
+        ],
+        "test_acc": 0.0,
+        "correct_selections": 1
+      }
+    ]
+  }
+}

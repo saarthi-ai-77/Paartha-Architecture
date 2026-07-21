@@ -22,15 +22,17 @@ Architecture is not derived from a prior knowledge taxonomy. It is built one val
 
 ## Immediate Research Priorities
 
-**ACA v0.4 (`docs/04_architecture/ACA_v0.4_Architecture.md`) is now designed**, derived from ARS-001's 4 functions and 2 state substrates, with a full traceability table (Section 6) and four concrete next experiments (Section 7) it names as prerequisites for trusting the design beyond what EXP-001–004 already validated:
+**ACA v0.4 (`docs/04_architecture/ACA_v0.4_Architecture.md`) is designed and has already been revised once**, after **EXP-009 falsified its central untested assumption**: that EVALUATE is a single function. It fractures into EVALUATE-LOCAL (validated label-free — entropy, ensemble disagreement, and a self-assessment head all match the true-label oracle at memory-gating and excel at wrongness-detection) and EVALUATE-GENERALIZATION (no label-free realization found adequate — entropy and the self-assessment head fail completely at computation-family selection, in every seed, for the identical reason EXP-003 already found raw training loss fails: both are fooled by overfitting). See `docs/06_experiments/Completed.md` (EXP-009), `docs/08_requirements/ARS-001.md` (Section 6), `docs/04_architecture/ACA_v0.4_Architecture.md` (Section 2.2, revised).
 
-* **EXP-009: General-purpose EVALUATE.** Does any unsupervised/self-consistency design produce a usable signal outside a labeled-target setting? The single most consequential gap — EVALUATE is the function both SELECT and UPDATE depend on.
-* **EXP-010: Explicit consolidation via replay.** Does actively transferring mastered S_episodic entries into S_semantic (rather than relying on passive backbone catch-up, as EXP-001 did) work, and respect the stability-plasticity constraint?
-* **EXP-011: Routing-as-episodic-content.** Does storing routing decisions in S_episodic under the same policy as facts match EXP-003's dedicated-mechanism accuracy?
-* **EXP-012 (refines EXP-005): Novel-input fallback.** Is generic-module fallback plus confidence-flagging adequate for input classes with no routing entry?
+* **EXP-009: Unified EVALUATE. ✅ Complete — falsified.** See above.
+* **EXP-013 (new, highest priority): Is there any adequate label-free proxy for EVALUATE-GENERALIZATION?** Ensemble disagreement partially works (0.250 ± 0.158) but is far below the 0.750 oracle and unreliable. If nothing adequate exists, RC-02/DP-03 must be designed to require real held-out labels, not to eliminate them.
+* **EXP-014 (new): Where does RC-04 (planning termination) fall** — EVALUATE-LOCAL or EVALUATE-GENERALIZATION? Not tested; currently unclassified.
+* **EXP-010: Explicit consolidation via replay.**
+* **EXP-011: Routing-as-episodic-content.**
+* **EXP-012 (refines EXP-005): Novel-input fallback.**
 
-1. EXP-004 complete and confirmed; ACA v0.4 designed and traced (see `docs/06_experiments/Completed.md`, `docs/04_architecture/ACA_v0.4_Architecture.md`).
-2. Next decision: which of EXP-009 through EXP-012 to run first. EXP-009 is arguably highest priority given EVALUATE's load-bearing role at both the requirement level (ARS-001 §3) and the function level (ARS-001 §5.7) — not yet decided; awaiting direction. EXP-006/007/008 from the prior list remain relevant but are now superseded in priority by these four, which are scoped directly against the actual designed architecture rather than the pre-architecture component list.
+1. EXP-004 and EXP-009 complete; ACA v0.4 designed, traced, and revised in response to EXP-009 (see `docs/06_experiments/Completed.md`, `docs/04_architecture/ACA_v0.4_Architecture.md`).
+2. Next decision: EXP-013 is the clearest priority — it directly determines whether RC-02/DP-03 can ever be label-free, which shapes everything downstream. EXP-010/011/012/014 remain open and relevant but are not as consequential as resolving EVALUATE-GENERALIZATION's status. Not yet decided; awaiting direction. EXP-006/007/008 from the prior list remain relevant but are now lower priority than these newly-scoped experiments.
 
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).

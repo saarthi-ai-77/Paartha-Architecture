@@ -207,3 +207,48 @@ Full data: `experiments/exp004_integration_test/results.json`. Code: `experiment
 1. Test a version where the two pathways share a real substrate (e.g. a common embedding space), to see whether the interference risk EXP-002's design specifically avoided actually materializes when forced.
 2. Replace the explicit non-learned dispatch with a learned router, applying EXP-003's validation-driven-selection constraint, as the first real test of `docs/04_architecture/Dynamic_Computation.md`'s open scheduling question.
 3. Move beyond synthetic toy tasks entirely — integrate a version of these validated mechanisms into a small real transformer backbone on real (or semi-real) data, per `docs/03_foundations/OPEN.md`'s standing open question on scale transfer.
+
+---
+
+## EXP-009: Does a Single EVALUATE Function Unify Across All Its Downstream Consumers?
+
+**Epistemic Status:** The unified-EVALUATE hypothesis is **FALSIFIED**. A specific, mechanistically-understood fracture point was found and is documented below, revising `docs/08_requirements/ARS-001.md` and `docs/04_architecture/ACA_v0.4_Architecture.md` accordingly (both preserved with the original hypothesis intact, per their own stated revision policies — nothing rewritten, a new section added).
+
+### Objective
+ARS-001's functional decomposition (Section 5.7) identified EVALUATE as the single most load-bearing function in the entire specification — a dependency of memory gating (ME-03), computation selection (RC-02), self-regulation (SR-01/SR-02), planning termination (RC-04), and deployment readiness (DP-03) — but explicitly flagged that whether *one* signal can serve all these consumers, versus requiring fundamentally different signals, had never been tested. This experiment tests that specific claim directly, before any further architecture implementation proceeds on top of it.
+
+### Research Question
+Can a single label-free (no-ground-truth-at-decision-time) EVALUATE realization serve memory-gating, computation-family-selection, and wrongness-detection/self-regulation equally well — or does it fracture into task-specific signals?
+
+### Hypothesis (stated before running)
+Three candidate label-free realizations were tested — entropy, ensemble disagreement, and a learned self-assessment head predicting the backbone's own loss (Yoo & Kweon, "Learning Loss for Active Learning," 2019) — each compared against the true-label oracle (exactly what EXP-001 and EXP-002/003 already validated) across three structurally different consumers, reusing those experiments' own validated testbeds rather than new ones. **Falsification criterion, fixed in advance:** if the same candidate ranks best across all three consumers, EVALUATE unifies; if the ranking differs, that is a real fracture, to be documented precisely, not averaged away.
+
+### Methodology
+**Stage 1 (memory-gating, EXP-001's task):** substitute each candidate for the oracle's write/evict gate (adaptive running-median threshold, scale-agnostic across signal types), measure tail-fact recall accuracy. **Stage 2 (family-selection, EXP-002/003's task):** substitute each candidate, computed *without* the selection-split's true labels, for EXP-003's held-out-accuracy-driven selection; measure final held-out test accuracy and correctness of family choice per operator. **Stage 3 (wrongness-detection, EXP-001's task):** measure how well each candidate's ranking separates inputs the model gets right from inputs it gets wrong (AUC), without using the label. 5 seeds throughout. Code: `experiments/exp009_unified_evaluate/` (`recall_stage.py`, `rule_stage.py`).
+
+### Results (mean over 5 seeds)
+
+| Signal | Stage 1: gating (tail acc) | Stage 3: wrongness-detection (AUC) | Stage 2: family selection (held-out acc) |
+|---|---|---|---|
+| Oracle (true label) | 0.082 ± 0.008 | — (is ground truth) | **0.750** (reference, EXP-003) |
+| Entropy | 0.083 ± 0.008 (tied) | **0.990 ± 0.001** | **0.000 ± 0.000** (every seed) |
+| Ensemble disagreement | 0.082 ± 0.008 (tied) | 0.990 ± 0.001 | 0.250 ± 0.158 (unreliable) |
+| Self-assessment head | 0.083 ± 0.010 (tied) | 0.925 ± 0.005 | **0.000 ± 0.000** (every seed) |
+| No-memory baseline (Stage 1 only) | 0.031 ± 0.013 | — | — |
+
+### Conclusion
+**Falsified, cleanly, with an identified mechanism.** Every candidate is statistically indistinguishable from the oracle at memory-gating. Entropy and ensemble disagreement are both excellent at wrongness-detection (0.990 AUC). But at family-selection — the one consumer whose entire purpose is distinguishing "fits what I've seen" from "will generalize to what I haven't" — entropy and the self-assessment head **fail completely, in every one of 5 seeds**, always selecting the more expressive, non-generalizing family. This is not noise; it is the identical failure mode EXP-003 already proved for raw training loss, recurring one layer down: the over-parameterized family achieves *lower entropy and lower predicted loss* on the selection split specifically *because* it is overfit to data resembling it, not because it is correct. A signal built to measure "how sharply does the model fit what it's looking at right now" is systematically fooled by the exact thing family-selection exists to catch. Ensemble disagreement partially escapes this (it measures cross-instance variance, not single-instance sharpness — an over-parameterized family's independently-trained instances genuinely disagree with each other more), but remains noisy (±0.158) and far below the validated oracle (0.750).
+
+**EVALUATE does not reduce to one function.** It splits into at least two:
+- **EVALUATE-LOCAL** (per-instance confidence/discrepancy) — entropy, ensemble, and the self-assessment head are all viable, interchangeable substitutes for the true-label oracle here. Serves ME-03 (memory gating) and, by direct test, wrongness-detection (the empirical proxy used for SR-01/SR-02 self-regulation).
+- **EVALUATE-GENERALIZATION** (does this actually generalize, or does it merely fit what's been seen) — no label-free candidate tested here substitutes for genuine held-out evaluation. Serves RC-02 (computation selection) and, by the same structural reasoning (not directly tested), likely DP-03 (deployment readiness, which is explicitly about performance on novel compositions — the same problem shape as family-selection).
+
+**Explicitly not tested:** RC-04 (planning termination) was not directly run in this experiment. Whether it behaves like EVALUATE-LOCAL (a per-step "is this good enough" judgment, plausibly local) or EVALUATE-GENERALIZATION (if "good enough" implicitly means "will this generalize") is a reasoned open question, not a result — flagged as such, not guessed at as if tested.
+
+### What This Means for ARS-001 and ACA v0.4
+Both documents are revised, not rewritten — the original unified-EVALUATE hypothesis (ARS-001 §5, ACA v0.4 §2.2) is preserved as the tested-and-falsified starting point, with a new section in each documenting the split and its evidence. See `docs/08_requirements/ARS-001.md` Section 6 and `docs/04_architecture/ACA_v0.4_Architecture.md`'s revised Section 2.2.
+
+### Follow-up Research
+1. **EXP-013: Does anything substitute for EVALUATE-GENERALIZATION without labels?** Ensemble disagreement partially works but is unreliable — is there a better label-free proxy (e.g. sharpness-aware measures, PAC-Bayes-style bounds, disagreement under input perturbation rather than across independently-trained instances), or does structure/family selection fundamentally require real held-out labeled data, full stop?
+2. Directly test RC-04 (planning termination) and DP-03 (deployment readiness) rather than extrapolating their classification from this experiment's mechanistic pattern.
+3. Test whether the fracture pattern holds with larger, more realistic over-parameterization gaps (this experiment's Family B was only ~15x larger than Family A) — does the entropy/self-assessment failure get worse, better, or stay the same as the capacity gap grows?
