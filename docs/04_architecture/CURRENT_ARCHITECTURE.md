@@ -11,7 +11,9 @@ As of DEC-005, this document distinguishes between **validated components** (bac
 
 **Rule/family-selection module (EXP-002, EXP-003).** A component whose operator representation is deliberately constrained to a small hypothesis-class family matching the true structure of its domain (e.g. a 2-parameter rotation/reflection, not a generic ~30-parameter linear layer), with the correct family chosen per-operator via a held-out validation split rather than training loss. Gives exact compositional generalization on in-family operators. See `docs/04_architecture/Cognitive_Primitives.md`.
 
-**Not yet validated:** how these two components would compose in a single model (EXP-004, in progress), and the dynamic scheduler that would route between them and any future components — see `docs/04_architecture/Dynamic_Computation.md` and `Scheduler.md`, both still open.
+**Composability confirmed (EXP-004):** the two components above compose in one model, one optimizer, without interference — under a disjoint-parameter design that did not test a shared substrate or learned routing between them. Both remain open — see `docs/04_architecture/Dynamic_Computation.md` and `Scheduler.md`.
+
+**No concrete architecture is being designed yet.** As of `docs/08_requirements/ARS-001.md`, the project has deliberately moved from accumulating validated components and candidate mechanisms to specifying the complete, implementation-independent set of requirements any future architecture must satisfy first. This document (and `Memory.md`, `Cognitive_Primitives.md`, `Dynamic_Computation.md`, `Scheduler.md`) describes validated components and open questions, not yet a designed architecture — ARS-001 is the deliberate gating step before that design phase begins.
 
 ## Fixed Pipelines vs. Adaptive Computation
 * **Fixed Pipelines (Conventional AI):** Data flows through a predetermined, uniform sequence of operations (e.g., layers of attention). All problems are treated as fundamentally identical structural tasks.

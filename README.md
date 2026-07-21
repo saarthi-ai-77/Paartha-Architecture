@@ -7,8 +7,8 @@ The current research investigates whether intelligence should be implemented thr
 ## Current Status
 
 **Status:** Active Research
-**Current Milestone:** EXP-004 complete — the two independently-validated mechanisms (competence-aware episodic memory allocator; validation-driven rule/family-selection module) compose in one model without interfering, under a disjoint-parameter design. Next: EXP-006, testing whether they can share a real substrate (e.g. one token embedding space), which EXP-004 deliberately did not test.
-**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces, and their composability (in isolation from shared-substrate and learned-routing questions) is now also validated (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-004). The dynamic-scheduling layer and shared-substrate integration are not yet built or tested.
+**Current Milestone:** ARS-001 (Architecture Requirement Specification) drafted — `docs/08_requirements/ARS-001.md`. Research has shifted from accumulating individual architectural mechanisms to converting them into an implementation-independent requirements specification (~30 candidate mechanisms reduced to 15 requirements across 5 domains). Architecture design does not begin until this specification is considered stable.
+**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces, and their composability (in isolation from shared-substrate and learned-routing questions) is validated (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-004). No architecture has been designed yet — ARS-001 is the deliberate prerequisite step before that begins.
 **Latest Research Direction:** As of DEC-005 (2026-07-18), ACA's primary methodology shifted from council-driven first-principles derivation to build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; test it against an honest baseline with multiple seeds; report the result — including falsification — before generalizing. See `docs/05_research/Decisions.md` (DEC-005) and `docs/01_background/HISTORY.md` (Phase 5) for the full rationale and what changed.
 
 ## Repository Overview
@@ -28,6 +28,7 @@ This repository serves as the official historical record and technical archive f
 * `docs/05_research/` - Research logs, council decisions, and hypothesis registers.
 * `docs/06_experiments/` - Templates, planned experiments, and the completed-experiment record (real code-based results, not prose hypotheses).
 * `docs/07_future/` - Roadmaps, milestones, and outstanding unknowns.
+* `docs/08_requirements/` - Implementation-independent Architecture Requirement Specifications (ARS-NNN) — the bridge between validated research and eventual architecture design. Deliberately kept separate from `docs/04_architecture/`, which is reserved for actual architecture content once it exists.
 * `archive/` - Deprecated and historical documentation (e.g., CCA v0.1).
 * `experiments/` - Actual runnable code for each completed/in-progress experiment (`expNNN_name/`), with results data alongside the write-up in `docs/06_experiments/Completed.md`.
 * `tooling/` - Supporting engineering tools for the research process (e.g. the Architecture Test Harness spec), separate from the research documentation itself.
@@ -45,6 +46,7 @@ To fully understand the context, progression, and current state of this research
 7. `docs/04_architecture/CURRENT_ARCHITECTURE.md`
 8. `docs/05_research/Decisions.md` (see DEC-005 for the current methodology)
 9. `docs/06_experiments/Completed.md` (the actual validated results this program currently stands on)
+10. `docs/08_requirements/ARS-001.md` (the current requirements bridge between validated research and future architecture design)
 
 ## Contribution Philosophy
 
