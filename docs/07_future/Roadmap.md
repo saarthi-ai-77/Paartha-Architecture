@@ -22,17 +22,16 @@ Architecture is not derived from a prior knowledge taxonomy. It is built one val
 
 ## Immediate Research Priorities
 
-**ACA v0.4 (`docs/04_architecture/ACA_v0.4_Architecture.md`) is designed and has already been revised once**, after **EXP-009 falsified its central untested assumption**: that EVALUATE is a single function. It fractures into EVALUATE-LOCAL (validated label-free — entropy, ensemble disagreement, and a self-assessment head all match the true-label oracle at memory-gating and excel at wrongness-detection) and EVALUATE-GENERALIZATION (no label-free realization found adequate — entropy and the self-assessment head fail completely at computation-family selection, in every seed, for the identical reason EXP-003 already found raw training loss fails: both are fooled by overfitting). See `docs/06_experiments/Completed.md` (EXP-009), `docs/08_requirements/ARS-001.md` (Section 6), `docs/04_architecture/ACA_v0.4_Architecture.md` (Section 2.2, revised).
+**ACA has reached v1.0 (`docs/04_architecture/ACA_v1.0_Architecture.md`), a full architecture specification synthesized from ARS-001** (state model, computational functions, execution/learning/memory/evaluation pipelines, dependency graph, risk register, assumptions register, revision policy). EVALUATE is now formalized as **three** realizations, not two: LOCAL (validated), GENERALIZATION (validated only with real labels; falsified label-free by EXP-009), and **STRUCTURAL** (new — verification against known domain invariants rather than statistical confidence, `docs/08_requirements/ARS-001.md` §7 — a reasoned hypothesis, not yet tested, but theoretically targeted at exactly the mechanism that broke GENERALIZATION).
 
-* **EXP-009: Unified EVALUATE. ✅ Complete — falsified.** See above.
-* **EXP-013 (new, highest priority): Is there any adequate label-free proxy for EVALUATE-GENERALIZATION?** Ensemble disagreement partially works (0.250 ± 0.158) but is far below the 0.750 oracle and unreliable. If nothing adequate exists, RC-02/DP-03 must be designed to require real held-out labels, not to eliminate them.
-* **EXP-014 (new): Where does RC-04 (planning termination) fall** — EVALUATE-LOCAL or EVALUATE-GENERALIZATION? Not tested; currently unclassified.
-* **EXP-010: Explicit consolidation via replay.**
-* **EXP-011: Routing-as-episodic-content.**
-* **EXP-012 (refines EXP-005): Novel-input fallback.**
+The roadmap is now the one in `ACA_v1.0_Architecture.md` Section 12, prioritized by architectural impact rather than chronological order:
 
-1. EXP-004 and EXP-009 complete; ACA v0.4 designed, traced, and revised in response to EXP-009 (see `docs/06_experiments/Completed.md`, `docs/04_architecture/ACA_v0.4_Architecture.md`).
-2. Next decision: EXP-013 is the clearest priority — it directly determines whether RC-02/DP-03 can ever be label-free, which shapes everything downstream. EXP-010/011/012/014 remain open and relevant but are not as consequential as resolving EVALUATE-GENERALIZATION's status. Not yet decided; awaiting direction. EXP-006/007/008 from the prior list remain relevant but are now lower priority than these newly-scoped experiments.
+1. **EXP-015 (highest priority): does structural/algebraic-consistency evaluation correctly reject the non-generalizing family on EXP-002/003's own task, label-free?** This tests a qualitatively different mechanism than the three already-falsified statistical candidates. If it fails, S_invariants (v1.0's new state substrate) loses its justification.
+2. **EXP-013:** search harder for any label-free GENERALIZATION proxy beyond entropy/ensemble/self-assessment (all tested, EXP-009). Lower priority than EXP-015 because it extends an already-falsified approach rather than testing a new one.
+3. **EXP-014:** directly test where RC-04 (planning termination) falls, rather than relying on the reasoned classification in ARS-001 §7.3.
+4. **EXP-010/011/012:** consolidation-via-replay, routing-as-episodic-content, novel-input fallback — real but lower-stakes refinements to already-functioning designs.
+
+EXP-005/006/007/008 from the prior list remain relevant but are now superseded in priority by the above, which are scoped directly against the synthesized architecture. Full purpose/dependency/risk-if-false/fallback/expected-impact detail for each is in `ACA_v1.0_Architecture.md` Section 12 — not duplicated here.
 
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).
