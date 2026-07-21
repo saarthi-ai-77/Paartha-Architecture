@@ -7,8 +7,8 @@ The current research investigates whether intelligence should be implemented thr
 ## Current Status
 
 **Status:** Active Research
-**Current Milestone:** ARS-001 (Architecture Requirement Specification) drafted through two reduction passes — `docs/08_requirements/ARS-001.md`. ~30 candidate mechanisms reduced to 15 requirements across 5 domains (Section 1), then those 15 requirements reduced further to 4 fundamental, implementation-independent functions (EVALUATE, SELECT, UPDATE, COMPOSE — Section 5). Architecture design may now begin.
-**Current Architecture Status:** Empirically-validated components exist for two of the architecture's pieces, and their composability (in isolation from shared-substrate and learned-routing questions) is validated (see `docs/06_experiments/Completed.md`, EXP-001 through EXP-004). No architecture has been designed yet, but ARS-001's functional decomposition (Section 5) now defines its shape: a concrete implementation of each of the 4 functions, operating over typed state substrates.
+**Current Milestone:** ACA v0.4 designed — `docs/04_architecture/ACA_v0.4_Architecture.md`. The first concrete ACA architecture, built exclusively from ARS-001's four functions (EVALUATE, SELECT, UPDATE, COMPOSE) and two state substrates (S_episodic, S_semantic), with every component traced to a specific requirement and evidence tier. Existing AI architectures (Transformers, MoE, RNNs, memory networks, cognitive architectures) were used only as reference implementations for individual components, never as overall templates.
+**Current Architecture Status:** Designed, not yet implemented as an integrated system. Two components remain independently validated by experiment (EXP-001, EXP-002/003) and confirmed composable in isolation (EXP-004); the rest of ACA v0.4 (unsupervised evaluation, semantic consolidation, routing-as-memory-content, novel-input fallback) is explicitly marked Reasoned Hypothesis or Speculative, with four concrete next experiments (EXP-009–012) named to close those gaps.
 **Latest Research Direction:** As of DEC-005 (2026-07-18), ACA's primary methodology shifted from council-driven first-principles derivation to build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; test it against an honest baseline with multiple seeds; report the result — including falsification — before generalizing. See `docs/05_research/Decisions.md` (DEC-005) and `docs/01_background/HISTORY.md` (Phase 5) for the full rationale and what changed.
 
 ## Repository Overview
@@ -46,7 +46,8 @@ To fully understand the context, progression, and current state of this research
 7. `docs/04_architecture/CURRENT_ARCHITECTURE.md`
 8. `docs/05_research/Decisions.md` (see DEC-005 for the current methodology)
 9. `docs/06_experiments/Completed.md` (the actual validated results this program currently stands on)
-10. `docs/08_requirements/ARS-001.md` (the current requirements bridge between validated research and future architecture design)
+10. `docs/08_requirements/ARS-001.md` (the requirements bridge between validated research and architecture design)
+11. `docs/04_architecture/ACA_v0.4_Architecture.md` (the current architecture itself, derived from ARS-001, with full function/requirement/evidence traceability)
 
 ## Contribution Philosophy
 

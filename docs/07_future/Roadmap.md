@@ -22,10 +22,15 @@ Architecture is not derived from a prior knowledge taxonomy. It is built one val
 
 ## Immediate Research Priorities
 
-**ARS-001 (`docs/08_requirements/ARS-001.md`) is now complete through two reduction passes, and architecture design may begin per its Section 5.9.** Its deeper functional-decomposition pass (Section 5) reduced the 15 requirements to 4 fundamental functions — EVALUATE, SELECT, UPDATE, COMPOSE — and reconfirmed, at a deeper level, that **EVALUATE** (the function underlying SR-01) is the single most load-bearing capability in the entire specification: SELECT and UPDATE both strictly depend on it, while COMPOSE does not. ACA has only validated a narrow, fixed-threshold instance of EVALUATE (EXP-001's surprise gate), not a general-purpose one — this is now the most consequential open question in the program at *both* the requirement and function level. ARS-001 also flagged the consolidation-transfer half of the memory pipeline (moving episodic content *into* semantic weights, not just evicting mastered entries) as a real, currently untested gap (ME-03).
+**ACA v0.4 (`docs/04_architecture/ACA_v0.4_Architecture.md`) is now designed**, derived from ARS-001's 4 functions and 2 state substrates, with a full traceability table (Section 6) and four concrete next experiments (Section 7) it names as prerequisites for trusting the design beyond what EXP-001–004 already validated:
 
-1. EXP-004 complete and confirmed (see `docs/06_experiments/Completed.md`).
-2. Next decision is between continuing the previously-planned EXP-005/006/007/008 versus prioritizing a new experiment that tests SR-01's generalization directly (does a calibrated self-evaluation signal generalize beyond EXP-001's fixed threshold?) or ME-03's consolidation-transfer gap — both surfaced by ARS-001 as more foundational than any single item on the pre-existing list. Not yet decided; awaiting direction.
+* **EXP-009: General-purpose EVALUATE.** Does any unsupervised/self-consistency design produce a usable signal outside a labeled-target setting? The single most consequential gap — EVALUATE is the function both SELECT and UPDATE depend on.
+* **EXP-010: Explicit consolidation via replay.** Does actively transferring mastered S_episodic entries into S_semantic (rather than relying on passive backbone catch-up, as EXP-001 did) work, and respect the stability-plasticity constraint?
+* **EXP-011: Routing-as-episodic-content.** Does storing routing decisions in S_episodic under the same policy as facts match EXP-003's dedicated-mechanism accuracy?
+* **EXP-012 (refines EXP-005): Novel-input fallback.** Is generic-module fallback plus confidence-flagging adequate for input classes with no routing entry?
+
+1. EXP-004 complete and confirmed; ACA v0.4 designed and traced (see `docs/06_experiments/Completed.md`, `docs/04_architecture/ACA_v0.4_Architecture.md`).
+2. Next decision: which of EXP-009 through EXP-012 to run first. EXP-009 is arguably highest priority given EVALUATE's load-bearing role at both the requirement level (ARS-001 §3) and the function level (ARS-001 §5.7) — not yet decided; awaiting direction. EXP-006/007/008 from the prior list remain relevant but are now superseded in priority by these four, which are scoped directly against the actual designed architecture rather than the pre-architecture component list.
 
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).

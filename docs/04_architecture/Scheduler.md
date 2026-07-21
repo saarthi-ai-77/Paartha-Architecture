@@ -2,9 +2,9 @@
 
 # Scheduler
 
-## Current State: Not Yet Built or Tested
+## Current State: Partially Addressed by ACA v0.4, Execution Details Still Open
 
-The scheduler — the mechanism that would invoke the right computational component (memory lookup, rule module, any future component) at runtime — has not been designed, implemented, or tested. This file tracks it as a distinct engineering concern from the routing *logic* discussed in `Dynamic_Computation.md`: scheduling here refers to execution order, resource allocation, and how components are actually invoked in a training/inference loop, not the decision of *which* component to invoke.
+`docs/04_architecture/ACA_v0.4_Architecture.md` (Section 3) specifies the overall computational flow — routing, compose (possibly iterated), evaluate, update, periodic consolidation, periodic graduation check — as a sequence, but does not specify execution order guarantees, resource allocation, or concurrency behavior when multiple components must run per input. This file tracks that remaining, still-open engineering concern, distinct from the routing *logic* now designed in `Dynamic_Computation.md`.
 
 ## Relationship to the Arch-Ops Tooling Effort
 
@@ -25,4 +25,4 @@ This remains fully open pending EXP-004 (composability of the two validated comp
 **Known Facts:** N/A
 **Hypotheses:** N/A
 **Unknowns:** Everything about the actual mechanism.
-**References:** `docs/04_architecture/Dynamic_Computation.md`, `tooling/architecture_test_harness/PROMPT.md`, `docs/03_foundations/OPEN.md`
+**References:** `docs/04_architecture/ACA_v0.4_Architecture.md`, `docs/04_architecture/Dynamic_Computation.md`, `tooling/architecture_test_harness/PROMPT.md`, `docs/03_foundations/OPEN.md`

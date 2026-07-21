@@ -10,6 +10,8 @@ A fixed-capacity key-value memory component with a specific write/eviction polic
 
 Full methodology, code, and honest limitations: `docs/06_experiments/Completed.md` (EXP-001); code at `experiments/exp001_surprise_gated_memory/`.
 
+**This mechanism is now formally incorporated into ACA v0.4** (`docs/04_architecture/ACA_v0.4_Architecture.md`, Sections 1.1 and 2.4) as the S_episodic substrate's write/eviction policy — generalized there to also host routing decisions and self-model entries under the same content-schema-agnostic mechanism, and paired with a proposed (not yet validated) semantic-consolidation step. See that document for the full architectural context this component now sits within.
+
 ## What This Validates and What It Doesn't
 
 **Validates:** the *allocation policy* matters as much as *having* external memory at all — a naive "cache everything you've seen" approach actively self-sabotages under a fixed capacity budget.

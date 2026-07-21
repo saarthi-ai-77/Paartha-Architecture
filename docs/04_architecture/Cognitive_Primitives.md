@@ -12,6 +12,8 @@
 
 Full methodology, code, and honest limitations, including a caveat on interpretability: `docs/06_experiments/Completed.md` (EXP-002, EXP-003); code at `experiments/exp002_factorized_rule_module/`, `experiments/exp003_family_selection/`.
 
+**This component is now formally incorporated into ACA v0.4** (`docs/04_architecture/ACA_v0.4_Architecture.md`, Section 2.1) as the COMPOSE function's typed module library, and its validated selection logic (Section 2.3) as SELECT's held-out-driven family choice. See that document for how this fits alongside the memory substrate and the still-open routing/scheduling questions below.
+
 ## The Open Problem This Surfaces (not yet solved)
 
 Both experiments required a human to already know the correct constrained family existed and belonged in the candidate library. **The unresolved question is how a rule module discovers or expands its family library for an unfamiliar domain, rather than a human hand-designing the correct family per task** — this is now considered the central open problem for this component, more important than "can a constrained family generalize" (already answered: yes).

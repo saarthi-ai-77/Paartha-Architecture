@@ -1,49 +1,30 @@
-﻿**Status: Active** (revised 2026-07-18 per DEC-005 — this document now describes empirically-validated components, not conceptual speculation)
+**Status: Active** (revised 2026-07-18 — a concrete architecture now exists; see redirect below)
 
 # Current Architecture
 
-## Current Architecture Thinking
-As of DEC-005, this document distinguishes between **validated components** (backed by reproducible, multi-seed experiments) and **open design questions** (not yet built or tested). The core premise is unchanged from earlier phases — the system should possess a repertoire of distinct computational mechanisms rather than one uniform process — but the confidence behind each piece is now tied to specific experimental evidence rather than argument alone.
+## The current architecture is ACA v0.4 — see `docs/04_architecture/ACA_v0.4_Architecture.md`
 
-## Validated Components (see `docs/06_experiments/Completed.md` for full results)
+As of 2026-07-18, this project has a designed architecture for the first time. It was derived exclusively from the four fundamental functions (EVALUATE, SELECT, UPDATE, COMPOSE) and state substrates identified in `docs/08_requirements/ARS-001.md` — not from Transformers, MoE, RNNs, memory networks, or cognitive architectures, which are used in that document only as reference implementations for individual components, never as overall templates. Every component in ACA v0.4 is traced back to a specific function, a specific ARS-001 requirement, and an explicit evidence tier (Validated by ACA experiments / Supported by external literature / Reasoned hypothesis / Speculative) — see that document's Section 6 for the full traceability table.
 
-**Episodic memory allocator (EXP-001).** A fixed-capacity key-value memory that writes a fact only when the parametric backbone's current prediction loss for it is high (i.e. the backbone doesn't know it yet), and evicts, under capacity pressure, whichever stored fact the backbone now predicts best (i.e. has since mastered). Achieves ~2x the tail-fact recall of naive caching at equal capacity. See `docs/04_architecture/Memory.md`.
-
-**Rule/family-selection module (EXP-002, EXP-003).** A component whose operator representation is deliberately constrained to a small hypothesis-class family matching the true structure of its domain (e.g. a 2-parameter rotation/reflection, not a generic ~30-parameter linear layer), with the correct family chosen per-operator via a held-out validation split rather than training loss. Gives exact compositional generalization on in-family operators. See `docs/04_architecture/Cognitive_Primitives.md`.
-
-**Composability confirmed (EXP-004):** the two components above compose in one model, one optimizer, without interference — under a disjoint-parameter design that did not test a shared substrate or learned routing between them. Both remain open — see `docs/04_architecture/Dynamic_Computation.md` and `Scheduler.md`.
-
-**No concrete architecture is being designed yet.** As of `docs/08_requirements/ARS-001.md`, the project has deliberately moved from accumulating validated components and candidate mechanisms to specifying the complete, implementation-independent set of requirements any future architecture must satisfy first. This document (and `Memory.md`, `Cognitive_Primitives.md`, `Dynamic_Computation.md`, `Scheduler.md`) describes validated components and open questions, not yet a designed architecture — ARS-001 is the deliberate gating step before that design phase begins.
-
-## Fixed Pipelines vs. Adaptive Computation
-* **Fixed Pipelines (Conventional AI):** Data flows through a predetermined, uniform sequence of operations (e.g., layers of attention). All problems are treated as fundamentally identical structural tasks.
-* **Adaptive Computation (Current Architecture):** The system evaluates the nature of the cognitive task and dynamically invokes the most appropriate computational primitive. The path of execution is determined at runtime, varying significantly between different types of cognitive loads.
-
-## Current Understanding of Computational Primitives
-Computational primitives are envisioned as discrete, highly specialized operations. While the exact taxonomy is actively being researched, conceptually, a primitive might be dedicated purely to spatial manipulation, another to temporal prediction, and another to logical deduction. They are not simply layers in a neural network; they are fundamentally different computational mechanisms.
-
-## Relationship to the Archived CCA Architecture
-The earlier Cognitive Computational Architecture (CCA v0.1) introduced a static sequence of cognitive steps (Observation -> Difference -> Pattern -> Concept -> Memory -> Composition -> World Model -> Prediction -> Planning). 
-
-While the new architecture inherits many of these conceptual categories, it rejects the fixed pipeline approach of CCA v0.1. In the current framework, operations like "Planning" or "Pattern extraction" are treated as primitives that the dynamic scheduler can call upon in any arbitrary order as required by the task.
+This file is kept short and points there rather than duplicating it, per the repository's "one canonical source" rule. The remaining sections below preserve historical context (why the project didn't have an architecture until now).
 
 ## Architecture Evolution
-* **v0.1:** Static pipeline CCA model. (Archived)
-* **v0.2:** Conceptual stage of dynamic adaptive computation, pursued via council-driven first-principles derivation (Knowledge Foundation Council). Superseded by DEC-005 without ever producing a validated primitive.
-* **v0.3 (Current):** Build-experiment-validate. Two components empirically validated in isolation (episodic memory allocator, rule/family-selection module); dynamic scheduler and inter-component communication substrate still open.
 
-## Current Unknowns
-* The specific architectural mechanism for the dynamic scheduler — still entirely open; no experiment has built or tested one yet.
-* The communication substrate allowing different validated components (memory, rule module) to share intermediate representations — targeted by EXP-004.
-* Whether the validated components' benefits (EXP-001, EXP-002, EXP-003) survive integration into a real backbone on real data, rather than isolated synthetic toy tasks.
+* **v0.1:** Static pipeline CCA model. (Archived — `archive/CCA_v0.1.md`.)
+* **v0.2:** Conceptual stage of dynamic adaptive computation, pursued via council-driven first-principles derivation (Knowledge Foundation Council). Superseded by DEC-005 without ever producing a validated primitive.
+* **v0.3:** Build-experiment-validate. Two components validated in isolation (episodic memory allocator, EXP-001; rule/family-selection module, EXP-002/003) plus their composability (EXP-004). No architecture yet — requirements work (ARS-001) came first, deliberately.
+* **v0.4 (current):** First concrete architecture — see `ACA_v0.4_Architecture.md`. Designed, not yet implemented as an integrated system beyond the isolated/paired validations already completed.
+
+## Relationship to the Archived CCA Architecture
+
+CCA v0.1 introduced a static sequence of cognitive steps (Observation → Difference → Pattern → Concept → Memory → Composition → World Model → Prediction → Planning). ACA v0.4 does not inherit this pipeline structure — it was derived independently from ARS-001's functional decomposition, not from revising CCA's stages. Where the two overlap (e.g., CCA's "Memory" concept and ACA v0.4's S_episodic/S_semantic substrates), it is coincidental convergence on a similar idea, not lineage — ACA v0.4's design should be justified entirely by its own traceability table, not by resemblance to CCA.
 
 ---
 
-**Purpose:** Describe the current, empirically-grounded state of the architecture.
-**Current Status:** Active — partially validated
-**Historical Context:** Evolved from the limitations of the CCA v0.1 pipeline, then from the council-driven v0.2 phase (superseded by DEC-005).
-**Known Facts:** Two architectural components (episodic memory allocation, rule/family selection) are validated by reproducible experiment — see `docs/06_experiments/Completed.md`.
-**Hypotheses:** Dynamic scheduling of distinct, validated components will outperform a uniform architecture — not yet tested.
-**Unknowns:** Implementation details of the scheduler and communication substrate; scale transfer of validated toy-task results.
-**References:** `archive/CCA_v0.1.md`, `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005)
-
+**Purpose:** Orient a reader toward the actual current architecture and its evolution; the architecture's substantive content lives in `ACA_v0.4_Architecture.md`.
+**Current Status:** Active
+**Historical Context:** See "Architecture Evolution" above.
+**Known Facts:** See `ACA_v0.4_Architecture.md` Section 6 for what is and isn't validated per component.
+**Hypotheses:** See `ACA_v0.4_Architecture.md` Sections 1–3 and 6.
+**Unknowns:** See `ACA_v0.4_Architecture.md` Section 7.
+**References:** `archive/CCA_v0.1.md`, `docs/08_requirements/ARS-001.md`, `docs/04_architecture/ACA_v0.4_Architecture.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005)
