@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "model": "generic_seq2seq_transformer",
+    "epochs": 25,
+    "batch_size": 128,
+    "d_model": 128,
+    "n_head": 4,
+    "enc_layers": 2,
+    "dec_layers": 2,
+    "param_count": 681481,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "elapsed_sec": 1518.229365348816
+  },
+  "summary": {
+    "test_acc_mean": 0.007085388009343369,
+    "test_acc_std": 0.003949414910278175
+  },
+  "raw": [
+    {
+      "seed": 0,
+      "train_acc_subsample": 0.9995,
+      "test_acc": 0.010641058915131067
+    },
+    {
+      "seed": 1,
+      "train_acc_subsample": 0.998,
+      "test_acc": 0.009343368803529718
+    },
+    {
+      "seed": 2,
+      "train_acc_subsample": 0.9975,
+      "test_acc": 0.003763301323643914
+    },
+    {
+      "seed": 3,
+      "train_acc_subsample": 0.9985,
+      "test_acc": 0.010641058915131067
+    },
+    {
+      "seed": 4,
+      "train_acc_subsample": 0.997,
+      "test_acc": 0.0010381520892810796
+    }
+  ]
+}

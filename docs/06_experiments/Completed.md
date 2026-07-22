@@ -360,3 +360,52 @@ Per-seed Stage-1 param-only accuracy: 0.11, 0.15, 0.19, 0.18, 0.17 — same rang
 2. Test whether simply scaling up REPLAY_STEPS substantially (e.g., 200 instead of 20) recovers any effect, to check whether this was a dose problem rather than a mechanism problem — cheap to run, worth ruling out explicitly before moving to a larger design change.
 3. Test an explicit weight-protection mechanism (EWC-style) as a structurally different candidate, since it targets the optimizer's treatment of "important" parameters directly rather than adding more data exposure.
 4. Update `docs/04_architecture/ACA_v1.0_Architecture.md` Section 11/18 and `docs/09_validation/IVS-001.md` Section 9 to record that the "candidate fix" they named is now itself falsified in its simplest form, not merely untested.
+
+---
+
+## EXP-020: ACA-MVP-001 Benchmark B — Structure-Matched COMPOSE vs. Generic Seq2Seq on Real SCAN (addprim_jump)
+
+**Epistemic Status:** **CONFIRMED**, decisively, on a real, standard, cited benchmark — not an in-house toy task. This directly extends EXP-002/003's toy-scale finding (structure-matched constrained computation beats generic computation when the structure is correctly specified) to real published data, with a real published baseline number to compare against. Grammar used by the structure-matched model was verified, not assumed — see "Grammar Verification" below.
+
+### Objective
+ACA-MVP-001 (`docs/11_mvp/ACA-MVP-001.md` §3, Benchmark B) committed to testing EXP-002's compositional-generalization claim against the actual SCAN benchmark (Lake & Baroni, 2018) rather than repeating this program's own synthetic 4-operator task at larger scale, specifically because SCAN has small-enough data for a single consumer GPU and published baseline numbers in the literature to compare against.
+
+### Research Question
+Does a COMPOSE module built from a fixed, hand-specified compositional grammar (structure-matched, per RC-01/EXP-002) outperform a generic Transformer that must discover the same compositional structure purely from training data, on SCAN's addprim_jump split — the split specifically designed so "jump" is seen only in isolation during training and must be correctly composed with modifiers never seen jointly with it?
+
+### Grammar Verification (done before writing any model, not assumed from a secondary source)
+The SCAN grammar was reverse-engineered from real data, not taken on trust from a paper summary. Real, complete `tasks_train_addprim_jump.txt` (14,670 examples) and `tasks_test_addprim_jump.txt` (7,706 examples) were downloaded directly from `github.com/brendenlake/SCAN`. The composition rules (`U`, `U D`, `U opposite D`, `U around D`, `X twice/thrice`, `X and/after Y`, and the special-cased `turn` primitive whose action *is* the direction-change, with no separate action token appended) were derived by hand-tracing real examples, then a self-check script (`scan_common.py`, run standalone) parsed and re-evaluated **all 22,376 real train+test examples** with the resulting interpreter and an oracle primitive mapping: **exact match on every single example, both files, confirmed before any model was trained.** Also confirmed directly against the data: "jump" appears only as the isolated fact "jump → I_JUMP" in training (1467 occurrences, zero composed forms), and no command in either file chains more than one "and"/"after" connective (0 of 22,376).
+
+### Hypothesis (stated before running)
+A structure-matched model (fixed parser + interpreter implementing the verified grammar, with only a small classifier mapping each of the 4 non-"turn" primitives to its action token left to learn from data) generalizes correctly to held-out compositions of "jump" with modifiers never seen jointly with it during training. A generic Transformer, lacking this structural knowledge, does not — consistent with Lake & Baroni's own published finding of near-zero exact-match accuracy for vanilla seq2seq models on this exact split.
+
+### Methodology
+**Generic baseline:** a real encoder-decoder Transformer (`nn.TransformerEncoder` + `nn.TransformerDecoder`, 2+2 layers, 4 heads, d_model=128, 681,481 parameters), trained end-to-end via teacher forcing, evaluated via greedy autoregressive generation, standard SCAN exact-full-sequence-match accuracy. 25 epochs, batch 128, 5 seeds. Code: `experiments/exp_mvp001_scan_compositional/run_generic_seq2seq.py`.
+
+**Structure-matched model:** the verified fixed grammar (`scan_common.py`) supplies 100% of the compositional structure (turn-token insertion, repetition, and/after ordering) — the interpreter is called with a sentinel function for the 4 learnable primitives (walk/look/run/jump; "turn" is never a learned slot, per the verified grammar), which is expanded into a differentiable logit vector at composition time, so gradients flow through the fixed structural operations into a tiny classifier (embedding(4) → linear(6), 326 parameters). Trained end-to-end on the same real training data and the same cross-entropy loss as the generic baseline — not pre-fit on hand-extracted labels. Every example's compiled slot-list length was asserted equal to its true action-sequence length before training (a correctness self-check). Code: `experiments/exp_mvp001_scan_compositional/run_structure_matched.py`.
+
+Both models trained and evaluated on the identical, real, downloaded addprim_jump split — no synthetic re-creation.
+
+### Results (mean ± std over 5 seeds, exact-sequence-match accuracy on all 7,706 real held-out test examples)
+
+| Model | Parameters | Train acc | Test acc (exact match) |
+|---|---|---|---|
+| Generic seq2seq Transformer | 681,481 | 0.998 ± 0.001 (subsample) | **0.0071 ± 0.0039** |
+| Structure-matched (fixed grammar + learned primitive lookup) | 326 | 1.000 ± 0.000 | **1.0000 ± 0.0000** |
+
+Relative improvement: **~141x**. Parameter reduction: **~2090x fewer parameters, better accuracy.** Full data: `experiments/exp_mvp001_scan_compositional/results_generic_seq2seq.json`, `results_structure_matched.json`.
+
+**Sanity check against the literature:** the generic baseline's 0.71% ± 0.39% is closely consistent with Lake & Baroni (2018)'s own published ~1% for vanilla seq2seq models on this exact split, despite 99.8%+ training accuracy in both — confirming this baseline is a real, literature-consistent result, not an artificially weakened strawman.
+
+### Conclusion
+**Pre-registered success criterion (`docs/11_mvp/ACA-MVP-001.md` §5, ≥2x improvement) exceeded overwhelmingly, not marginally.** The structure-matched model's 100.000% is not a lucky fit or a leak — every element of the true grammar was verified against real data before training, the only free parameter is a 4-class lookup extracted from 1467 genuine training exposures of "jump" in isolation (the same mechanism read off `walk`/`look`/`run` from their own many training occurrences), and the fixed composition rules apply that lookup identically to seen and unseen combinations by construction. Given a correctly and fully verified compositional structure, correct generalization to novel compositions follows deterministically — this is the expected, correct behavior of a correctly-matched constrained family, not a surprising result, exactly mirroring EXP-002's own stage-5 finding (100% on true rotations) at real benchmark scale instead of an in-house 40-example task.
+
+### What This Does and Doesn't Establish — the Same Caveat EXP-002 Already Raised, Recurring at Scale
+**Establishes:** structure-matched COMPOSE (RC-01), when the structure is correctly and completely specified, generalizes compositionally where a generic Transformer of ~2000x more parameters does not — now demonstrated on a real, standard, cited benchmark with a real published number to compare against, not only on this program's own 40-example synthetic task.
+
+**Does not establish:** how a system would discover or construct the correct grammar without a human hand-specifying it in advance — **the identical unresolved problem EXP-002 flagged as "the central open problem," recurring here at real benchmark scale, not newly introduced.** `docs/11_mvp/ACA-MVP-001.md` §2 explicitly excluded automatic/learned routing (RC-02) from this benchmark for exactly this reason; this result says nothing about that harder question. Also does not establish that hand-specified grammars are commonly available for real-world domains — SCAN's grammar is unusually small and clean; most real compositional domains will not hand this program a fully-verifiable 13-word grammar to exploit.
+
+### Follow-up Research
+1. **Unchanged central open problem (still the most important next step, first flagged by EXP-002):** test whether a family-discovery mechanism (EXP-005, still not run) can recover a grammar like SCAN's from data alone, without it being hand-specified — the actual test of whether this result's mechanism could ever operate autonomously.
+2. Test on SCAN's other published splits (e.g., `addprim_turn_left`, length generalization, the simple random split as a non-compositional control) to check whether the 141x margin is specific to `addprim_jump` or general across SCAN's splits.
+3. Investigate whether the generic Transformer's near-zero accuracy is concentrated on `jump`-composed examples specifically (expected) or spread more broadly (would indicate a training issue unrelated to the compositional generalization question) — not yet checked at the per-example level.

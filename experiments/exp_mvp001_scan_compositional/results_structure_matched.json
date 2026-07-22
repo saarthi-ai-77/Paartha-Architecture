@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "structure_matched_fixed_grammar",
+    "epochs": 10,
+    "batch_size": 128,
+    "param_count": 326,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "elapsed_sec": 2170.3934564590454
+  },
+  "summary": {
+    "test_acc_mean": 1.0,
+    "test_acc_std": 0.0
+  },
+  "raw": [
+    {
+      "seed": 0,
+      "train_acc": 1.0,
+      "test_acc": 1.0,
+      "learned_mapping": {
+        "walk": "I_WALK",
+        "look": "I_LOOK",
+        "run": "I_RUN",
+        "jump": "I_JUMP"
+      }
+    },
+    {
+      "seed": 1,
+      "train_acc": 1.0,
+      "test_acc": 1.0,
+      "learned_mapping": {
+        "walk": "I_WALK",
+        "look": "I_LOOK",
+        "run": "I_RUN",
+        "jump": "I_JUMP"
+      }
+    },
+    {
+      "seed": 2,
+      "train_acc": 1.0,
+      "test_acc": 1.0,
+      "learned_mapping": {
+        "walk": "I_WALK",
+        "look": "I_LOOK",
+        "run": "I_RUN",
+        "jump": "I_JUMP"
+      }
+    },
+    {
+      "seed": 3,
+      "train_acc": 1.0,
+      "test_acc": 1.0,
+      "learned_mapping": {
+        "walk": "I_WALK",
+        "look": "I_LOOK",
+        "run": "I_RUN",
+        "jump": "I_JUMP"
+      }
+    },
+    {
+      "seed": 4,
+      "train_acc": 1.0,
+      "test_acc": 1.0,
+      "learned_mapping": {
+        "walk": "I_WALK",
+        "look": "I_LOOK",
+        "run": "I_RUN",
+        "jump": "I_JUMP"
+      }
+    }
+  ]
+}
