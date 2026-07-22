@@ -41,6 +41,13 @@ A prerequisite audit (IVS-001, performed before this ranking) also pruned ACA v1
 
 **EXP-010 has since run (same day) and also failed:** a one-time replay burst at each stage boundary produced no measurable improvement (0.160 ± 0.028 vs. 0.158 ± 0.027 baseline — `docs/06_experiments/Completed.md`, EXP-010). Benchmark A's full ablation set (core + stretch) is now complete; both ME-03 itself and its most direct minimal fix are falsified for staged, non-rehearsed continual training. Two structurally larger, untested candidates remain open — interleaved rehearsal throughout subsequent-stage training, and explicit weight-importance protection (EWC-style) — neither yet scheduled. Benchmark B (SCAN, an independent claim unaffected by this outcome) is the appropriate next benchmark; ME-03's open status is tracked here, not a blocker.
 
+## Dual-Track Directive (2026-07-23): CTX-001 and EXP-019
+
+Per CTO directive, research is now split into two parallel tracks. **Track A** continues this roadmap unchanged (Benchmark B in progress). **Track B** produced `docs/12_cognition/CTX-001.md`, investigating whether EXP-018/010, conversation-context representation, and "known unknown" tracking share a root cause. Two concrete additions to this roadmap, both **proposed, not yet run or adopted**:
+
+* **EXP-019 (proposed): Structured Working State vs. Schema-Tagged S_episodic for Multi-Turn Context.** Falsification test for CTX-001's tentative "S_working" substrate — compare a dedicated small, fixed-field, overwrite-in-place context representation against the existing competence-gated S_episodic policy under a fourth schema tag, over an extended multi-turn task. If the schema-tagged S_episodic approach shows no measurable degradation as interaction length grows, S_working is unnecessary and RC-03's original "~90% reducible" framing (`docs/08_requirements/ARS-001.md` §1.4) was, in practice, closer to 100%. Not yet scheduled relative to EXP-010's follow-ups (interleaved rehearsal, weight-protection) — blast-radius ranking between them has not been done.
+* **"Gap Curriculum Generation" (proposed, offered to `docs/10_deployment/DAS-001.md`, not self-adopted in that document):** a candidate fifth learning timescale for periodic, scheduled pattern-detection across accumulated "unknown"-schema episodic entries — CTX-001 §3 shows this is the one part of the proposed unknown-handling pipeline that doesn't reduce to existing functions applied per-query, though it does reduce to existing functions applied per-corpus, on a schedule. DAS-001 has not yet reviewed this against its own four-timescale model.
+
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).
 
@@ -52,10 +59,10 @@ See `docs/07_future/Unknowns.md` for the full, current list (this section previo
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
-**Current Status:** Active. ACA-MVP-001 Benchmark A complete, including its stretch ablation (2026-07-22) — pre-registered success criterion failed (EXP-018), most direct candidate fix also failed (EXP-010). Benchmark B (SCAN) is next.
-**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010.
+**Current Status:** Active. ACA-MVP-001 Benchmark A complete, including its stretch ablation (2026-07-22) — pre-registered success criterion failed (EXP-018), most direct candidate fix also failed (EXP-010). Benchmark B (SCAN) in progress. Dual-track directive (2026-07-23) added Track B (CTX-001) alongside continued Track A.
+**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010. Updated 2026-07-23 with CTX-001's proposed EXP-019 and "Gap Curriculum Generation."
 **Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018, EXP-010 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
 **Hypotheses:** N/A
-**Unknowns:** See `docs/07_future/Unknowns.md`. Whether ME-03 survives staged continual training under interleaved rehearsal or explicit weight-protection — both untested, both larger changes than what's been ruled out.
-**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`
+**Unknowns:** See `docs/07_future/Unknowns.md`. Whether ME-03 survives staged continual training under interleaved rehearsal or explicit weight-protection — both untested, both larger changes than what's been ruled out. Whether EXP-019 confirms or falsifies CTX-001's S_working hypothesis.
+**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`, `docs/12_cognition/CTX-001.md`
 
