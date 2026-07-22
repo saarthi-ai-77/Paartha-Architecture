@@ -33,6 +33,12 @@ Architecture is not derived from a prior knowledge taxonomy. It is built one val
 
 A prerequisite audit (IVS-001, performed before this ranking) also pruned ACA v1.0 itself: EVALUATE-LOCAL now defaults to entropy alone (not three co-required realizations); variable compute-amount SELECT is excluded pending evidence it's needed; RC-03 is confirmed to be S_episodic reused, not separate machinery; a key-namespacing gap in the shared-substrate design was patched directly rather than deferred to an experiment. See `docs/04_architecture/ACA_v1.0_Architecture.md` Section 17 for the full list. EXP-005/006/007/008 remain relevant but are superseded in priority by the above.
 
+## Update Following ACA-MVP-001 Benchmark A / EXP-018 (2026-07-22)
+
+**The program moved from validation planning to actual real-Transformer execution** (`docs/11_mvp/ACA-MVP-001.md`), ahead of the full IVS-001 minimal integrated prototype, to test ME-03 (competence-gated memory) in isolation at real scale first. Result: **the pre-registered success criterion failed** — competence-gated memory showed zero measurable advantage over naive caching or no memory at all under staged, non-rehearsed continual training, with memory coverage of the oldest facts at exactly 0.0 at evaluation time. Full account: `docs/06_experiments/Completed.md` (EXP-018); architecture-level consequences: `docs/04_architecture/ACA_v1.0_Architecture.md` Section 18; validation-strategy consequences: `docs/09_validation/IVS-001.md` Section 9.
+
+**Immediate next step, not a new item but this list's own pre-registered stretch ablation (`docs/11_mvp/ACA-MVP-001.md` §4):** test active consolidation-via-replay (EXP-010) on the same Benchmark A task, same constrained capacity — the one candidate mechanism that could plausibly rescue ME-03 under staged training. This is now higher priority than its position in the numbered list above (#4, folded in with EXP-013/014/012) reflects — that ranking assumed EXP-010 was a lower-stakes refinement; EXP-018 shows it may be a precondition for ME-03's validated status to extend beyond a static distribution at all. The numbered list above is left as originally written, per this document's own revision discipline; this note records why it is due for re-ranking, not a silent re-ordering.
+
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).
 
@@ -44,10 +50,10 @@ See `docs/07_future/Unknowns.md` for the full, current list (this section previo
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
-**Current Status:** Active
-**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`.
-**Known Facts:** EXP-001 through EXP-003 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
+**Current Status:** Active. ACA-MVP-001 Benchmark A complete (2026-07-22) — pre-registered success criterion failed, mechanism identified (EXP-018); consolidation stretch ablation (EXP-010) is the immediate next step.
+**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018.
+**Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
 **Hypotheses:** N/A
-**Unknowns:** See `docs/07_future/Unknowns.md`.
-**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005)
+**Unknowns:** See `docs/07_future/Unknowns.md`. Whether EXP-010 rescues ME-03 under staged continual training is the most immediate open question.
+**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`
 

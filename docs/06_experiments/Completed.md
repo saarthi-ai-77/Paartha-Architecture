@@ -252,3 +252,67 @@ Both documents are revised, not rewritten — the original unified-EVALUATE hypo
 1. **EXP-013: Does anything substitute for EVALUATE-GENERALIZATION without labels?** Ensemble disagreement partially works but is unreliable — is there a better label-free proxy (e.g. sharpness-aware measures, PAC-Bayes-style bounds, disagreement under input perturbation rather than across independently-trained instances), or does structure/family selection fundamentally require real held-out labeled data, full stop?
 2. Directly test RC-04 (planning termination) and DP-03 (deployment readiness) rather than extrapolating their classification from this experiment's mechanistic pattern.
 3. Test whether the fracture pattern holds with larger, more realistic over-parameterization gaps (this experiment's Family B was only ~15x larger than Family A) — does the entropy/self-assessment failure get worse, better, or stay the same as the capacity gap grows?
+
+---
+
+## EXP-018: ACA-MVP-001 Benchmark A — Competence-Gated Memory Under Staged, Non-Rehearsed Continual Training (First Real-Transformer Result)
+
+**Epistemic Status:** The MVP-001 pre-registered success criterion (≥2x baseline tail-recall retention) is **FAILED, cleanly, across all 5 seeds**. A precise mechanism is identified and confirmed directly from logged data, not just inferred. This is the first experiment in this research program to use a real multi-head self-attention Transformer rather than an MLP, and the first to test EXP-001's validated memory-allocation policy outside a single static distribution.
+
+### Objective
+ACA-MVP-001 (`docs/11_mvp/ACA-MVP-001.md`) committed in advance to testing whether competence-gated episodic memory (ME-01/ME-03, validated at toy scale by EXP-001) retains its tail-recall advantage over naive caching and over no memory at all, once embedded in a real Transformer backbone under a harsher, staged continual-learning task than EXP-001 ever tested. The threshold was fixed before running: **at least 2x the baseline's rare-fact accuracy after staged continual training**, mirroring EXP-001's own already-observed margin.
+
+### Research Question
+Does competence-gated write/eviction (EXP-001's validated policy) protect the oldest facts from catastrophic forgetting when a real Transformer is trained sequentially on three disjoint, non-rehearsed stages of facts — or does something about moving from a static distribution to a staged one break the mechanism?
+
+### Hypothesis (stated before running, per `docs/11_mvp/ACA-MVP-001.md` §5)
+Competence-gated memory retains at least 2x naive-cache's and no-memory's Stage-1 (oldest facts) recall accuracy, measured after all three stages complete. A relative improvement under ~20–30% was pre-committed to be reported as **not** justifying the architecture's added complexity, regardless of how that looks after the fact.
+
+### Methodology
+Real causal Transformer (`nn.TransformerEncoder` + causal mask, 4 layers, 4 heads, d_model=128, 619,352 parameters — `CausalTransformerLM` in `experiments/exp_mvp001_continual_recall/run.py`), word-level tokenizer, 6-token template sentences ("NAME was born in CITY."). 300 distinct (name, city) facts introduced across 3 **sequential, non-rehearsed** stages of 100 facts each (800 training steps/stage, batch 32) — Stage 2 and Stage 3 never re-show Stage 1's names. Three conditions, 5 seeds each:
+1. **no_memory** — backbone only.
+2. **naive_cache_memory** — write every name on first sight, evict a uniformly random slot at capacity (EXP-001's naive baseline).
+3. **competence_gated_memory** — write only when the backbone's own city-token entropy exceeds a running median (EXP-001/009's validated gate), evict the lowest-entropy ("most mastered") stored entry at capacity; stored entries' entropy is explicitly **refreshed against the current model at every stage boundary** (`refresh_gated_confidences`), mirroring EXP-001's live re-check design rather than using stale write-time values.
+
+Memory capacity fixed at 60 slots — deliberately smaller than any single stage's 100 facts, and far smaller than the 300 facts introduced in total, to force real, sustained eviction pressure (EXP-001 used a 200-slot memory against 1000 facts under a single static Zipfian distribution — a different, non-staged, non-adversarial-to-recency pressure).
+
+### Variables
+* **Independent:** memory policy (none / naive / competence-gated).
+* **Dependent:** Stage-1 recall accuracy after all 3 stages (primary), Stage-3 recall accuracy after all 3 stages (sanity check that the task is learnable at all), memory coverage of Stage-1 facts at evaluation time (diagnostic).
+* **Controlled:** backbone architecture/size, memory capacity, training steps, optimizer, per-seed initialization and batch sampling.
+
+### Results (mean ± std over 5 seeds)
+
+| Condition | Stage-1 acc (after 3 stages) | Stage-1 = param-only acc? | Stage-1 memory coverage at eval | Stage-3 acc |
+|---|---|---|---|---|
+| no_memory | 0.158 ± 0.039 | n/a (no memory) | n/a | 1.000 ± 0.000 |
+| naive_cache_memory | 0.150 ± 0.023 | **Yes, exactly, every seed** | **0.0, every seed** | 1.000 ± 0.000 |
+| competence_gated_memory | 0.158 ± 0.027 | **Yes, exactly, every seed** | **0.0, every seed** | 1.000 ± 0.000 |
+
+Full per-seed data: `experiments/exp_mvp001_continual_recall/results.json` (`raw.*.stage1.coverage` field, confirmed 0.0 for both memory conditions across all 5 seeds — checked directly, not inferred from the console summary, which did not print it). Code: `experiments/exp_mvp001_continual_recall/run.py`.
+
+### Conclusion
+**Pre-registered success criterion failed cleanly.** All three conditions are statistically indistinguishable (~0.15–0.16), a ~0% relative improvement against a required 2x threshold. Per §5 and §7's own pre-committed publication roadmap, this is reported as a genuine negative result, not a qualified success.
+
+**The mechanism is fully identified, not just hypothesized — confirmed directly from the `coverage` field, which is exactly 0.0 for both memory conditions in every seed.** Neither memory policy retains a single Stage-1 entry by the time evaluation runs. Tracing this through the code (`gated_write`, `refresh_gated_confidences`, `naive_write`):
+
+- **Stage-3 accuracy of 1.000 in every condition confirms the task itself is fully learnable** — the backbone masters each stage's 100 facts completely within 800 steps. This is what makes Stage-1's collapse to ~0.16 a genuine, cleanly-induced catastrophic-forgetting effect, not a confound from an under-capacity model or an unlearnable task.
+- **`naive_cache_memory`:** with 300 total distinct names competing for 60 slots across 3 stages of unrehearsed writes, and eviction chosen uniformly at random, no mechanism protects any particular stage's entries — by the time Stage 3 finishes, the accumulated random churn has almost surely cleared every Stage-1 entry. Confirmed: coverage 0.0.
+- **`competence_gated_memory`:** the failure is more specific and more informative than naive's. `refresh_gated_confidences` is called once at each stage boundary and recomputes every stored entry's entropy **under the model as it stands at that exact moment**. Because Stage 1 trains for a full 800 steps on only Stage 1's 100 facts, by the Stage-1/Stage-2 boundary the backbone has already mastered them — so the refresh correctly marks essentially every stored Stage-1 entry as low-entropy ("mastered"). `gated_write`'s eviction rule always evicts the *lowest*-entropy stored entry when a new, high-entropy (novel) name needs a slot. Since Stage 2 introduces 100 new names against a memory already full of just-marked-"mastered" Stage-1 entries, Stage-1 content is evicted first and fastest — precisely at the moment it is about to become vulnerable to being forgotten by training on unrelated data, not after. The same happens again at the Stage-2/Stage-3 boundary to whatever Stage-2 remnants remain. Confirmed: coverage 0.0.
+
+**This is not a bug.** The code does exactly what its design specifies. It is a real, previously-untested limitation of the policy itself: **EXP-001 validated "evict what's currently mastered" against a single static distribution, where "mastered now" and "mastered permanently" are the same fact.** Under sequential, non-rehearsed training on *new* data, they are not — a point-in-time mastery reading says nothing about whether that competence survives the training that happens after the reading is taken. The policy has no way to distinguish "safely redundant" from "about to be overwritten by what comes next," because at eviction time, the future training that will cause forgetting hasn't happened yet.
+
+### Relationship to Existing Predicted Risks (Important Precision, Not Overclaiming)
+- **This is not EXP-016.** EXP-016 (`docs/09_validation/IVS-001.md` §6, rank 1) asks whether EVALUATE-LOCAL's entropy *signal* stays calibrated (correlated with true correctness) under concurrent learning. Here, the entropy signal was **accurate at the moment it was read** — the backbone genuinely had low loss on Stage-1 facts right at the Stage-1/2 boundary. The failure is not a miscalibrated signal; it is that the *eviction policy* treats an accurate point-in-time reading as a license for permanent removal. EXP-016 remains open and untested; this experiment does not resolve or substitute for it.
+- **This directly confirms and generalizes a mechanism `docs/09_validation/IVS-001.md` §2 already predicted — for a different component.** The "Routing ↔ Learning (UPDATE)" risk row states: *"A routing entry could be evicted as 'mastered' (low current discrepancy) while still being the only record of which family handles a class — silent regression... indistinguishable from normal fact eviction under the current shared policy."* That row scoped this failure mode to routing entries specifically. **EXP-018 shows the identical mechanism afflicts ordinary factual content too** — it is a general property of point-in-time-mastery-based eviction under sequential training, not a routing-specific concern. IVS-001 §2's risk matrix under-scoped this risk; it is broader than originally written.
+
+### What This Does and Doesn't Establish
+**Establishes:** at real Transformer scale, under staged non-rehearsed training, EXP-001's validated eviction policy — applied with no modification — provides no measurable protection against catastrophic forgetting, because it structurally evicts exactly the content most at risk right when that risk is created. This is a genuine, mechanistically-confirmed limitation of the mechanism as currently specified in ACA v1.0 (ME-03), not of "external memory" as a general idea.
+
+**Does not establish:** that memory-augmented recall is unsalvageable under continual training. Untested here: (a) whether a much larger capacity (approaching the total fact count) trivially fixes this — plausible but uninteresting, since it defeats the point of a bounded memory; (b) whether **active consolidation before eviction** (replaying a "mastered" entry into the backbone's own training a few times before dropping it from external memory — EXP-010, previously unvalidated) closes the gap, since that would mean the backbone, not just the memory, retains the competence being evicted; (c) whether a policy that protects recently-written entries for a minimum number of steps regardless of apparent mastery helps — though this is expected to only delay, not fix, the mechanism, since mastery legitimately does occur before the risk period begins.
+
+### Follow-up Research
+1. **Highest priority, and already in scope as the pre-registered stretch ablation (`docs/11_mvp/ACA-MVP-001.md` §4):** test active consolidation-via-replay at each stage boundary (EXP-010) on this exact task, at the same constrained capacity (60), to isolate whether consolidation — not merely more capacity — rescues Stage-1 retention.
+2. Explicitly re-rank `docs/09_validation/IVS-001.md` §6: EXP-010 was ranked lowest (#6 of 7) on the stated grounds that it "does not affect correctness of anything already validated." EXP-018 shows this is no longer accurate — EXP-010 (or an equivalent fix) may be a prerequisite for ME-03 to deliver any benefit at all outside a static distribution, not an optional refinement.
+3. A control not yet run: repeat with memory capacity increased to ≥300 (able to hold every fact across all stages) to confirm the naive-cache condition trivially recovers full retention once eviction pressure is removed — a cheap, uninteresting-but-necessary sanity check that the harness itself isn't broken in some other way.
+4. Test whether a smaller, non-adversarial stage transition (e.g., partial rehearsal — a small fraction of earlier-stage facts mixed into later stages) changes the picture, to separate "sequential" from "zero rehearsal" as the operative harshness factor.

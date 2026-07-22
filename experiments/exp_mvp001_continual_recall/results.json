@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "n_names": 300,
+    "n_cities": 40,
+    "facts_per_stage": 100,
+    "memory_capacity": 60,
+    "steps_per_stage": 800,
+    "batch_size": 32,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "param_count": 619352,
+    "elapsed_sec": 656.7735378742218
+  },
+  "summary": {
+    "no_memory": {
+      "stage1_acc_mean": 0.1579999953508377,
+      "stage1_acc_std": 0.03867815915615009,
+      "stage1_param_only_mean": 0.1579999953508377,
+      "stage3_acc_mean": 1.0,
+      "stage3_acc_std": 0.0
+    },
+    "naive_cache_memory": {
+      "stage1_acc_mean": 0.1499999940395355,
+      "stage1_acc_std": 0.022803506358636903,
+      "stage1_param_only_mean": 0.1499999940395355,
+      "stage3_acc_mean": 1.0,
+      "stage3_acc_std": 0.0
+    },
+    "competence_gated_memory": {
+      "stage1_acc_mean": 0.1579999953508377,
+      "stage1_acc_std": 0.02712931581082347,
+      "stage1_param_only_mean": 0.1579999953508377,
+      "stage3_acc_mean": 1.0,
+      "stage3_acc_std": 0.0
+    }
+  },
+  "raw": {
+    "no_memory": [
+      {
+        "stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.0
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.10999999940395355,
+          "with_memory_acc": 0.10999999940395355,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.0
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.17999999225139618,
+          "with_memory_acc": 0.17999999225139618,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.0
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.2199999988079071,
+          "with_memory_acc": 0.2199999988079071,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.0
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.12999999523162842,
+          "with_memory_acc": 0.12999999523162842,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.0
+        }
+      }
+    ],
+    "naive_cache_memory": [
+      {
+        "stage1": {
+          "param_only_acc": 0.10999999940395355,
+          "with_memory_acc": 0.10999999940395355,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.17999999225139618,
+          "with_memory_acc": 0.17999999225139618,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.1599999964237213,
+          "with_memory_acc": 0.1599999964237213,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      }
+    ],
+    "competence_gated_memory": [
+      {
+        "stage1": {
+          "param_only_acc": 0.12999999523162842,
+          "with_memory_acc": 0.12999999523162842,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.14000000059604645,
+          "with_memory_acc": 0.14000000059604645,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.14000000059604645,
+          "with_memory_acc": 0.14000000059604645,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.17999999225139618,
+          "with_memory_acc": 0.17999999225139618,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      },
+      {
+        "stage1": {
+          "param_only_acc": 0.19999998807907104,
+          "with_memory_acc": 0.19999998807907104,
+          "coverage": 0.0
+        },
+        "stage3": {
+          "param_only_acc": 1.0,
+          "with_memory_acc": 1.0,
+          "coverage": 0.6
+        }
+      }
+    ]
+  }
+}
