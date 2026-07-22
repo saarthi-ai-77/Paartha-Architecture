@@ -316,3 +316,47 @@ Full per-seed data: `experiments/exp_mvp001_continual_recall/results.json` (`raw
 2. Explicitly re-rank `docs/09_validation/IVS-001.md` §6: EXP-010 was ranked lowest (#6 of 7) on the stated grounds that it "does not affect correctness of anything already validated." EXP-018 shows this is no longer accurate — EXP-010 (or an equivalent fix) may be a prerequisite for ME-03 to deliver any benefit at all outside a static distribution, not an optional refinement.
 3. A control not yet run: repeat with memory capacity increased to ≥300 (able to hold every fact across all stages) to confirm the naive-cache condition trivially recovers full retention once eviction pressure is removed — a cheap, uninteresting-but-necessary sanity check that the harness itself isn't broken in some other way.
 4. Test whether a smaller, non-adversarial stage transition (e.g., partial rehearsal — a small fraction of earlier-stage facts mixed into later stages) changes the picture, to separate "sequential" from "zero rehearsal" as the operative harshness factor.
+
+---
+
+## EXP-010: Consolidation-via-Replay — Does a Stage-Boundary Reinforcement Burst Rescue What EXP-018 Falsified?
+
+**Epistemic Status:** **FALSIFIED** for the specific, minimal operationalization tested here. This closes out EXP-010 as a previously-reserved but unrun roadmap item (`docs/07_future/Roadmap.md`, `docs/09_validation/IVS-001.md` §6) — now run, with a negative result, immediately following EXP-018 in the same research session. **Numbering note:** this entry appears after EXP-018 in this log despite its lower number, because EXP-010's ID was reserved at architecture-design time (before EXP-018 existed) but not actually executed until now, directly motivated by EXP-018's result. Logged in true completion order, not renumbered.
+
+### Objective
+EXP-018 found that competence-gated memory (ME-03) provides no measurable protection against catastrophic forgetting under staged, non-rehearsed continual training, because evicting a "mastered" entry treats a point-in-time reading as permanent safety. The most direct candidate fix, already named in this architecture's own roadmap and pre-scoped as `docs/11_mvp/ACA-MVP-001.md` §4's stretch ablation, is consolidation: reinforce a fact into the backbone's own weights before its external memory copy is evicted, so competence survives even after the copy is gone.
+
+### Research Question
+Does a stage-boundary replay burst — extra gradient steps on everything currently in memory, run immediately before the eviction pressure of the next stage begins — measurably improve Stage-1 recall after all 3 stages, relative to EXP-018's un-consolidated competence-gated result?
+
+### Hypothesis (stated before running)
+Reinforcing stored facts into the backbone via direct gradient steps, independent of whether their external memory copy later gets evicted, should raise Stage-1 param-only accuracy above EXP-018's 0.158 baseline — since the mechanism targets the backbone's own retention, not memory coverage (which was expected to remain near 0, unchanged, since eviction logic itself was deliberately left untouched to isolate consolidation as the only new variable).
+
+### Methodology
+Identical model, task, seeds (0–4), and 60-slot memory capacity to EXP-018. One new condition, `consolidated_gated_memory`: at each stage boundary except the last, every entry currently in memory receives 20 extra gradient steps (batch 32, sampled with replacement from whatever is currently stored — up to 60 facts, so roughly 10–11 expected exposures per fact) before the usual entropy-refresh/eviction bookkeeping proceeds. REPLAY_STEPS=20 and REPLAY_BATCH=32 are stated as a reasonable first choice, not tuned, exactly like EXP-001's original threshold constants. Code: `experiments/exp_mvp001_continual_recall/run_consolidation_ablation.py`. Compared directly against EXP-018's already-logged `competence_gated_memory` and `no_memory` numbers (same code path, same seeds, nothing else changed) rather than re-running them.
+
+### Results (mean ± std over 5 seeds)
+
+| Condition | Stage-1 acc (after 3 stages) | Stage-1 memory coverage at eval |
+|---|---|---|
+| no_memory (EXP-018) | 0.158 ± 0.039 | n/a |
+| competence_gated_memory, no consolidation (EXP-018) | 0.158 ± 0.027 | 0.0, every seed |
+| **consolidated_gated_memory (this experiment)** | **0.160 ± 0.028** | **0.0, every seed** |
+
+Per-seed Stage-1 param-only accuracy: 0.11, 0.15, 0.19, 0.18, 0.17 — same range and spread as EXP-018's baseline, not a shifted distribution. Full data: `experiments/exp_mvp001_continual_recall/results_consolidation_ablation.json`.
+
+### Conclusion
+**Hypothesis falsified.** A 20-step replay burst at each of 2 stage boundaries (40 extra gradient steps total per seed) produced no detectable improvement in Stage-1 retention — 0.160 vs. 0.158 is well within seed-to-seed noise (std ≈ 0.03), not a shifted result. Memory coverage remained exactly 0.0 in every seed, as expected (eviction logic was deliberately unchanged), confirming the test correctly isolated backbone-side reinforcement as the only variable — and that variable, at this dose, did nothing measurable.
+
+**Why, mechanistically, a plausible reason to expect this:** each stage boundary's 40 total replay steps face 800 steps of the *next* stage's unrelated training immediately afterward — a 20x disadvantage in step count, with nothing in the optimizer (plain Adam, no explicit weight-importance protection) anchoring the reinforced weights back toward Stage-1-good regions once that subsequent training begins. A one-time burst, however real the gradient update, is not defended against what comes right after it; ordinary gradient descent on 800 steps of new, disjoint data has no reason to preserve a state it was never continuously pulled back toward.
+
+### What This Does and Doesn't Establish
+**Establishes:** the specific, minimal, "one-time burst at the boundary" operationalization of consolidation-via-replay tested here does not rescue ME-03 under staged non-rehearsed training. This narrows, not closes, the space of viable fixes.
+
+**Does not establish:** that consolidation-via-replay as a general strategy cannot work. Two meaningfully different, untested variants remain: (a) **sustained/interleaved rehearsal** — mixing a small amount of old-stage data into *every* training step of the following stage, not just a burst at the boundary, so old competence is continuously defended rather than reinforced once and abandoned; (b) **explicit weight-importance protection** (e.g., EWC/synaptic-intelligence-style penalties keeping parameters estimated important for old facts from moving freely), which changes the optimizer's objective rather than adding extra data exposure. Both are larger, more invasive changes than what this experiment tested, and both are now the most informative next steps — sharper, more specific candidates than "try consolidation" was before this result.
+
+### Follow-up Research
+1. **Highest priority:** test interleaved rehearsal (a small fixed fraction of every subsequent-stage batch drawn from currently/recently-stored memory content, not a one-time boundary burst) on this same task — the natural next, sharper hypothesis given this result.
+2. Test whether simply scaling up REPLAY_STEPS substantially (e.g., 200 instead of 20) recovers any effect, to check whether this was a dose problem rather than a mechanism problem — cheap to run, worth ruling out explicitly before moving to a larger design change.
+3. Test an explicit weight-protection mechanism (EWC-style) as a structurally different candidate, since it targets the optimizer's treatment of "important" parameters directly rather than adding more data exposure.
+4. Update `docs/04_architecture/ACA_v1.0_Architecture.md` Section 11/18 and `docs/09_validation/IVS-001.md` Section 9 to record that the "candidate fix" they named is now itself falsified in its simplest form, not merely untested.

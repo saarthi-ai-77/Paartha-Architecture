@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "n_names": 300,
+    "n_cities": 40,
+    "facts_per_stage": 100,
+    "memory_capacity": 60,
+    "steps_per_stage": 800,
+    "batch_size": 32,
+    "replay_steps": 20,
+    "replay_batch": 32,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "param_count": 619352,
+    "elapsed_sec": 233.91549158096313
+  },
+  "summary": {
+    "stage1_acc_mean": 0.1599999964237213,
+    "stage1_acc_std": 0.02828427061525947,
+    "stage1_param_only_mean": 0.1599999964237213,
+    "stage1_coverage_mean": 0.0,
+    "stage3_acc_mean": 1.0,
+    "stage3_acc_std": 0.0
+  },
+  "baselines_from_exp018": {
+    "no_memory": {
+      "stage1_acc_mean": 0.1579999953508377,
+      "stage1_acc_std": 0.03867815915615009
+    },
+    "naive_cache_memory": {
+      "stage1_acc_mean": 0.1499999940395355,
+      "stage1_acc_std": 0.022803506358636903
+    },
+    "competence_gated_memory": {
+      "stage1_acc_mean": 0.1579999953508377,
+      "stage1_acc_std": 0.02712931581082347
+    }
+  },
+  "raw": [
+    {
+      "stage1": {
+        "param_only_acc": 0.10999999940395355,
+        "with_memory_acc": 0.10999999940395355,
+        "coverage": 0.0
+      },
+      "stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      }
+    },
+    {
+      "stage1": {
+        "param_only_acc": 0.14999999105930328,
+        "with_memory_acc": 0.14999999105930328,
+        "coverage": 0.0
+      },
+      "stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      }
+    },
+    {
+      "stage1": {
+        "param_only_acc": 0.1899999976158142,
+        "with_memory_acc": 0.1899999976158142,
+        "coverage": 0.0
+      },
+      "stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      }
+    },
+    {
+      "stage1": {
+        "param_only_acc": 0.17999999225139618,
+        "with_memory_acc": 0.17999999225139618,
+        "coverage": 0.0
+      },
+      "stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      }
+    },
+    {
+      "stage1": {
+        "param_only_acc": 0.17000000178813934,
+        "with_memory_acc": 0.17000000178813934,
+        "coverage": 0.0
+      },
+      "stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      }
+    }
+  ]
+}

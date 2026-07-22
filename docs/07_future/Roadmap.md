@@ -39,6 +39,8 @@ A prerequisite audit (IVS-001, performed before this ranking) also pruned ACA v1
 
 **Immediate next step, not a new item but this list's own pre-registered stretch ablation (`docs/11_mvp/ACA-MVP-001.md` §4):** test active consolidation-via-replay (EXP-010) on the same Benchmark A task, same constrained capacity — the one candidate mechanism that could plausibly rescue ME-03 under staged training. This is now higher priority than its position in the numbered list above (#4, folded in with EXP-013/014/012) reflects — that ranking assumed EXP-010 was a lower-stakes refinement; EXP-018 shows it may be a precondition for ME-03's validated status to extend beyond a static distribution at all. The numbered list above is left as originally written, per this document's own revision discipline; this note records why it is due for re-ranking, not a silent re-ordering.
 
+**EXP-010 has since run (same day) and also failed:** a one-time replay burst at each stage boundary produced no measurable improvement (0.160 ± 0.028 vs. 0.158 ± 0.027 baseline — `docs/06_experiments/Completed.md`, EXP-010). Benchmark A's full ablation set (core + stretch) is now complete; both ME-03 itself and its most direct minimal fix are falsified for staged, non-rehearsed continual training. Two structurally larger, untested candidates remain open — interleaved rehearsal throughout subsequent-stage training, and explicit weight-importance protection (EWC-style) — neither yet scheduled. Benchmark B (SCAN, an independent claim unaffected by this outcome) is the appropriate next benchmark; ME-03's open status is tracked here, not a blocker.
+
 ## Outstanding Unknowns
 See `docs/07_future/Unknowns.md` for the full, current list (this section previously duplicated it inline; consolidated 2026-07-18 to avoid drift between the two files).
 
@@ -50,10 +52,10 @@ See `docs/07_future/Unknowns.md` for the full, current list (this section previo
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
-**Current Status:** Active. ACA-MVP-001 Benchmark A complete (2026-07-22) — pre-registered success criterion failed, mechanism identified (EXP-018); consolidation stretch ablation (EXP-010) is the immediate next step.
-**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018.
-**Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
+**Current Status:** Active. ACA-MVP-001 Benchmark A complete, including its stretch ablation (2026-07-22) — pre-registered success criterion failed (EXP-018), most direct candidate fix also failed (EXP-010). Benchmark B (SCAN) is next.
+**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010.
+**Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018, EXP-010 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`.
 **Hypotheses:** N/A
-**Unknowns:** See `docs/07_future/Unknowns.md`. Whether EXP-010 rescues ME-03 under staged continual training is the most immediate open question.
+**Unknowns:** See `docs/07_future/Unknowns.md`. Whether ME-03 survives staged continual training under interleaved rehearsal or explicit weight-protection — both untested, both larger changes than what's been ruled out.
 **References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`
 
