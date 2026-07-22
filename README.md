@@ -7,8 +7,8 @@ The current research investigates whether intelligence should be implemented thr
 ## Current Status
 
 **Status:** Active Research
-**Current Milestone:** ACA v1.0 — `docs/04_architecture/ACA_v1.0_Architecture.md`. A full architecture specification (state model, four functions, execution/learning/memory/evaluation pipelines, dependency graph, risk register, assumptions register, dependency-aware experimental roadmap, revision policy), synthesized from ARS-001 with complete Component → Function → Requirement → Evidence traceability. EVALUATE is now three realizations, not one: LOCAL (validated), GENERALIZATION (validated only with real labels; falsified label-free by EXP-009), and **STRUCTURAL** — a new, theoretically-derived third category (`docs/08_requirements/ARS-001.md` §7) that verifies outputs against known domain invariants (symmetries, closure properties) rather than statistical confidence, precisely targeted at the mechanism that broke GENERALIZATION, but not yet tested.
-**Current Architecture Status:** Synthesized (ACA v1.0), not yet implemented as an integrated system. Components validated by experiment: episodic memory allocation (EXP-001), rule/family selection (EXP-002/003), their composability (EXP-004), and EVALUATE-LOCAL's label-free generality (EXP-009). Highest-priority open question: EXP-015 — does structural evaluation actually work, label-free, on EXP-002/003's own task? This determines whether v1.0's new S_invariants substrate has any justification at all.
+**Current Milestone:** IVS-001 (Integrated Validation Strategy) — `docs/09_validation/IVS-001.md`. The program has moved from architecture design to validation: the goal is now to determine whether ACA v1.0 survives contact with implementation, not to expand it further. A prerequisite audit pruned v1.0 itself (entropy is now the required default EVALUATE-LOCAL realization; unjustified components removed or demoted — see `docs/04_architecture/ACA_v1.0_Architecture.md` Section 17). The experimental roadmap is re-ranked by blast radius: **EXP-016** (does EVALUATE-LOCAL's calibration survive extended, concurrent continual learning?) is now highest priority — above EXP-015 — because failing it would retract already-validated infrastructure, not just decline to add new capability.
+**Current Architecture Status:** ACA v1.0 synthesized and audited, not yet implemented as an integrated system. IVS-001 defines system-level success criteria (conjunctive, not averaged), a named integration-risk register (including two previously-unidentified risks: a memory↔routing feedback loop, and a routing-eviction regression pattern), a minimal integrated prototype design, a four-stage validation ladder, deployment-artifact requirements (still not solved, only characterized), and explicit kill criteria for when ACA v1.0 should be abandoned or fundamentally redesigned rather than patched.
 **Latest Research Direction:** As of DEC-005 (2026-07-18), ACA's primary methodology shifted from council-driven first-principles derivation to build-experiment-validate-iterate: propose a small, concrete, trainable mechanism; test it against an honest baseline with multiple seeds; report the result — including falsification — before generalizing. See `docs/05_research/Decisions.md` (DEC-005) and `docs/01_background/HISTORY.md` (Phase 5) for the full rationale and what changed.
 
 ## Repository Overview
@@ -29,6 +29,7 @@ This repository serves as the official historical record and technical archive f
 * `docs/06_experiments/` - Templates, planned experiments, and the completed-experiment record (real code-based results, not prose hypotheses).
 * `docs/07_future/` - Roadmaps, milestones, and outstanding unknowns.
 * `docs/08_requirements/` - Implementation-independent Architecture Requirement Specifications (ARS-NNN) — the bridge between validated research and eventual architecture design. Deliberately kept separate from `docs/04_architecture/`, which is reserved for actual architecture content once it exists.
+* `docs/09_validation/` - Integrated Validation Strategies (IVS-NNN) — the bridge between an architecture specification and evidence that it works as one system, not just as a set of independently-validated components. Deliberately kept separate from `docs/04_architecture/`.
 * `archive/` - Deprecated and historical documentation (e.g., CCA v0.1).
 * `experiments/` - Actual runnable code for each completed/in-progress experiment (`expNNN_name/`), with results data alongside the write-up in `docs/06_experiments/Completed.md`.
 * `tooling/` - Supporting engineering tools for the research process (e.g. the Architecture Test Harness spec), separate from the research documentation itself.
@@ -48,6 +49,7 @@ To fully understand the context, progression, and current state of this research
 9. `docs/06_experiments/Completed.md` (the actual validated results this program currently stands on)
 10. `docs/08_requirements/ARS-001.md` (the requirements bridge between validated research and architecture design)
 11. `docs/04_architecture/ACA_v1.0_Architecture.md` (the current architecture itself, derived from ARS-001, with full function/requirement/evidence traceability)
+12. `docs/09_validation/IVS-001.md` (the validation program now determining whether that architecture actually works as one system)
 
 ## Contribution Philosophy
 

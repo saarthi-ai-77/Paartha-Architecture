@@ -236,10 +236,22 @@ v0.1 (CCA, archived) → v0.2 (council-driven, superseded) → v0.3 (validated c
 
 ---
 
-**Purpose:** ACA's architecture specification — the engineering blueprint synthesized from validated requirements (ARS-001), with complete Component → Function → Requirement → Evidence traceability throughout.
-**Current Status:** Active — v1.0, synthesized, not implemented.
-**Historical Context:** Produced 2026-07-18 under a changed role (architecture synthesis rather than research), immediately following ARS-001 Section 7's required theoretical clarification on structural evaluation.
+## 17. Corrections from IVS-001's Prerequisite Audit (Appended, Not Edited In-Place)
+
+`docs/09_validation/IVS-001.md` was required to audit this document for redundant or unjustified components before designing a validation strategy against it. Its findings are recorded here as an addition, per Section 15's own policy (revisions are appended, not silently rewritten into prior text):
+
+- **RC-03 has no separate identity.** Everywhere above that appears to treat it as distinct machinery (Sections 2.4, 3, 4, 7) should be read as: S_episodic (ME-01) used with a short-horizon eviction policy, not a separate component.
+- **EVALUATE-LOCAL's required default is entropy alone**, not all three EXP-009-validated candidates. Ensemble disagreement and the self-assessment head are documented fallbacks, not co-required components — they cost more (K× training; an extra head) for no measured benefit over entropy on either tested use.
+- **Variable compute-amount SELECT (part of Section 2.3/RC-02) is excluded from any near-term implementation** — no experiment has ever shown hard-argmax-only is insufficient. It remains a documented possibility, not a current requirement.
+- **S_episodic's shared content schemas (Section 1.1's original design, carried from ACA v0.4) require key-namespacing by schema** — a specification gap, not an experimental question, patched directly rather than deferred.
+- **A contingency to watch, not yet resolved:** if EXP-015 (Section 12) shows structural pre-filtering fully resolves family selection in tested cases, the labeled EVALUATE-GENERALIZATION step for that specific decision becomes redundant and should be removed then, not retained by default.
+
+---
+
+**Purpose:** ACA's architecture specification — the engineering blueprint synthesized from validated requirements (ARS-001), with complete Component → Function → Requirement → Evidence traceability throughout, audited for redundancy before validation planning proceeded against it.
+**Current Status:** Active — v1.0, synthesized, not implemented, audited once (Section 17).
+**Historical Context:** Produced 2026-07-18 under a changed role (architecture synthesis rather than research), immediately following ARS-001 Section 7's required theoretical clarification on structural evaluation. Audited the same day per `docs/09_validation/IVS-001.md`'s prerequisite requirement.
 **Known Facts:** See Section 2's per-function evidence tags and Section 11's falsification table.
 **Hypotheses:** Every component tagged Reasoned hypothesis or Speculative throughout, most consequentially S_invariants (1.3) and EVALUATE-STRUCTURAL (2.2c), both contingent on EXP-015.
-**Unknowns:** Section 12's six experiments; Section 13's five named risks, especially whole-system integration, never yet attempted even in miniature.
-**References:** `docs/08_requirements/ARS-001.md` (Sections 2, 5, 6, 7), `docs/06_experiments/Completed.md` (EXP-001–004, EXP-009), `docs/04_architecture/ACA_v0.4_Architecture.md` (superseded, preserved), `docs/03_foundations/{ACCEPTED,REJECTED,OPEN}.md`
+**Unknowns:** Section 12's six experiments (now superseded in priority order by IVS-001 §6's blast-radius ranking); Section 13's five named risks, especially whole-system integration, never yet attempted even in miniature.
+**References:** `docs/08_requirements/ARS-001.md` (Sections 2, 5, 6, 7), `docs/06_experiments/Completed.md` (EXP-001–004, EXP-009), `docs/04_architecture/ACA_v0.4_Architecture.md` (superseded, preserved), `docs/09_validation/IVS-001.md`, `docs/03_foundations/{ACCEPTED,REJECTED,OPEN}.md`
