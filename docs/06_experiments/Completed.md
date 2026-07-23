@@ -450,3 +450,43 @@ This is **not** EXP-018's mechanism recurring (eviction right after appearing "m
 1. Update `docs/12_cognition/CTX-001.md` and `docs/13_state_model/SOS-001.md` to reflect the resolved status — done alongside this entry.
 2. Test whether the "starvation" mechanism identified here also affects the *routing* schema (IVS-001's still-unrun EXP-011/017) — a second, real, concrete instance to check for the same failure, not just a theoretical possibility.
 3. Test reserved-partition sizing sensitivity: how many context fields can be reserved before the *fact* side's own effective capacity degrades meaningfully.
+
+---
+
+## EXP-021: ACA-MVP-001 Benchmark C — Does Joint Training Interfere at Real Scale?
+
+**Epistemic Status:** **CONFIRMED.** No measurable interference between the recall pathway (ME-03) and the compose pathway (RC-01) when trained jointly, one model, one optimizer, real backbones, real unrelated tasks. Directly extends EXP-004's toy-scale composability finding to the scale and task diversity this program has been building toward.
+
+### Objective
+EXP-004 validated, at toy scale, that a memory-allocation mechanism and a rule/compose mechanism can be trained together in one model without either degrading relative to its own isolated performance, under a disjoint-parameter design. `docs/11_mvp/ACA-MVP-001.md` §3 (Benchmark C) committed to testing whether this holds at real scale, combining Benchmark A's real causal-Transformer recall pathway and Benchmark B's real, SCAN-grammar-verified compose pathway — two genuinely unrelated real tasks, not two toy variants of the same underlying synthetic world.
+
+### Research Question
+Does training both pathways together — one model, one optimizer, mixed batches every step, fixed (non-learned) routing by input type — cause either pathway's real-scale performance to degrade relative to its own already-measured isolated result (EXP-018's competence-gated memory; EXP-020's structure-matched compose)?
+
+### Hypothesis (stated before running)
+No interference: joint-trained numbers statistically indistinguishable from the isolated baselines (EXP-018: 0.158 ± 0.027 recall Stage-1 accuracy; EXP-020: 1.000 ± 0.000 compose test accuracy). A real, measurable gap in either pathway would indicate genuine real-scale interference EXP-004's toy-scale test could not have revealed.
+
+### Methodology
+One model, two disjoint-parameter sub-networks: Benchmark A's `CausalTransformerLM` + competence-gated `SlotMemory` (identical mechanism, same 300-fact/3-stage/60-capacity structure) and Benchmark B's structure-matched compose model (same verified SCAN grammar + 326-parameter learned primitive classifier). One Adam optimizer over the combined parameters. Every step: sample a recall batch and a compose batch, compute both losses, sum, one `backward()`/`step()` call — EXP-004's methodology, unchanged in kind. 2,880 total steps (960/stage × 3), batch 32 for both pathways, 5 seeds. Code: `experiments/exp_mvp001_benchmark_c/run.py`.
+
+### Results (mean ± std over 5 seeds)
+
+| Pathway | Joint | Isolated | Interference? |
+|---|---|---|---|
+| Recall (Stage-1, with memory) | 0.152 ± 0.025 | 0.158 ± 0.027 (EXP-018) | None — within noise |
+| Compose (SCAN exact-match) | 1.0000 ± 0.0000 | 1.0000 ± 0.0000 (EXP-020) | None — exact match |
+
+Recall memory coverage at eval time: 0.000 in every seed, exactly as EXP-018 found in isolation — the same already-documented ME-03 limitation, present but **not worsened** by joint training. Full data: `experiments/exp_mvp001_benchmark_c/results.json`.
+
+### Conclusion
+**Hypothesis confirmed, cleanly.** Neither pathway's real-scale performance shifted measurably under joint training. The compose pathway's 1.0000 is an exact match to its isolated result; the recall pathway's 0.152 is statistically indistinguishable from its isolated 0.158. This directly extends EXP-004's disjoint-parameter composability finding from a toy synthetic world to two real, structurally unrelated tasks (natural-language-shaped factual recall vs. SCAN command composition) and real Transformer/compose architectures — the exact scale-transfer step EXP-004's own follow-up research (§"Follow-up Research" item 3) named as open.
+
+### What This Does and Doesn't Establish
+**Establishes:** the disjoint-parameter, fixed-routing design for combining heterogeneous ACA computation types does not itself introduce interference at real scale, for these two pathways. This is a genuine, positive piece of evidence toward IVS-001 §1's SC-6 ("no catastrophic cross-module interaction"), though it is not SC-6 itself — SC-6 requires this across ALL of IVS-001 §2's named interaction risks simultaneously, most of which (routing, planning, consolidation) are not exercised by this benchmark at all.
+
+**Does not establish:** that ME-03 (memory) works — it does not, independently and unaffected by this result (EXP-018/010 stand exactly as before). Composability is not the same claim as capability; this experiment shows the two pathways don't hurt each other, not that both pathways are individually good. Does not test a *learned* router (fixed, non-learned dispatch was used, per EXP-004's own precedent and ACA-MVP-001 §2's explicit scoping) or a *shared* substrate (parameters remained fully disjoint, the same limitation EXP-004 itself flagged and this experiment did not lift).
+
+### Follow-up Research
+1. The shared-substrate question EXP-004 and this experiment both left open: do these two pathways interfere if forced to share a token embedding space, rather than fully disjoint parameters?
+2. Replace fixed routing with a learned router (RC-02), now that both pathways are validated at real scale independently — the natural next integration step per `docs/04_architecture/Dynamic_Computation.md`'s standing open question.
+3. This completes ACA-MVP-001's originally-scoped Benchmark A/B/C implementation order in full.

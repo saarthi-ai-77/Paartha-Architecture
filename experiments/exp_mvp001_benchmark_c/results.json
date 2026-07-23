@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "steps_per_stage": 960,
+    "total_steps": 2880,
+    "recall_batch_size": 32,
+    "compose_batch_size": 32,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "elapsed_sec": 712.8394474983215
+  },
+  "summary": {
+    "recall_stage1_acc_mean": 0.15199999809265136,
+    "recall_stage1_acc_std": 0.024819345716571937,
+    "compose_test_acc_mean": 1.0,
+    "compose_test_acc_std": 0.0
+  },
+  "isolated_baselines": {
+    "recall_stage1": {
+      "mean": 0.1579999953508377,
+      "std": 0.02712931581082347
+    },
+    "compose_test_acc": {
+      "mean": 1.0,
+      "std": 0.0
+    }
+  },
+  "raw": [
+    {
+      "recall_stage1": {
+        "param_only_acc": 0.10999999940395355,
+        "with_memory_acc": 0.10999999940395355,
+        "coverage": 0.0
+      },
+      "recall_stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      },
+      "compose_test_acc": 1.0
+    },
+    {
+      "recall_stage1": {
+        "param_only_acc": 0.1599999964237213,
+        "with_memory_acc": 0.1599999964237213,
+        "coverage": 0.0
+      },
+      "recall_stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      },
+      "compose_test_acc": 1.0
+    },
+    {
+      "recall_stage1": {
+        "param_only_acc": 0.17000000178813934,
+        "with_memory_acc": 0.17000000178813934,
+        "coverage": 0.0
+      },
+      "recall_stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      },
+      "compose_test_acc": 1.0
+    },
+    {
+      "recall_stage1": {
+        "param_only_acc": 0.17999999225139618,
+        "with_memory_acc": 0.17999999225139618,
+        "coverage": 0.0
+      },
+      "recall_stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      },
+      "compose_test_acc": 1.0
+    },
+    {
+      "recall_stage1": {
+        "param_only_acc": 0.14000000059604645,
+        "with_memory_acc": 0.14000000059604645,
+        "coverage": 0.0
+      },
+      "recall_stage3": {
+        "param_only_acc": 1.0,
+        "with_memory_acc": 1.0,
+        "coverage": 0.6
+      },
+      "compose_test_acc": 1.0
+    }
+  ]
+}
