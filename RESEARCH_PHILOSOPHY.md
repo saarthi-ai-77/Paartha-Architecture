@@ -47,12 +47,20 @@ The "understand knowledge before proposing primitives" direction above was pursu
 
 This does not mean the underlying research question changed. It means we no longer believe we can answer "what computational structure does this kind of knowledge need?" by argument alone — the answer has to be discovered by building the candidate structure and observing whether it actually works, the same way the field's own scaling and architecture progress has actually happened. First-principles reasoning still has a role: it's how a candidate mechanism gets proposed and how a failure gets diagnosed. It is no longer treated as sufficient, by itself, to validate a claim.
 
+## Third Philosophical Shift: From Proposing-Then-Testing to Evidence-Driven Evolution
+
+The Second Shift still left room for a proposal to originate from reasoning — the mechanism was invented first, then tested. `docs/14_integration/SIP-001.md` (2026-07-23), the first document in this program to generate a finding through actual system integration rather than a hypothesis-first experiment, showed something further was possible: its integration runtime *produced* a research question (why does every fact query return "I do not know"?) that no one had reasoned their way to in advance, and the same runtime's own control condition isolated the cause without a separately-designed experiment.
+
+**As of DEC-006, this is now the required order, not an incidental discovery:** a new computational function, substrate, or module may not be proposed from conceptual reasoning alone. It must first pass a four-step gate — a reproducible runtime observation, isolation of the responsible variable, a dedicated falsification experiment, and demonstration that the current architecture cannot accommodate the result — before a new mechanism becomes proposable at all. Runtime observation, not conceptual proposal, is now the primary generator of research questions. A proposed fix that fails, or an observation that turns out explainable by existing architecture, is a first-class scientific outcome under this rule, not a failed attempt to be quietly dropped.
+
+This does not reverse the Second Shift's empiricism — it sharpens where in the process empiricism is required to start. Reasoning can still explain a mechanism once evidence has forced its necessity; it can no longer be the thing that first proposes it.
+
 ---
 
 **Purpose:** Document the philosophical evolution and current worldview of the research.
 **Current Status:** Active
-**Historical Context:** Reflects the transition from the CCA v0.1 era to the current adaptive computation focus, and the subsequent DEC-005 pivot from council-derived first principles to build-experiment-validate-iterate.
+**Historical Context:** Reflects the transition from the CCA v0.1 era to the current adaptive computation focus, the DEC-005 pivot from council-derived first principles to build-experiment-validate-iterate, and the DEC-006 sharpening into Evidence-Driven Evolution.
 **Known Facts:** Philosophy dictates a multi-mechanism approach to cognition. Two specific mechanisms (a competence-aware memory allocator, a validation-driven rule/family-selection module) have been empirically validated at small scale — see `docs/06_experiments/Completed.md`.
 **Hypotheses:** Intelligence emerges from dynamic selection of different mechanisms; this is now being tested by building and combining validated components rather than derived by argument alone.
-**Unknowns:** The complete taxonomy of necessary cognitive classes; how a dynamic scheduler would route between validated mechanisms at scale.
-**References:** `RESEARCH_MANIFESTO.md`, `docs/02_vision/VISION.md`, `archive/CCA_v0.1.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/06_experiments/Completed.md`
+**Unknowns:** The complete taxonomy of necessary cognitive classes; how a dynamic scheduler would route between validated mechanisms at scale. Whether SIP-001's single-exposure-teaching finding, the first case queued under DEC-006's gate, ultimately requires an architectural change or resolves within the current design.
+**References:** `RESEARCH_MANIFESTO.md`, `docs/02_vision/VISION.md`, `archive/CCA_v0.1.md`, `docs/05_research/Decisions.md` (DEC-005, DEC-006), `docs/06_experiments/Completed.md`, `docs/14_integration/SIP-001.md`
