@@ -409,3 +409,44 @@ Relative improvement: **~141x**. Parameter reduction: **~2090x fewer parameters,
 1. **Unchanged central open problem (still the most important next step, first flagged by EXP-002):** test whether a family-discovery mechanism (EXP-005, still not run) can recover a grammar like SCAN's from data alone, without it being hand-specified — the actual test of whether this result's mechanism could ever operate autonomously.
 2. Test on SCAN's other published splits (e.g., `addprim_turn_left`, length generalization, the simple random split as a non-compositional control) to check whether the 141x margin is specific to `addprim_jump` or general across SCAN's splits.
 3. Investigate whether the generic Transformer's near-zero accuracy is concentrated on `jump`-composed examples specifically (expected) or spread more broadly (would indicate a training issue unrelated to the compositional generalization question) — not yet checked at the per-example level.
+
+---
+
+## EXP-019: Is "S_working" Genuinely Irreducible, or Does a Disciplined Interaction of Existing Substrates Resolve It?
+
+**Epistemic Status:** **FALSIFIED** — a dedicated, structurally separate "S_working" substrate is not needed. A disciplined policy change to the existing S_episodic mechanism (reserved capacity partition + unconditional overwrite) achieves identical performance to genuine structural separation. Directly resolves the Reasoned Hypothesis `docs/12_cognition/CTX-001.md` §4 left open.
+
+### Objective
+Per CTO directive, resolve whether conversation/reasoning "context" (a small, fixed number of continuously-overwritten fields) requires a new state substrate distinct from S_episodic, S_semantic, and S_invariants, or whether it reduces to a disciplined interaction of the existing state model — before proceeding to Benchmark C, which was explicitly gated on this result.
+
+### Research Question
+Does a fixed-field context representation perform differently depending on whether it lives (a) in the ordinary, competence-gated S_episodic mechanism as just another schema, (b) in a wholly separate, dedicated, never-evicted buffer, or (c) in the same S_episodic mechanism/class but under a reserved capacity partition with unconditional-overwrite semantics?
+
+### Hypothesis (stated before running)
+(a) **naive_shared_schema** — expected to show real recall failures, since context entries compete for the same bounded capacity as ordinary facts under the same eviction policy. (b) **dedicated_working_state** — expected to recall the true current value of every slot perfectly, since nothing can ever evict it. (c) **reserved_partition** — the disciplined-interaction candidate: if it performs as well as (b), a policy change to the existing substrate suffices and no new substrate is needed; if it performs like (a), something about genuine structural separation matters beyond capacity-reservation and unconditional writes.
+
+### Methodology
+Extends ACA-MVP-001 Benchmark A's validated `CausalTransformerLM` and gated-write mechanism unchanged for the fact side (same 300 facts/3 stages/60-capacity structure). Adds a context-slot stream: 4 slots, 20 possible values each, reassigned to a new random value every 100 steps (24 events across the 2400-step run, plus a forced initial assignment for every slot so evaluation never tests an untrained value by chance). Three conditions, 5 seeds, identical `torch.manual_seed`/fact-batch sampling across conditions so fact training is byte-for-byte identical and only the slot-storage discipline differs. Evaluated on exact recall of each slot's **true current (latest) value** after the full run. Code: `experiments/exp019_working_state/run.py`.
+
+### Results (mean ± std over 5 seeds)
+
+| Condition | Slot recall (with memory) | Slot coverage at eval | Fact Stage-1 recall (control) |
+|---|---|---|---|
+| naive_shared_schema | **0.200 ± 0.100** | **0.000, every seed** | 0.150 (identical across all 3 conditions — confirms clean isolation) |
+| dedicated_working_state | **1.000 ± 0.000** | **1.000, every seed** | 0.150 |
+| reserved_partition | **1.000 ± 0.000** | **1.000, every seed** | 0.150 |
+
+Full data: `experiments/exp019_working_state/results.json`.
+
+### Mechanism (traced directly, not inferred — a targeted single-seed diagnostic run with per-event logging)
+This is **not** EXP-018's mechanism recurring (eviction right after appearing "mastered") — it is a distinct, complementary failure: **persistent write starvation.** Tracing every slot-reassignment event's write decision showed the shared 60-slot fact memory fills and stays completely full from partway through Stage 1 onward. `gated_write`'s eviction rule requires the *currently worst-stored* entry's entropy to be below the running median before anything can be evicted — and because facts keep streaming in throughout all 3 stages, the store is persistently dominated by still-being-learned (still-surprising) fact content. A slot reassignment's own entropy is often genuinely high (correctly passing the write-gate), but **no existing entry is ever "mastered enough" to sacrifice**, so the write is skipped via the eviction-side `else: continue` branch — not once, but at every single one of the 24 events, in every seed. Context entries were never evicted after entering; they were **locked out of entering at all.**
+
+### What This Does and Doesn't Establish
+**Establishes:** CTX-001's tentative S_working substrate is unnecessary. The access-pattern mismatch CTX-001 §4 identified (bounded fields vs. a competitive key-value store) is real, but the fix is a **policy discipline on the existing mechanism** — reserve capacity per schema, write unconditionally for schemas whose purpose is "track the current value" rather than "accumulate distinct facts" — not a new substrate. This resolves ARS-001's original "~90% reducible to ME-01" hedge (§1.4) at effectively 100%, once the missing disciplines are applied. Also surfaces a second, general failure mode of shared capacitated stores beyond EXP-018's: **starvation** (a new, high-priority write can be perpetually blocked if nothing currently stored looks evictable), distinct from and complementary to EXP-018's **premature eviction** (something evicted right when it becomes vulnerable). Both point to the same fix.
+
+**Does not establish:** that reserved partitioning solves every context-representation question — only that, for this task, it matches full separation. Untested: whether reserved-partition sizing needs to grow with the number of tracked context fields, or how this interacts with the still-open EXP-018/010 forgetting problem for the *ordinary* fact side of the same shared mechanism (unaffected by this experiment, since fact recall was identical across all three conditions by design).
+
+### Follow-up Research
+1. Update `docs/12_cognition/CTX-001.md` and `docs/13_state_model/SOS-001.md` to reflect the resolved status — done alongside this entry.
+2. Test whether the "starvation" mechanism identified here also affects the *routing* schema (IVS-001's still-unrun EXP-011/017) — a second, real, concrete instance to check for the same failure, not just a theoretical possibility.
+3. Test reserved-partition sizing sensitivity: how many context fields can be reserved before the *fact* side's own effective capacity degrades meaningfully.

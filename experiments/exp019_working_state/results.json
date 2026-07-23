@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "n_names": 300,
+    "n_slots": 4,
+    "n_values": 20,
+    "fact_memory_capacity": 60,
+    "slot_event_every": 100,
+    "steps_per_stage": 800,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "param_count": 626034,
+    "elapsed_sec": 575.6626524925232
+  },
+  "summary": {
+    "naive_shared_schema": {
+      "slot_acc_mean": 0.2,
+      "slot_acc_std": 0.1,
+      "slot_param_only_mean": 0.2,
+      "slot_coverage_mean": 0.0,
+      "fact_stage1_acc_mean": 0.1499999940395355
+    },
+    "dedicated_working_state": {
+      "slot_acc_mean": 1.0,
+      "slot_acc_std": 0.0,
+      "slot_param_only_mean": 0.2,
+      "slot_coverage_mean": 1.0,
+      "fact_stage1_acc_mean": 0.1499999940395355
+    },
+    "reserved_partition": {
+      "slot_acc_mean": 1.0,
+      "slot_acc_std": 0.0,
+      "slot_param_only_mean": 0.2,
+      "slot_coverage_mean": 1.0,
+      "fact_stage1_acc_mean": 0.1499999940395355
+    }
+  },
+  "raw": {
+    "naive_shared_schema": [
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.1599999964237213,
+          "with_memory_acc": 0.1599999964237213,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 0.25,
+          "coverage": 0.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 0.25,
+          "coverage": 0.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.0,
+          "with_memory_acc": 0.0,
+          "coverage": 0.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.19999998807907104,
+          "with_memory_acc": 0.19999998807907104,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 0.25,
+          "coverage": 0.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 0.25,
+          "coverage": 0.0
+        }
+      }
+    ],
+    "dedicated_working_state": [
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.1599999964237213,
+          "with_memory_acc": 0.1599999964237213,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.0,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.19999998807907104,
+          "with_memory_acc": 0.19999998807907104,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      }
+    ],
+    "reserved_partition": [
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.1599999964237213,
+          "with_memory_acc": 0.1599999964237213,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.14999999105930328,
+          "with_memory_acc": 0.14999999105930328,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.0,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.19999998807907104,
+          "with_memory_acc": 0.19999998807907104,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      },
+      {
+        "facts_stage1": {
+          "param_only_acc": 0.11999999731779099,
+          "with_memory_acc": 0.11999999731779099,
+          "coverage": 0.0
+        },
+        "slots": {
+          "param_only_acc": 0.25,
+          "with_memory_acc": 1.0,
+          "coverage": 1.0
+        }
+      }
+    ]
+  }
+}
