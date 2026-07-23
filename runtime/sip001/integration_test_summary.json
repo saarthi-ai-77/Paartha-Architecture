@@ -1,0 +1,1072 @@
+{
+  "n_episodes": 80,
+  "anomaly_counts_by_classification": {},
+  "early_fact_recall_pre_promotion": [
+    [
+      "Name_0",
+      "City_13",
+      "I do not know."
+    ],
+    [
+      "Name_1",
+      "City_6",
+      "I do not know."
+    ],
+    [
+      "Name_2",
+      "City_12",
+      "I do not know."
+    ],
+    [
+      "Name_3",
+      "City_14",
+      "I do not know."
+    ],
+    [
+      "Name_4",
+      "City_6",
+      "I do not know."
+    ]
+  ],
+  "late_fact_recall": [
+    [
+      "Name_35",
+      "City_2",
+      "I do not know."
+    ],
+    [
+      "Name_36",
+      "City_4",
+      "I do not know."
+    ],
+    [
+      "Name_37",
+      "City_1",
+      "I do not know."
+    ],
+    [
+      "Name_38",
+      "City_11",
+      "I do not know."
+    ],
+    [
+      "Name_39",
+      "City_1",
+      "I do not know."
+    ]
+  ],
+  "novel_query_response": "I do not know.",
+  "scan_accuracy_sample": 1.0,
+  "scan_results_sample": [
+    {
+      "tokens": [
+        "jump",
+        "around",
+        "left",
+        "thrice",
+        "and",
+        "turn",
+        "right"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "right",
+        "twice",
+        "and",
+        "jump",
+        "left",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "and",
+        "walk",
+        "around",
+        "right",
+        "twice"
+      ],
+      "true": [
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "predicted": [
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "turn",
+        "left",
+        "thrice",
+        "after",
+        "jump",
+        "around",
+        "left"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "around",
+        "left",
+        "after",
+        "jump",
+        "around",
+        "right",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "opposite",
+        "right",
+        "thrice",
+        "and",
+        "walk",
+        "opposite",
+        "right"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "around",
+        "right",
+        "twice",
+        "and",
+        "look",
+        "right",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "walk",
+        "right",
+        "and",
+        "jump",
+        "opposite",
+        "right",
+        "twice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "right",
+        "after",
+        "jump",
+        "opposite",
+        "right",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "run",
+        "around",
+        "right",
+        "twice",
+        "after",
+        "jump",
+        "around",
+        "right"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "opposite",
+        "left",
+        "twice",
+        "after",
+        "jump",
+        "opposite",
+        "left",
+        "twice"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_LOOK"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_LOOK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "opposite",
+        "right",
+        "after",
+        "jump",
+        "around",
+        "left",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "around",
+        "right",
+        "thrice",
+        "after",
+        "jump",
+        "left",
+        "twice"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK",
+        "I_TURN_RIGHT",
+        "I_LOOK"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "run",
+        "right",
+        "thrice",
+        "and",
+        "jump",
+        "right",
+        "twice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "look",
+        "thrice",
+        "and",
+        "jump",
+        "around",
+        "left"
+      ],
+      "true": [
+        "I_LOOK",
+        "I_LOOK",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_LOOK",
+        "I_LOOK",
+        "I_LOOK",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "opposite",
+        "right",
+        "and",
+        "turn",
+        "right",
+        "thrice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT",
+        "I_TURN_RIGHT"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "turn",
+        "right",
+        "and",
+        "jump"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "turn",
+        "left",
+        "thrice",
+        "and",
+        "jump",
+        "left"
+      ],
+      "true": [
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_TURN_LEFT",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "after",
+        "run",
+        "around",
+        "right",
+        "twice"
+      ],
+      "true": [
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_JUMP"
+      ],
+      "predicted": [
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_TURN_RIGHT",
+        "I_RUN",
+        "I_JUMP"
+      ],
+      "correct": true
+    },
+    {
+      "tokens": [
+        "jump",
+        "thrice",
+        "and",
+        "walk",
+        "right",
+        "twice"
+      ],
+      "true": [
+        "I_JUMP",
+        "I_JUMP",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "predicted": [
+        "I_JUMP",
+        "I_JUMP",
+        "I_JUMP",
+        "I_TURN_RIGHT",
+        "I_WALK",
+        "I_TURN_RIGHT",
+        "I_WALK"
+      ],
+      "correct": true
+    }
+  ],
+  "knowledge_promotion_outcome": "replayed_20_steps_over_2_entries",
+  "early_fact_recall_post_promotion": [
+    [
+      "Name_0",
+      "City_13",
+      "I do not know."
+    ],
+    [
+      "Name_1",
+      "City_6",
+      "I do not know."
+    ],
+    [
+      "Name_2",
+      "City_12",
+      "I do not know."
+    ],
+    [
+      "Name_3",
+      "City_14",
+      "I do not know."
+    ],
+    [
+      "Name_4",
+      "City_6",
+      "I do not know."
+    ]
+  ],
+  "memory_final_size": 16,
+  "memory_capacity": 30,
+  "control_repeated_exposure": {
+    "accuracy": 1.0,
+    "results": [
+      {
+        "name": "CtrlName_0",
+        "true_city": "City_0",
+        "response": "City_0",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_1",
+        "true_city": "City_12",
+        "response": "City_12",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_2",
+        "true_city": "City_14",
+        "response": "City_14",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_3",
+        "true_city": "City_8",
+        "response": "City_8",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_4",
+        "true_city": "City_14",
+        "response": "City_14",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_5",
+        "true_city": "City_0",
+        "response": "City_0",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_6",
+        "true_city": "City_1",
+        "response": "City_1",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_7",
+        "true_city": "City_11",
+        "response": "City_11",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_8",
+        "true_city": "City_13",
+        "response": "City_13",
+        "correct": true
+      },
+      {
+        "name": "CtrlName_9",
+        "true_city": "City_6",
+        "response": "City_6",
+        "correct": true
+      }
+    ],
+    "memory_coverage": 0.0
+  }
+}
