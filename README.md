@@ -22,6 +22,7 @@ This repository serves as the official historical record and technical archive f
 * `RESEARCH_MANIFESTO.md` - Core mission, motivations, and scientific principles.
 * `RESEARCH_PHILOSOPHY.md` - Evolution of research worldview and philosophical stances.
 * `TERMINOLOGY.md` - Canonical glossary of concepts and primitives.
+* `docs/00_orientation/` - **Read this before anything else if you are an agent taking over CTO/Chief-role leadership.** `CTO_CONTEXT.md` is a living handoff document (updated every session, not written once) covering current role, binding methodology rules, repository navigation, and a dated session log. `NEW_AGENT_PROMPT.md` is the reusable onboarding message that points here.
 * `docs/01_background/` - Chronological narrative of the project's history and evolution.
 * `docs/02_vision/` - Mission, vision, objectives, and success criteria.
 * `docs/03_foundations/` - Explicitly categorized research foundations (Accepted, Rejected, Open, Archived).
@@ -42,6 +43,8 @@ This repository serves as the official historical record and technical archive f
 * `tooling/` - Supporting engineering tools for the research process (e.g. the Architecture Test Harness spec), separate from the research documentation itself.
 
 ## Reading Order for New Researchers
+
+**If you are an agent taking over CTO/Chief-role leadership rather than a human researcher browsing, stop here and read `docs/00_orientation/CTO_CONTEXT.md` first** — it supersedes this list for "how to act," even though this list remains the right order for understanding the science itself.
 
 To fully understand the context, progression, and current state of this research, new researchers are advised to read the repository in the following order:
 
