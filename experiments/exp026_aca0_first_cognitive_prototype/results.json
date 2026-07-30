@@ -1,0 +1,60 @@
+{
+  "exp_id": "EXP-026",
+  "model": "ACA-0",
+  "n_seeds": 5,
+  "all_seeds_passed": true,
+  "metrics": {
+    "stage1_direct_recall_pass_rate": 1.0,
+    "stage2_explanation_pass_rate": 1.0,
+    "stage3_transfer_pass_rate": 1.0,
+    "stage4_counterfactual_pass_rate": 1.0,
+    "stage5_clarification_pass_rate": 1.0
+  },
+  "per_seed_results": [
+    {
+      "benchmark_success": true,
+      "stage1_direct_recall": "YES",
+      "stage2_explanation": "Because Whales are Mammals, and all Mammals breathes Air.",
+      "stage3_transfer": "YES",
+      "stage4_counterfactual": "NO",
+      "stage5_clarification_status": "CLARIFICATION_REQUIRED",
+      "stage5_post_clarification_answer": "YES"
+    },
+    {
+      "benchmark_success": true,
+      "stage1_direct_recall": "YES",
+      "stage2_explanation": "Because Whales are Mammals, and all Mammals breathes Air.",
+      "stage3_transfer": "YES",
+      "stage4_counterfactual": "NO",
+      "stage5_clarification_status": "CLARIFICATION_REQUIRED",
+      "stage5_post_clarification_answer": "YES"
+    },
+    {
+      "benchmark_success": true,
+      "stage1_direct_recall": "YES",
+      "stage2_explanation": "Because Whales are Mammals, and all Mammals breathes Air.",
+      "stage3_transfer": "YES",
+      "stage4_counterfactual": "NO",
+      "stage5_clarification_status": "CLARIFICATION_REQUIRED",
+      "stage5_post_clarification_answer": "YES"
+    },
+    {
+      "benchmark_success": true,
+      "stage1_direct_recall": "YES",
+      "stage2_explanation": "Because Whales are Mammals, and all Mammals breathes Air.",
+      "stage3_transfer": "YES",
+      "stage4_counterfactual": "NO",
+      "stage5_clarification_status": "CLARIFICATION_REQUIRED",
+      "stage5_post_clarification_answer": "YES"
+    },
+    {
+      "benchmark_success": true,
+      "stage1_direct_recall": "YES",
+      "stage2_explanation": "Because Whales are Mammals, and all Mammals breathes Air.",
+      "stage3_transfer": "YES",
+      "stage4_counterfactual": "NO",
+      "stage5_clarification_status": "CLARIFICATION_REQUIRED",
+      "stage5_post_clarification_answer": "YES"
+    }
+  ]
+}

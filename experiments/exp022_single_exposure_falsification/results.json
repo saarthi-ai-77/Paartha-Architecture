@@ -1,0 +1,456 @@
+{
+  "exp_id": "EXP-022",
+  "n_seeds": 5,
+  "battery_a_implementation_bug": {
+    "bug_detected": true,
+    "mean_loss_delta": 0.5017586708068847,
+    "mean_grad_norm": 7.027894115447998,
+    "causal_mask_verified": false
+  },
+  "battery_b_optimization_artifact": {
+    "lr_sweep": {
+      "0.0001": {
+        "mean_ent_drop": -0.0074024200439453125,
+        "confident_rate": 0.0
+      },
+      "0.0003": {
+        "mean_ent_drop": -0.003271007537841797,
+        "confident_rate": 0.0
+      },
+      "0.001": {
+        "mean_ent_drop": 0.054837512969970706,
+        "confident_rate": 0.0
+      },
+      "0.003": {
+        "mean_ent_drop": 0.41787290573120117,
+        "confident_rate": 0.0
+      },
+      "0.01": {
+        "mean_ent_drop": 1.0055480003356934,
+        "confident_rate": 0.0
+      },
+      "0.03": {
+        "mean_ent_drop": 1.26418137550354,
+        "confident_rate": 0.0
+      },
+      "0.1": {
+        "mean_ent_drop": 2.891774904727936,
+        "confident_rate": 0.8
+      }
+    },
+    "k_step_trajectory": {
+      "0.0003": [
+        {
+          "step": 1,
+          "mean_entropy": 4.15106430053711,
+          "accuracy": 0.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 2,
+          "mean_entropy": 4.147159767150879,
+          "accuracy": 0.4,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 3,
+          "mean_entropy": 4.121872425079346,
+          "accuracy": 0.6,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 4,
+          "mean_entropy": 4.0588099479675295,
+          "accuracy": 0.6,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 5,
+          "mean_entropy": 4.000570487976074,
+          "accuracy": 0.6,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 6,
+          "mean_entropy": 3.9063965320587157,
+          "accuracy": 0.8,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 7,
+          "mean_entropy": 3.7996365547180178,
+          "accuracy": 0.8,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 8,
+          "mean_entropy": 3.706800365447998,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 9,
+          "mean_entropy": 3.57802095413208,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 10,
+          "mean_entropy": 3.385273742675781,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 11,
+          "mean_entropy": 3.303440809249878,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 12,
+          "mean_entropy": 3.061472511291504,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 13,
+          "mean_entropy": 2.903066539764404,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 14,
+          "mean_entropy": 2.7547111988067625,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 15,
+          "mean_entropy": 2.5325368642807007,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 16,
+          "mean_entropy": 2.4808849334716796,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 17,
+          "mean_entropy": 2.202748918533325,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 18,
+          "mean_entropy": 2.158649206161499,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 19,
+          "mean_entropy": 1.9973371505737305,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 20,
+          "mean_entropy": 1.83778920173645,
+          "accuracy": 1.0,
+          "confidence_rate": 0.2
+        },
+        {
+          "step": 21,
+          "mean_entropy": 1.7004425525665283,
+          "accuracy": 1.0,
+          "confidence_rate": 0.2
+        },
+        {
+          "step": 22,
+          "mean_entropy": 1.6318685054779052,
+          "accuracy": 1.0,
+          "confidence_rate": 0.4
+        },
+        {
+          "step": 23,
+          "mean_entropy": 1.51160671710968,
+          "accuracy": 1.0,
+          "confidence_rate": 0.6
+        },
+        {
+          "step": 24,
+          "mean_entropy": 1.420273733139038,
+          "accuracy": 1.0,
+          "confidence_rate": 0.6
+        },
+        {
+          "step": 25,
+          "mean_entropy": 1.3125900983810426,
+          "accuracy": 1.0,
+          "confidence_rate": 0.6
+        },
+        {
+          "step": 26,
+          "mean_entropy": 1.260295534133911,
+          "accuracy": 1.0,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 27,
+          "mean_entropy": 1.1667638301849366,
+          "accuracy": 1.0,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 28,
+          "mean_entropy": 1.1919719219207763,
+          "accuracy": 1.0,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 29,
+          "mean_entropy": 1.0436448335647583,
+          "accuracy": 1.0,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 30,
+          "mean_entropy": 1.0877845406532287,
+          "accuracy": 1.0,
+          "confidence_rate": 1.0
+        }
+      ],
+      "0.01": [
+        {
+          "step": 1,
+          "mean_entropy": 3.11970591545105,
+          "accuracy": 0.6,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 2,
+          "mean_entropy": 3.3194889068603515,
+          "accuracy": 1.0,
+          "confidence_rate": 0.0
+        },
+        {
+          "step": 3,
+          "mean_entropy": 1.426944088935852,
+          "accuracy": 0.4,
+          "confidence_rate": 0.4
+        },
+        {
+          "step": 4,
+          "mean_entropy": 1.0693411111831665,
+          "accuracy": 0.8,
+          "confidence_rate": 0.6
+        },
+        {
+          "step": 5,
+          "mean_entropy": 1.0753509819507598,
+          "accuracy": 0.4,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 6,
+          "mean_entropy": 0.9790400981903076,
+          "accuracy": 0.8,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 7,
+          "mean_entropy": 0.6637152016162873,
+          "accuracy": 0.6,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 8,
+          "mean_entropy": 0.7481088161468505,
+          "accuracy": 0.6,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 9,
+          "mean_entropy": 0.8211148262023926,
+          "accuracy": 0.6,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 10,
+          "mean_entropy": 0.7406662285327912,
+          "accuracy": 0.2,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 11,
+          "mean_entropy": 0.9226631939411163,
+          "accuracy": 0.4,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 12,
+          "mean_entropy": 1.216055655479431,
+          "accuracy": 0.2,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 13,
+          "mean_entropy": 1.2999626398086548,
+          "accuracy": 0.0,
+          "confidence_rate": 0.6
+        },
+        {
+          "step": 14,
+          "mean_entropy": 1.3225024223327637,
+          "accuracy": 0.2,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 15,
+          "mean_entropy": 1.3357966065406799,
+          "accuracy": 0.4,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 16,
+          "mean_entropy": 1.392525553703308,
+          "accuracy": 0.4,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 17,
+          "mean_entropy": 1.3287472367286681,
+          "accuracy": 0.6,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 18,
+          "mean_entropy": 1.3567250728607179,
+          "accuracy": 0.2,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 19,
+          "mean_entropy": 1.2025127053260802,
+          "accuracy": 0.4,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 20,
+          "mean_entropy": 1.2748052716255187,
+          "accuracy": 0.0,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 21,
+          "mean_entropy": 1.2871954560279846,
+          "accuracy": 0.0,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 22,
+          "mean_entropy": 1.2143882870674134,
+          "accuracy": 0.2,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 23,
+          "mean_entropy": 1.2529134511947633,
+          "accuracy": 0.0,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 24,
+          "mean_entropy": 1.2394550800323487,
+          "accuracy": 0.6,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 25,
+          "mean_entropy": 1.2752495527267456,
+          "accuracy": 0.2,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 26,
+          "mean_entropy": 1.2859579086303712,
+          "accuracy": 0.6,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 27,
+          "mean_entropy": 1.2985830307006836,
+          "accuracy": 0.8,
+          "confidence_rate": 1.0
+        },
+        {
+          "step": 28,
+          "mean_entropy": 1.3227680683135987,
+          "accuracy": 0.6,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 29,
+          "mean_entropy": 1.188020694255829,
+          "accuracy": 0.2,
+          "confidence_rate": 0.8
+        },
+        {
+          "step": 30,
+          "mean_entropy": 1.1808740615844726,
+          "accuracy": 0.4,
+          "confidence_rate": 0.8
+        }
+      ]
+    }
+  },
+  "battery_c_algorithmic_limitation": {
+    "gated_write": {
+      "mean_memory_coverage": 0.1,
+      "mean_memory_accuracy": 0.1,
+      "mean_pipeline_accuracy": 0.1,
+      "skip_not_surprising_count": 36
+    },
+    "unconditional_write": {
+      "mean_memory_coverage": 1.0,
+      "mean_memory_accuracy": 1.0,
+      "mean_pipeline_accuracy": 1.0,
+      "skip_not_surprising_count": 0
+    },
+    "absolute_threshold": {
+      "mean_memory_coverage": 0.1,
+      "mean_memory_accuracy": 0.1,
+      "mean_pipeline_accuracy": 0.1,
+      "skip_not_surprising_count": 36
+    },
+    "novel_key_write": {
+      "mean_memory_coverage": 0.75,
+      "mean_memory_accuracy": 0.75,
+      "mean_pipeline_accuracy": 0.75,
+      "skip_not_surprising_count": 0
+    }
+  },
+  "battery_d_step4_accommodation": {
+    "baseline_sip001": {
+      "mean_pipeline_accuracy": 0.1,
+      "std_pipeline_accuracy": 0.049999999999999996,
+      "mean_memory_coverage": 0.1
+    },
+    "sos001_unconditional_episodic": {
+      "mean_pipeline_accuracy": 0.75,
+      "std_pipeline_accuracy": 0.0,
+      "mean_memory_coverage": 0.75
+    },
+    "exposure_aware_boundary": {
+      "mean_pipeline_accuracy": 0.175,
+      "std_pipeline_accuracy": 0.03535533905932738,
+      "mean_memory_coverage": 0.1
+    },
+    "micro_replay_5step": {
+      "mean_pipeline_accuracy": 1.0,
+      "std_pipeline_accuracy": 0.0,
+      "mean_memory_coverage": 1.0
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "exp_id": "EXP-031",
+  "domain": "Domain 5 -- Long-Term Continual Learning (1,000 Lessons)",
+  "model": "runtime/sip002 (CPA-001 INV-1 Policy 1)",
+  "capacity": 30,
+  "total_lessons": 1000,
+  "n_seeds": 5,
+  "all_seeds_passed": false,
+  "metrics": {
+    "avg_early_batch_recall": 0.067,
+    "avg_middle_batch_recall": 0.0755,
+    "avg_late_batch_recall": 0.1565,
+    "avg_overall_recall": 0.1038,
+    "pass_rate": 0.0
+  },
+  "per_seed_results": [
+    {
+      "seed": 0,
+      "early_batch_recall": 0.055,
+      "middle_batch_recall": 0.095,
+      "late_batch_recall": 0.1425,
+      "overall_recall": 0.106,
+      "seed_passed": false
+    },
+    {
+      "seed": 1,
+      "early_batch_recall": 0.09,
+      "middle_batch_recall": 0.065,
+      "late_batch_recall": 0.175,
+      "overall_recall": 0.118,
+      "seed_passed": false
+    },
+    {
+      "seed": 2,
+      "early_batch_recall": 0.05,
+      "middle_batch_recall": 0.06,
+      "late_batch_recall": 0.115,
+      "overall_recall": 0.077,
+      "seed_passed": false
+    },
+    {
+      "seed": 3,
+      "early_batch_recall": 0.07,
+      "middle_batch_recall": 0.0925,
+      "late_batch_recall": 0.155,
+      "overall_recall": 0.107,
+      "seed_passed": false
+    },
+    {
+      "seed": 4,
+      "early_batch_recall": 0.07,
+      "middle_batch_recall": 0.065,
+      "late_batch_recall": 0.195,
+      "overall_recall": 0.111,
+      "seed_passed": false
+    }
+  ]
+}

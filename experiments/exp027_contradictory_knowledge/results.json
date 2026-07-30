@@ -1,0 +1,85 @@
+{
+  "exp_id": "EXP-027",
+  "domain": "Domain 1 -- Contradictory Knowledge",
+  "model": "ACA-0 (Frozen Reference System)",
+  "n_seeds": 5,
+  "all_seeds_passed": true,
+  "metrics": {
+    "pre_k1_recall_rate": 1.0,
+    "k1_preservation_rate": 1.0,
+    "contradiction_detection_rate": 1.0,
+    "overall_pass_rate": 1.0
+  },
+  "per_seed_results": [
+    {
+      "seed": 0,
+      "pre_k1_recall": true,
+      "categories_assigned": [
+        "Mammal",
+        "Fish"
+      ],
+      "has_multiple_categories": true,
+      "post_air_answer": "YES",
+      "post_water_answer": "YES",
+      "contradiction_detected": true,
+      "k1_preserved": true,
+      "seed_passed": true
+    },
+    {
+      "seed": 1,
+      "pre_k1_recall": true,
+      "categories_assigned": [
+        "Mammal",
+        "Fish"
+      ],
+      "has_multiple_categories": true,
+      "post_air_answer": "YES",
+      "post_water_answer": "YES",
+      "contradiction_detected": true,
+      "k1_preserved": true,
+      "seed_passed": true
+    },
+    {
+      "seed": 2,
+      "pre_k1_recall": true,
+      "categories_assigned": [
+        "Mammal",
+        "Fish"
+      ],
+      "has_multiple_categories": true,
+      "post_air_answer": "YES",
+      "post_water_answer": "YES",
+      "contradiction_detected": true,
+      "k1_preserved": true,
+      "seed_passed": true
+    },
+    {
+      "seed": 3,
+      "pre_k1_recall": true,
+      "categories_assigned": [
+        "Mammal",
+        "Fish"
+      ],
+      "has_multiple_categories": true,
+      "post_air_answer": "YES",
+      "post_water_answer": "YES",
+      "contradiction_detected": true,
+      "k1_preserved": true,
+      "seed_passed": true
+    },
+    {
+      "seed": 4,
+      "pre_k1_recall": true,
+      "categories_assigned": [
+        "Mammal",
+        "Fish"
+      ],
+      "has_multiple_categories": true,
+      "post_air_answer": "YES",
+      "post_water_answer": "YES",
+      "contradiction_detected": true,
+      "k1_preserved": true,
+      "seed_passed": true
+    }
+  ]
+}
