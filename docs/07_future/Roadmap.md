@@ -1,4 +1,4 @@
-﻿**Status: Active** (revised 2026-07-18 per DEC-005; prior RP-001…RP-006 roadmap preserved in `docs/archive/Deprecated.md`)
+**Status: Active** (revised 2026-07-18 per DEC-005; prior RP-001…RP-006 roadmap preserved in `docs/archive/Deprecated.md`)
 
 # Future Research
 
@@ -68,13 +68,36 @@ See `docs/07_future/Unknowns.md` for the full, current list (this section previo
 * **Scale-transfer risk:** every validated finding is on a small synthetic task. None of it has been tested at any scale closer to a real SLM. This is the single biggest open risk to the entire roadmap.
 * **Scheduler complexity:** as before — a dynamic scheduler could become a bottleneck or an overly rigid rule engine, defeating the purpose of adaptive computation. Now additionally informed by EXP-003: a scheduler trained the naive way is expected to fail structurally, not just be suboptimal.
 
+## Future Research Direction — Paartha Computational Language / IR
+
+**Status: FUTURE RESEARCH / OPEN HYPOTHESIS**
+
+Paartha may eventually require a dedicated intermediate representation (IR) or capability schema for representing trainable computational capabilities as explicit executable objects. The proposed direction is not to replace Python, PyTorch, JAX, Rust, or existing ML compiler infrastructure, but to introduce a higher-level representation between capability acquisition and execution. 
+
+The IR could potentially represent computation, state, constraints, verification, learning parameters, composition, and lifecycle semantics. This direction remains exploratory and should only be implemented after experiments demonstrate that an explicit computational representation provides capabilities unavailable through ordinary model parameters, adapters, programs, or existing ML IRs. It must NOT be marked as established architecture.
+
+**Vocabulary Freeze & Research Scope (2026-09-22):** All previously proposed taxonomic abstractions (PPO-0, NAML, IAU, fixed 5-verb ontologies, and custom DSL syntax) are formally frozen and uncommitted. The active research program is strictly scoped to the empirical arbitration of capability acquisition, parameter isolation, independent verification, and emergent composition (EXP-033-A / EXP-033-B).
+
+## Future Research Direction — Goal-Directed Reasoning & Orchestration (GDR-001)
+
+**Status: ACTIVE RESEARCH SPECIFICATION / OPEN HYPOTHESIS**
+
+A critical missing layer in Paartha is goal-directed orchestration: taking an arbitrary natural-language or environmental goal, determining what needs to be done, selecting/synthesizing the necessary computation across modular substrates ($S_{episodic}, S_{semantic}, S_{invariants}, \mathcal{L}$), executing it within a reserved working partition, independently verifying invariants, recovering from failures, and communicating results without relying on massive pretraining.
+
+Formalized in `docs/12_cognition/GDR-001.md`:
+* **The Decoupling Thesis:** Knowing something (declarative storage) $\neq$ being able to compute (isolated primitives) $\neq$ selecting computation (goal-directed planning) $\neq$ executing $\neq$ verifying (independent invariant auditing) $\neq$ recovering $\neq$ communicating (surface realization).
+* **Dual-Loop Cognitive Architecture (PCE):** Outer meta-cognitive goal-reduction loop (slow, deliberate, hierarchical task network / strategy selection) decoupled from an inner bounded execution & contract verification loop (fast, operational, reserved working memory).
+* **Planned Experiments (EXP-GDR-A through F):** Empirical isolation of reasoning competence from surface linguistic fluency, verification via formal invariants vs. verbal reflection, and dynamic strategy selection under compute budgets.
+
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
 **Current Status:** Active, now under the SIP-001 Systems Science phase — architecture frozen pending demonstrated integration necessity. ACA-MVP-001's full Benchmark A/B/C order is complete (2026-07-22 through 2026-07-23): Benchmark A negative (EXP-018/010), Benchmark B decisively positive (EXP-020), Benchmark C composability confirmed (EXP-021). EXP-019 resolved the S_working question (falsified) in between A/B and C. SOS-001 complete. SIP-001's first integration runtime ran and surfaced a new Architectural Limitation (single-exposure teaching), escalated to ACA v1.0 §19.
-**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010. Updated 2026-07-23 with CTX-001's proposed EXP-019/"Gap Curriculum Generation," then again following EXP-020 (Benchmark B), then again following EXP-019's resolution, then again following EXP-021 (Benchmark C), then again following SIP-001's integration test.
+**Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010. Updated 2026-07-23 with CTX-001's proposed EXP-019/"Gap Curriculum Generation," then again following EXP-020 (Benchmark B), then again following EXP-019's resolution, then again following EXP-021 (Benchmark C), then again following SIP-001's integration test. Added GDR-001 2026-09-22.
 **Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018, EXP-010, EXP-020, EXP-019, EXP-021 complete and validated/falsified as documented in `docs/06_experiments/Completed.md`. SIP-001's integration finding (single-exposure teaching) is documented in `docs/14_integration/SIP-001.md` §19 and `docs/04_architecture/ACA_v1.0_Architecture.md` §19, not yet assigned its own EXP-NNN (no dedicated experiment has isolated it further).
 **Hypotheses:** N/A
 **Unknowns:** See `docs/07_future/Unknowns.md`. Whether ME-03 survives staged continual training under interleaved rehearsal or explicit weight-protection — both untested, both larger changes than what's been ruled out. Whether EXP-005 (family discovery) can ever recover a grammar like EXP-020's without it being hand-specified — unchanged by EXP-020's success, still the central open problem. Whether EXP-019's write-starvation mechanism also affects the routing or self-model schemas, or the episode schema under real capacity pressure (SIP-001's test never actually filled memory to capacity) — untested. Whether EXP-021's no-interference finding extends to shared-substrate or learned-routing designs — untested. Whether an exposure-count-aware gating rule resolves SIP-001's single-exposure-teaching finding — untested, unattempted by design.
-**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`, `docs/12_cognition/CTX-001.md`, `docs/13_state_model/SOS-001.md`, `docs/14_integration/SIP-001.md`
+**References:** `docs/03_foundations/OPEN.md`, `docs/06_experiments/Completed.md`, `docs/05_research/Decisions.md` (DEC-005), `docs/11_mvp/ACA-MVP-001.md`, `docs/12_cognition/CTX-001.md`, `docs/12_cognition/GDR-001.md`, `docs/13_state_model/SOS-001.md`, `docs/14_integration/SIP-001.md`
+
+
 
