@@ -1,0 +1,251 @@
+{
+  "exp1_naive_discrepancy_success": {
+    "T1_Dedupe_Filter_Sort": {
+      "StaticPlan": 0.0,
+      "Greedy": 0.0,
+      "TreeSearch": 1.0,
+      "CDR_Rollback": 0.0
+    },
+    "T2_Novel_4Step_Sequence": {
+      "StaticPlan": 0.0,
+      "Greedy": 0.0,
+      "TreeSearch": 1.0,
+      "CDR_Rollback": 0.0
+    },
+    "T3_Fault_Fallback_Sort": {
+      "StaticPlan": 1.0,
+      "Greedy": 1.0,
+      "TreeSearch": 0.8,
+      "CDR_Rollback": 1.0
+    },
+    "T4_Avoid_Greedy_Trap": {
+      "StaticPlan": 0.0,
+      "Greedy": 0.0,
+      "TreeSearch": 1.0,
+      "CDR_Rollback": 0.0
+    },
+    "T5_Epistemic_Probe_Decrypt": {
+      "StaticPlan": 0.0,
+      "Greedy": 0.0,
+      "TreeSearch": 1.0,
+      "CDR_Rollback": 0.0
+    },
+    "T6_Multi_Path_Satisfaction": {
+      "StaticPlan": 1.0,
+      "Greedy": 1.0,
+      "TreeSearch": 1.0,
+      "CDR_Rollback": 1.0
+    }
+  },
+  "exp2_calibrated_discrepancy_benchmark": {
+    "T1_Dedupe_Filter_Sort": {
+      "StaticPlan": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 24.0,
+        "avg_steps": 3.0
+      },
+      "Greedy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 24.0,
+        "avg_steps": 3.0
+      },
+      "TreeSearch": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 48.0,
+        "avg_steps": 3.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 0.0,
+        "recovery_rate": 1.0,
+        "avg_transitions": 166.0,
+        "avg_steps": 60.0
+      },
+      "LearnedPolicy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 3.0,
+        "avg_steps": 3.0
+      }
+    },
+    "T2_Novel_4Step_Sequence": {
+      "StaticPlan": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 20.0,
+        "avg_steps": 4.0
+      },
+      "Greedy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 10.0,
+        "avg_steps": 2.0
+      },
+      "TreeSearch": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 55.0,
+        "avg_steps": 4.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 0.0,
+        "recovery_rate": 1.0,
+        "avg_transitions": 109.0,
+        "avg_steps": 60.0
+      },
+      "LearnedPolicy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 8.0,
+        "avg_steps": 8.0
+      }
+    },
+    "T3_Fault_Fallback_Sort": {
+      "StaticPlan": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 3.0,
+        "avg_steps": 1.0
+      },
+      "Greedy": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 3.0,
+        "avg_steps": 1.0
+      },
+      "TreeSearch": {
+        "success_rate": 0.8,
+        "recovery_rate": 0.0,
+        "avg_transitions": 3.0,
+        "avg_steps": 1.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.2,
+        "avg_transitions": 3.4,
+        "avg_steps": 2.2
+      },
+      "LearnedPolicy": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 1.0,
+        "avg_steps": 1.0
+      }
+    },
+    "T4_Avoid_Greedy_Trap": {
+      "StaticPlan": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 15.0,
+        "avg_steps": 3.0
+      },
+      "Greedy": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 15.0,
+        "avg_steps": 3.0
+      },
+      "TreeSearch": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 15.0,
+        "avg_steps": 3.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 15.0,
+        "avg_steps": 4.0
+      },
+      "LearnedPolicy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 8.0,
+        "avg_steps": 8.0
+      }
+    },
+    "T5_Epistemic_Probe_Decrypt": {
+      "StaticPlan": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 20.0,
+        "avg_steps": 4.0
+      },
+      "Greedy": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 20.0,
+        "avg_steps": 4.0
+      },
+      "TreeSearch": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 20.0,
+        "avg_steps": 4.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 20.0,
+        "avg_steps": 5.0
+      },
+      "LearnedPolicy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 4.0,
+        "avg_steps": 4.0
+      }
+    },
+    "T6_Multi_Path_Satisfaction": {
+      "StaticPlan": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 10.0,
+        "avg_steps": 2.0
+      },
+      "Greedy": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 10.0,
+        "avg_steps": 2.0
+      },
+      "TreeSearch": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 10.0,
+        "avg_steps": 2.0
+      },
+      "CDR_Rollback": {
+        "success_rate": 1.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 10.0,
+        "avg_steps": 3.0
+      },
+      "LearnedPolicy": {
+        "success_rate": 0.0,
+        "recovery_rate": 0.0,
+        "avg_transitions": 3.0,
+        "avg_steps": 3.0
+      }
+    }
+  },
+  "exp3_depth_scaling": {
+    "Depth_2": {
+      "Greedy_transitions": 9,
+      "TreeSearch_transitions": 15,
+      "CDR_transitions": 66
+    },
+    "Depth_3": {
+      "Greedy_transitions": 12,
+      "TreeSearch_transitions": 12,
+      "CDR_transitions": 12
+    },
+    "Depth_4": {
+      "Greedy_transitions": 10,
+      "TreeSearch_transitions": 160,
+      "CDR_transitions": 109
+    }
+  }
+}

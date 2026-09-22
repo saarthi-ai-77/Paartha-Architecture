@@ -1,0 +1,224 @@
+{
+  "F1_Deterministic": {
+    "StaticPlan": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 24.0,
+      "avg_time_ms": 0.25
+    },
+    "Greedy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 16.0,
+      "avg_time_ms": 0.19
+    },
+    "TreeSearch": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 0.0,
+      "avg_transitions": 368.0,
+      "avg_time_ms": 7.27
+    },
+    "CDR_Rollback": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 25.0,
+      "avg_transitions": 200.0,
+      "avg_time_ms": 1.48
+    },
+    "LearnedPolicy": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 3.0,
+      "avg_time_ms": 0.07
+    }
+  },
+  "F2_Compositional": {
+    "StaticPlan": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 4.0,
+      "avg_transitions": 20.0,
+      "avg_time_ms": 0.19
+    },
+    "Greedy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.11
+    },
+    "TreeSearch": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 0.0,
+      "avg_transitions": 120.0,
+      "avg_time_ms": 2.52
+    },
+    "CDR_Rollback": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 25.0,
+      "avg_transitions": 125.0,
+      "avg_time_ms": 1.01
+    },
+    "LearnedPolicy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 8.0,
+      "avg_transitions": 8.0,
+      "avg_time_ms": 0.19
+    }
+  },
+  "F3_FaultInjection": {
+    "StaticPlan": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 1.0,
+      "avg_transitions": 4.0,
+      "avg_time_ms": 0.14
+    },
+    "Greedy": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 1.0,
+      "avg_transitions": 4.0,
+      "avg_time_ms": 0.09
+    },
+    "TreeSearch": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 1.0,
+      "avg_transitions": 4.0,
+      "avg_time_ms": 0.13
+    },
+    "CDR_Rollback": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 1.0,
+      "avg_transitions": 4.0,
+      "avg_time_ms": 0.12
+    },
+    "LearnedPolicy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 3.0,
+      "avg_time_ms": 0.05
+    }
+  },
+  "F4_DeadEnds": {
+    "StaticPlan": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 15.0,
+      "avg_time_ms": 0.17
+    },
+    "Greedy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.1
+    },
+    "TreeSearch": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 20.0,
+      "avg_time_ms": 0.31
+    },
+    "CDR_Rollback": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 25.0,
+      "avg_transitions": 125.0,
+      "avg_time_ms": 1.12
+    },
+    "LearnedPolicy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 2.0,
+      "avg_time_ms": 0.04
+    }
+  },
+  "F5_PartialObservability": {
+    "StaticPlan": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 4.0,
+      "avg_transitions": 20.0,
+      "avg_time_ms": 0.22
+    },
+    "Greedy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.07
+    },
+    "TreeSearch": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 0.0,
+      "avg_transitions": 65.0,
+      "avg_time_ms": 0.79
+    },
+    "CDR_Rollback": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 25.0,
+      "avg_transitions": 125.0,
+      "avg_time_ms": 1.12
+    },
+    "LearnedPolicy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 8.0,
+      "avg_transitions": 8.0,
+      "avg_time_ms": 0.1
+    }
+  },
+  "F6_AmbiguousObjective": {
+    "StaticPlan": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.19
+    },
+    "Greedy": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.13
+    },
+    "TreeSearch": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.2
+    },
+    "CDR_Rollback": {
+      "success_rate": 1.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 2.0,
+      "avg_transitions": 10.0,
+      "avg_time_ms": 0.2
+    },
+    "LearnedPolicy": {
+      "success_rate": 0.0,
+      "recovery_rate": 0.0,
+      "avg_steps": 3.0,
+      "avg_transitions": 3.0,
+      "avg_time_ms": 0.05
+    }
+  }
+}

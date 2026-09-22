@@ -1,4 +1,4 @@
-﻿**Status: Active**
+**Status: Active**
 
 # Research Log
 
@@ -28,6 +28,7 @@
 * **Event:** DEC-005 — pivot from council-driven first-principles derivation to empirical, code-based experimentation.
 * **Focus:** Propose a small, concrete, trainable architectural mechanism; implement and test it against an honest baseline with multiple seeds; report the result — including outright falsification — before generalizing anything. Council system retained only as a diagnostic tool for root-causing experiment failures.
 * **Outcome so far:** EXP-001 (surprise-gated episodic memory allocation) confirmed. EXP-002 (compositional rule module) falsified in its original form across three attempts, then confirmed in a much narrower, mechanistically-understood form (constrain the operator to the true symmetry family), with a clearly identified open problem (automatic family discovery). EXP-003 (automatic family selection) confirmed that selection must be driven by held-out generalization, not training loss, falsifying two naive alternatives in the process. Next: EXP-004, an integration test combining the validated memory and rule-module mechanisms. See `docs/06_experiments/Completed.md`.
+* **2026-09-22 (GDR Cognitive Sprint):** Formulated Goal-Directed Reasoning (GDR-001). Adversarially audited and dismantled premature 7-faculty taxonomy and static PCE (GDR-002). Formulated and empirically evaluated Closed-Loop Discrepancy Reduction vs. Search in EXP-CCS-0 (GDR-003): falsified pure myopic discrepancy reduction due to deceptive local minima and epistemic blindness; confirmed heuristic tree search over isolated primitives with state rollback (SET-CR) achieves 100% composition success and runtime fault recovery.
 
 ---
 
