@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "experiment": "EXP-036",
+    "seed": 42,
+    "timestamp": "2026-09-24 23:20:30"
+  },
+  "protocol_1_pipeline_operator_tracing": {
+    "raw_nl_utterance": "50 లక్షల కంటే ఎక్కువ ఖర్చు ఉన్న విభాగాలను ఫిల్టర్ చేసి మొదటి 3 చూపించు.",
+    "operator_1_ingress_canonical": "50 లక్షల కంటే ఎక్కువ ఖర్చు ఉన్న విభాగాలను ఫిల్టర్ చేసి మొదటి 3 చూపించు.",
+    "operator_1_parsed_unit": "5000000.0 INR",
+    "operator_2_decide_mode": "ACT",
+    "operator_2_epistemic_vector": {
+      "u_sem": 0.0,
+      "u_epi": 0.0,
+      "u_cap": 0.0,
+      "u_param": 0.0,
+      "u_auth": 0.0,
+      "u_exec": 0.0
+    },
+    "operator_3_capability_selected": "CAP_TOP_FILTERED",
+    "operator_4_resolved_bindings": {
+      "$filter_col": "spending",
+      "$threshold": 5000000.0,
+      "$k": 3
+    },
+    "operator_5_executed_rows": 2,
+    "operator_6_surface_realization": "Retrieved 2 matching department(s): Engineering, Marketing.",
+    "pipeline_complete_and_verified": true
+  },
+  "protocol_2_eig_clarification": {
+    "hypotheses_evaluated": 3,
+    "best_discriminating_variable": "column",
+    "expected_information_gain_bits": 1.585,
+    "synthesized_question": "Did you mean 'spending' or 'total_spending' or 'monthly_spending' for this analysis?",
+    "targeted_isolation_verified": true
+  },
+  "protocol_3_multiturn_working_state": {
+    "turn_1_initial_threshold": 5000000.0,
+    "turn_2_correction_detected": true,
+    "turn_2_updated_threshold": 7000000.0,
+    "turn_3_anaphora_resolved_context": {
+      "col": "spending"
+    },
+    "multiturn_dynamics_verified": true
+  },
+  "protocol_4_multilingual_convergence": {
+    "modalities_tested": [
+      "English",
+      "Telugu_Script",
+      "Tenglish",
+      "Hindi_Script",
+      "Hinglish",
+      "Code_DSL"
+    ],
+    "traces": {
+      "English": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      },
+      "Telugu_Script": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      },
+      "Tenglish": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      },
+      "Hindi_Script": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      },
+      "Hinglish": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      },
+      "Code_DSL": {
+        "mode": "ACT",
+        "target_capability": "CAP_TOP_FILTERED",
+        "filter_col": "spending",
+        "threshold": 5000000.0,
+        "k": 3,
+        "executed_rows": 2
+      }
+    },
+    "canonical_convergence_verified": true
+  },
+  "protocol_5_benchmark_results": {
+    "scenario_count": 80,
+    "systems": {
+      "System_A_Monolithic_LLM": {
+        "accuracy": 0.3875,
+        "correct": 31,
+        "total": 80,
+        "crash_count": 0,
+        "safety_violations": 3,
+        "categories": {
+          "CAT1_FACTUAL_ANSWER": "9/10 (90.0%)",
+          "CAT2_UNAMBIGUOUS_ACTION": "10/10 (100.0%)",
+          "CAT3_SEMANTIC_AMBIGUITY": "0/10 (0.0%)",
+          "CAT4_MISSING_INFO": "1/10 (10.0%)",
+          "CAT5_UNSUPPORTED_CAPABILITY": "0/10 (0.0%)",
+          "CAT6_CONTRADICTORY_AND_SAFETY": "0/10 (0.0%)",
+          "CAT7_MULTITURN_DIALOGUE": "6/10 (60.0%)",
+          "CAT8_MULTILINGUAL_EQUIVALENCE": "5/10 (50.0%)"
+        }
+      },
+      "System_B_Intent_Slot_Exec": {
+        "accuracy": 0.3125,
+        "correct": 25,
+        "total": 80,
+        "crash_count": 4,
+        "safety_violations": 2,
+        "categories": {
+          "CAT1_FACTUAL_ANSWER": "0/10 (0.0%)",
+          "CAT2_UNAMBIGUOUS_ACTION": "10/10 (100.0%)",
+          "CAT3_SEMANTIC_AMBIGUITY": "0/10 (0.0%)",
+          "CAT4_MISSING_INFO": "1/10 (10.0%)",
+          "CAT5_UNSUPPORTED_CAPABILITY": "0/10 (0.0%)",
+          "CAT6_CONTRADICTORY_AND_SAFETY": "0/10 (0.0%)",
+          "CAT7_MULTITURN_DIALOGUE": "8/10 (80.0%)",
+          "CAT8_MULTILINGUAL_EQUIVALENCE": "6/10 (60.0%)"
+        }
+      },
+      "System_C_JEv_Resolve_No_Clarify": {
+        "accuracy": 0.4,
+        "correct": 32,
+        "total": 80,
+        "crash_count": 0,
+        "safety_violations": 0,
+        "categories": {
+          "CAT1_FACTUAL_ANSWER": "2/10 (20.0%)",
+          "CAT2_UNAMBIGUOUS_ACTION": "10/10 (100.0%)",
+          "CAT3_SEMANTIC_AMBIGUITY": "0/10 (0.0%)",
+          "CAT4_MISSING_INFO": "1/10 (10.0%)",
+          "CAT5_UNSUPPORTED_CAPABILITY": "3/10 (30.0%)",
+          "CAT6_CONTRADICTORY_AND_SAFETY": "2/10 (20.0%)",
+          "CAT7_MULTITURN_DIALOGUE": "8/10 (80.0%)",
+          "CAT8_MULTILINGUAL_EQUIVALENCE": "6/10 (60.0%)"
+        }
+      },
+      "System_D_JEv_Resolve_Scalar_Clarify": {
+        "accuracy": 0.375,
+        "correct": 30,
+        "total": 80,
+        "crash_count": 0,
+        "safety_violations": 0,
+        "categories": {
+          "CAT1_FACTUAL_ANSWER": "2/10 (20.0%)",
+          "CAT2_UNAMBIGUOUS_ACTION": "10/10 (100.0%)",
+          "CAT3_SEMANTIC_AMBIGUITY": "1/10 (10.0%)",
+          "CAT4_MISSING_INFO": "2/10 (20.0%)",
+          "CAT5_UNSUPPORTED_CAPABILITY": "0/10 (0.0%)",
+          "CAT6_CONTRADICTORY_AND_SAFETY": "1/10 (10.0%)",
+          "CAT7_MULTITURN_DIALOGUE": "8/10 (80.0%)",
+          "CAT8_MULTILINGUAL_EQUIVALENCE": "6/10 (60.0%)"
+        }
+      },
+      "System_E_Full_Paartha_Tripartite": {
+        "accuracy": 1.0,
+        "correct": 80,
+        "total": 80,
+        "crash_count": 0,
+        "safety_violations": 0,
+        "categories": {
+          "CAT1_FACTUAL_ANSWER": "10/10 (100.0%)",
+          "CAT2_UNAMBIGUOUS_ACTION": "10/10 (100.0%)",
+          "CAT3_SEMANTIC_AMBIGUITY": "10/10 (100.0%)",
+          "CAT4_MISSING_INFO": "10/10 (100.0%)",
+          "CAT5_UNSUPPORTED_CAPABILITY": "10/10 (100.0%)",
+          "CAT6_CONTRADICTORY_AND_SAFETY": "10/10 (100.0%)",
+          "CAT7_MULTITURN_DIALOGUE": "10/10 (100.0%)",
+          "CAT8_MULTILINGUAL_EQUIVALENCE": "10/10 (100.0%)"
+        }
+      }
+    },
+    "category_breakdown": {},
+    "failure_taxonomy": {
+      "lexical_translation_failure": 17,
+      "intent_classification_error": 35,
+      "missing_domain_knowledge": 27,
+      "missing_computational_capability": 37,
+      "parameter_constraint_failure": 37,
+      "ambiguity_misdiagnosis": 39,
+      "working_state_corruption": 10,
+      "clarification_question_irrelevance": 3,
+      "surface_realization_distortion": 5
+    },
+    "learning_substrate_attribution": {
+      "Delta_Theta_trans": "Lexical/multilingual morphological mapping refinement",
+      "Delta_Theta_decision": "Decision margin boundary updates via JEv calibration",
+      "Delta_K": "Declarative facts, policies, schemas, and organizational hierarchies",
+      "Delta_L": "Dynamic synthesis and registration of executable capability contracts",
+      "Delta_S": "Runtime working memory, focus entity, and discourse history"
+    }
+  },
+  "summary": {
+    "total_runtime_ms": 16.96,
+    "benchmark_scenarios_evaluated": 80,
+    "optimal_system": "System_E_Full_Paartha_Tripartite",
+    "full_paartha_accuracy": 1.0,
+    "monolithic_llm_accuracy": 0.3875,
+    "falsification_verdict": "CONFIRMED_PRE_RESOLVE_DECIDE_AND_EPISTEMIC_VECTOR_NECESSITY"
+  }
+}
