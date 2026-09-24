@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "experiment": "EXP-033",
+    "seed": 42,
+    "primitives_count": 18,
+    "timestamp": "2026-09-24 22:49:13"
+  },
+  "protocol_1_mining": {
+    "time_ms": 0.07,
+    "candidates_count": 7,
+    "motifs": [
+      {
+        "pattern": "FILTER_GT -> SORT_BY -> TOP_K",
+        "length": 3,
+        "support": 3
+      },
+      {
+        "pattern": "GROUP_BY -> AGG_SUM -> SORT_BY",
+        "length": 3,
+        "support": 3
+      },
+      {
+        "pattern": "SORT_BY -> TOP_K",
+        "length": 2,
+        "support": 4
+      },
+      {
+        "pattern": "FILTER_GT -> SORT_BY",
+        "length": 2,
+        "support": 3
+      },
+      {
+        "pattern": "GROUP_BY -> AGG_SUM",
+        "length": 2,
+        "support": 3
+      },
+      {
+        "pattern": "AGG_SUM -> SORT_BY",
+        "length": 2,
+        "support": 3
+      },
+      {
+        "pattern": "SORT_BY -> RENAME",
+        "length": 2,
+        "support": 2
+      }
+    ]
+  },
+  "protocol_2_anti_unification": {
+    "abstractions_constructed": 7,
+    "list": [
+      {
+        "name": "ABS_FILTER_GT_SORT_BY_TOP_K",
+        "params": [
+          "$col_0",
+          "$val_0",
+          "$k_2"
+        ]
+      },
+      {
+        "name": "ABS_GROUP_BY_AGG_SUM_SORT_BY",
+        "params": [
+          "$group_col_0",
+          "$num_col_1",
+          "$col_2"
+        ]
+      },
+      {
+        "name": "ABS_SORT_BY_TOP_K",
+        "params": [
+          "$col_0",
+          "$k_1"
+        ]
+      },
+      {
+        "name": "ABS_FILTER_GT_SORT_BY",
+        "params": [
+          "$col_0",
+          "$val_0"
+        ]
+      },
+      {
+        "name": "ABS_GROUP_BY_AGG_SUM",
+        "params": [
+          "$group_col_0",
+          "$num_col_1"
+        ]
+      },
+      {
+        "name": "ABS_AGG_SUM_SORT_BY",
+        "params": [
+          "$num_col_0",
+          "$col_1"
+        ]
+      },
+      {
+        "name": "ABS_SORT_BY_RENAME",
+        "params": [
+          "$ascending_0",
+          "$col_0",
+          "$new_col_1",
+          "$old_col_1"
+        ]
+      }
+    ]
+  },
+  "protocol_3_mdl_filtering": {
+    "accepted_count": 3,
+    "rejected_count": 4,
+    "frankenstein_test_passed": true,
+    "accepted": [
+      "ABS_FILTER_GT_SORT_BY_TOP_K",
+      "ABS_GROUP_BY_AGG_SUM_SORT_BY",
+      "ABS_SORT_BY_TOP_K"
+    ],
+    "rejected": [
+      {
+        "name": "ABS_FILTER_GT_SORT_BY",
+        "verdict": "REJECTED_MDL_NEGATIVE",
+        "reason": "Negative compression delta (0 bits)"
+      },
+      {
+        "name": "ABS_GROUP_BY_AGG_SUM",
+        "verdict": "REJECTED_MDL_NEGATIVE",
+        "reason": "Negative compression delta (0 bits)"
+      },
+      {
+        "name": "ABS_AGG_SUM_SORT_BY",
+        "verdict": "REJECTED_EXECUTION_FAILURE",
+        "reason": "Synthetic test execution crashed"
+      },
+      {
+        "name": "ABS_SORT_BY_RENAME",
+        "verdict": "REJECTED_MDL_NEGATIVE",
+        "reason": "Negative compression delta (-64 bits)"
+      }
+    ]
+  },
+  "protocol_4_generalization_comparison": {
+    "system_a_caching_success_rate": 0.0,
+    "system_b_abstraction_success_rate": 1.0,
+    "details": {
+      "System_A_Caching": [
+        {
+          "task": "EVAL_A",
+          "solved": false
+        },
+        {
+          "task": "EVAL_B",
+          "solved": false
+        },
+        {
+          "task": "EVAL_C",
+          "solved": false
+        },
+        {
+          "task": "EVAL_D",
+          "solved": false
+        },
+        {
+          "task": "EVAL_E",
+          "solved": false
+        }
+      ],
+      "System_B_Abstraction": [
+        {
+          "task": "EVAL_A",
+          "solved": true
+        },
+        {
+          "task": "EVAL_B",
+          "solved": true
+        },
+        {
+          "task": "EVAL_C",
+          "solved": true
+        },
+        {
+          "task": "EVAL_D",
+          "solved": true
+        },
+        {
+          "task": "EVAL_E",
+          "solved": true
+        }
+      ]
+    }
+  },
+  "protocol_5_recursive_discovery": {
+    "success": true,
+    "l2_abstraction_name": "ABS_ABS_GROUP_BY_AGG_SUM_SORT_BY_ABS_FILTER_GT_SORT_BY_TOP_K"
+  },
+  "protocol_6_ablations": {
+    "A_Exact_Solution_Caching": {
+      "held_out_generalization": 0.0,
+      "library_size_overhead": 8,
+      "mdl_compression": false,
+      "verdict": "Overfits to exact acquisition tasks; fails all parameter variations."
+    },
+    "B_Prefix_Sequence_Memoization": {
+      "held_out_generalization": 0.2,
+      "library_size_overhead": 14,
+      "mdl_compression": false,
+      "verdict": "Captures raw prefixes but fails when arguments or schemas vary."
+    },
+    "C_Frequent_Substring_Mining_Alone": {
+      "held_out_generalization": 0.4,
+      "library_size_overhead": 22,
+      "mdl_compression": false,
+      "verdict": "Discovers patterns but bakes specific constants; severe library bloat."
+    },
+    "D_Anti_Unification_Without_MDL": {
+      "held_out_generalization": 0.8,
+      "library_size_overhead": 19,
+      "mdl_compression": false,
+      "verdict": "Lifts parameters correctly but admits Frankenstein noise (false abstractions)."
+    },
+    "E_MDL_Without_Anti_Unification": {
+      "held_out_generalization": 0.2,
+      "library_size_overhead": 4,
+      "mdl_compression": true,
+      "verdict": "Compresses exact syntax only; cannot generalize across different thresholds."
+    },
+    "F_Full_Pipeline_Discovery": {
+      "held_out_generalization": 1.0,
+      "library_size_overhead": 2,
+      "mdl_compression": true,
+      "verdict": "Highest generalization (100%), minimal library growth, rejects all noise."
+    }
+  },
+  "protocol_7_computational_cost": {
+    "sleep_phase_total_time_ms": 1.32,
+    "mining_time_ms": 0.07,
+    "anti_unification_time_ms": 0.85,
+    "mdl_evaluation_time_ms": 0.4,
+    "search_savings_per_query_ms": 86.0,
+    "queries_to_breakeven": 1,
+    "economically_favorable": true
+  }
+}
