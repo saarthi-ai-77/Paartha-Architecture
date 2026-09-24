@@ -94,7 +94,7 @@ A critical missing layer in Paartha is goal-directed orchestration: taking an ar
 **Status: ACTIVE RESEARCH / ARCHAEOLOGICAL FOUNDATION COMPLETE**
 
 Per directive, Paartha's long-term capability trajectory is structured as a 7-stage progressive ladder:
-$$\text{Stage 1: Speak / Communicate} \to \text{Stage 2: Code} \to \text{Stage 3: Understand} \to \text{Stage 4: Plan} \to \text{Stage 5: Brainstorm} \to \text{Stage 6: Act} \to \text{Stage 7: General Problem Solving}$$
+$$\text{Stage 1: Speak / Communicate} \to \text{Stage 2: Understand} \to \text{Stage 3: Brainstorm} \to \text{Stage 4: Plan} \to \text{Stage 5: Code} \to \text{Stage 6: Act} \to \text{Stage 7: General Problem Solving}$$
 
 The immediate milestone is **Stage 1 (Speak / Communicate)**.
 
@@ -104,10 +104,23 @@ The immediate milestone is **Stage 1 (Speak / Communicate)**.
   2. *Surface Realization*: Controlled, fluent generation of natural language from structured proof traces and working state without statistical hallucination.
   3. *Multi-Turn Clarification Dialogue*: Interactive disambiguation and knowledge acquisition when missing knowledge or ambiguous goals are detected.
 
+## Future Research Direction — Calibrated Decision Substrates (JEV-001)
+
+**Status: ACTIVE RESEARCH / INTEGRATION HYPOTHESIS UNDER INVESTIGATION**
+
+A **JEv-like bounded decision substrate is under investigation as a candidate component of Paartha** (`docs/12_cognition/JEV-001.md`). Rather than forcing all cognition into autoregressive token generation, Paartha investigates separating System 1 decision-making (non-autoregressive, parallel, calibrated categorical choices via RLCD-style objectives) from System 2 deliberative search (SET-CR) and surface linguistic realization.
+
+* **Core Role (Option E — General Decision Substrate)**: A calibrated decision model serves as a multi-point component:
+  1. *Linguistic Ingress & Speech-Act Selection* (Stage 1 Communication): Choosing among `[DIRECT_ANSWER, CLARIFY, EXPLAIN, UNKNOWN]` and flagging ambiguous queries.
+  2. *Search Guidance in SET-CR* (Stages 3 & 4): Acting as the action prioritization policy $\pi(a \mid s)$ and branch-pruning heuristic to eliminate $O(b^d)$ combinatorial explosion.
+  3. *Semantic Verification* (Stage 6): Fast semantic scoring and guardrail verification without polluting symbolic invariant checking ($S_{invariants}$).
+* **Recovered Lineage**: Directly connects to Paartha's earlier amortized risk prediction formulation $g_\phi(e, c) \to (\mu_c, \sigma_c)$ and incorporates the constraints from EXP-003 (validation-driven selection required) and EXP-009 (calibration required, sharpness alone fails).
+* **Next Action (EXP-JEV-0)**: Empirically test whether a calibrated decision substrate decoupled from surface realization beats monolithic autoregressive LLMs on intent routing, unknown detection, and calibration under ambiguous communication queries.
+
 ---
 
 **Purpose:** Outline the forward-looking trajectory of the research program.
-**Current Status:** Active, now under the SIP-001 Systems Science phase — architecture frozen pending demonstrated integration necessity. ACA-MVP-001's full Benchmark A/B/C order is complete (2026-07-22 through 2026-07-23): Benchmark A negative (EXP-018/010), Benchmark B decisively positive (EXP-020), Benchmark C composability confirmed (EXP-021). EXP-019 resolved the S_working question (falsified) in between A/B and C. SOS-001 complete. SIP-001's first integration runtime ran and surfaced a new Architectural Limitation (single-exposure teaching), escalated to ACA v1.0 §19. Accommodated via SOS-001 unconditional write + micro-replay in EXP-022. ACA-0 validated in EXP-026. SET-CR validated in EXP-CCS-0 (GDR-003). Substrate archaeology completed in CTX-002 (2026-09-24).
+**Current Status:** Active, now under the SIP-001 Systems Science phase — architecture frozen pending demonstrated integration necessity. ACA-MVP-001's full Benchmark A/B/C order is complete (2026-07-22 through 2026-07-23): Benchmark A negative (EXP-018/010), Benchmark B decisively positive (EXP-020), Benchmark C composability confirmed (EXP-021). EXP-019 resolved the S_working question (falsified) in between A/B and C. SOS-001 complete. SIP-001's first integration runtime ran and surfaced a new Architectural Limitation (single-exposure teaching), escalated to ACA v1.0 §19. Accommodated via SOS-001 unconditional write + micro-replay in EXP-022. ACA-0 validated in EXP-026. SET-CR validated in EXP-CCS-0 (GDR-003). Substrate archaeology completed in CTX-002 (2026-09-24). Calibrated Decision Substrate study completed in JEV-001 (2026-09-24).
 **Historical Context:** Revised 2026-07-18 per DEC-005. The prior RP-001…RP-006 taxonomy-first roadmap (itself a revision of an earlier Phase 1–4 plan per DEC-004) is preserved in `docs/archive/Deprecated.md`. Updated 2026-07-22 following EXP-018, then again the same day following EXP-010. Updated 2026-07-23 with CTX-001's proposed EXP-019/"Gap Curriculum Generation," then again following EXP-020 (Benchmark B), then again following EXP-019's resolution, then again following EXP-021 (Benchmark C), then again following SIP-001's integration test. Added GDR-001, GDR-002, and GDR-003 (EXP-CCS-0) 2026-09-22.
 **Known Facts:** EXP-001 through EXP-004, EXP-009, EXP-018, EXP-010, EXP-020, EXP-019, EXP-021, and EXP-CCS-0 complete and validated/falsified as documented in `docs/06_experiments/Completed.md` and `docs/12_cognition/GDR-003.md`. SIP-001's integration finding (single-exposure teaching) is documented in `docs/14_integration/SIP-001.md` §19 and `docs/04_architecture/ACA_v1.0_Architecture.md` §19, not yet assigned its own EXP-NNN (no dedicated experiment has isolated it further).
 **Hypotheses:** N/A
