@@ -3,7 +3,7 @@
     "experiment": "EXP-032",
     "seed": 42,
     "base_primitives_count": 14,
-    "timestamp": "2026-09-24 22:27:32"
+    "timestamp": "2026-09-24 22:36:57"
   },
   "protocol_1_proposal_recall": {
     "Frozen_Semantic": {
@@ -27,14 +27,14 @@
       "success": true,
       "nodes_explored": 362,
       "execution_count": 9986,
-      "time_ms": 92.95,
+      "time_ms": 92.05,
       "effective_branching": 4.27
     },
     "proposal_guided": {
       "success": true,
       "nodes_explored": 65,
       "execution_count": 513,
-      "time_ms": 3.63,
+      "time_ms": 4.19,
       "effective_branching": 2.14
     },
     "search_reduction_factor": 5.57

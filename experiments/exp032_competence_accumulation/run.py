@@ -659,7 +659,10 @@ class CompositeCapability(Capability):
             if prim_name not in registry:
                 raise ExecutionError(f"Missing sub-primitive {prim_name}")
             prim = registry[prim_name]
-            curr = prim.execute(curr, p_args)
+            if prim.is_composite and isinstance(prim, CompositeCapability):
+                curr = prim.execute_with_registry(curr, registry)
+            else:
+                curr = prim.execute(curr, p_args)
         return curr
 
     def execute(self, state: State, params: Dict[str, Any]) -> State:
