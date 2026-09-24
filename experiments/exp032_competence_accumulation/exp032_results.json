@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "experiment": "EXP-032",
+    "seed": 42,
+    "base_primitives_count": 14,
+    "timestamp": "2026-09-24 22:27:32"
+  },
+  "protocol_1_proposal_recall": {
+    "Frozen_Semantic": {
+      "Recall@2": 0.556,
+      "Recall@4": 0.778,
+      "Recall@6": 0.889
+    },
+    "Random_Projection": {
+      "Recall@2": 0.5,
+      "Recall@4": 0.722,
+      "Recall@6": 0.722
+    },
+    "Learned_Representation": {
+      "Recall@2": 0.556,
+      "Recall@4": 0.778,
+      "Recall@6": 0.889
+    }
+  },
+  "protocol_2_search_complexity": {
+    "uninformed": {
+      "success": true,
+      "nodes_explored": 362,
+      "execution_count": 9986,
+      "time_ms": 92.95,
+      "effective_branching": 4.27
+    },
+    "proposal_guided": {
+      "success": true,
+      "nodes_explored": 65,
+      "execution_count": 513,
+      "time_ms": 3.63,
+      "effective_branching": 2.14
+    },
+    "search_reduction_factor": 5.57
+  },
+  "protocol_3_generalization": {
+    "Level_1_Exact_Reuse": {
+      "passed": true,
+      "ratio": 1.0
+    },
+    "Level_2_Parameter_Variation": {
+      "passed": true,
+      "ratio": 1.0
+    },
+    "Level_3_Structural_Variation": {
+      "passed": true,
+      "ratio": 1.0
+    },
+    "Level_4_Compositional_Reuse": {
+      "passed": true,
+      "ratio": 1.0,
+      "error": null
+    }
+  },
+  "protocol_4_longitudinal_accumulation": {
+    "no_accumulation": {
+      "t1_nodes": 85,
+      "t3_nodes": 79,
+      "t4_nodes": 102,
+      "t4_success": true,
+      "total_nodes": 266,
+      "final_library_size": 14
+    },
+    "with_accumulation": {
+      "t1_nodes": 85,
+      "t3_nodes": 86,
+      "t4_nodes": 19,
+      "t4_success": true,
+      "total_nodes": 190,
+      "final_library_size": 15
+    },
+    "t4_search_speedup": 5.37
+  },
+  "protocol_5_scaling_proposal": {
+    "size_14": {
+      "library_size": 14,
+      "frozen_recall_at_5": 0.889,
+      "learned_recall_at_5": 0.889
+    },
+    "size_30": {
+      "library_size": 30,
+      "frozen_recall_at_5": 0.889,
+      "learned_recall_at_5": 0.889
+    },
+    "size_60": {
+      "library_size": 60,
+      "frozen_recall_at_5": 0.889,
+      "learned_recall_at_5": 0.889
+    }
+  },
+  "protocol_6_failure_attribution": {
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "case": "Missing column in schema",
+        "ground_truth": "KNOWLEDGE_ERROR",
+        "predicted": "KNOWLEDGE_ERROR",
+        "correct": true,
+        "confidence": 0.95,
+        "counterfactual_runs": 1
+      },
+      {
+        "case": "Selecting wrong primitive (Sort instead of AggSum on Grouped)",
+        "ground_truth": "CAPABILITY_SELECTION_ERROR",
+        "predicted": "CAPABILITY_SELECTION_ERROR",
+        "correct": true,
+        "confidence": 0.95,
+        "counterfactual_runs": 2
+      },
+      {
+        "case": "Division by zero execution error",
+        "ground_truth": "EXECUTION_ERROR",
+        "predicted": "EXECUTION_ERROR",
+        "correct": true,
+        "confidence": 0.88,
+        "counterfactual_runs": 1
+      },
+      {
+        "case": "Empty / contradictory expected verification state",
+        "ground_truth": "VERIFICATION_ERROR",
+        "predicted": "VERIFICATION_ERROR",
+        "correct": true,
+        "confidence": 0.85,
+        "counterfactual_runs": 1
+      },
+      {
+        "case": "String passed to numeric comparison",
+        "ground_truth": "REPRESENTATION_ERROR",
+        "predicted": "REPRESENTATION_ERROR",
+        "correct": true,
+        "confidence": 0.88,
+        "counterfactual_runs": 1
+      },
+      {
+        "case": "Correct syntax but wrong logic transformation",
+        "ground_truth": "CAPABILITY_IMPLEMENTATION_ERROR",
+        "predicted": "CAPABILITY_IMPLEMENTATION_ERROR",
+        "correct": true,
+        "confidence": 0.85,
+        "counterfactual_runs": 1
+      }
+    ]
+  },
+  "protocol_7_library_bloat": {
+    "initial_library_size": 14,
+    "bloated_library_size": 24,
+    "purged_count": 10,
+    "post_compression_size": 14,
+    "recall_at_3_under_bloat": 0.0,
+    "recall_at_3_after_compression": 0.667
+  },
+  "protocol_8_teacher_distillation": {
+    "candidates_evaluated": 4,
+    "accepted_count": 2,
+    "rejection_accuracy": 1.0,
+    "details": [
+      {
+        "candidate_id": "Teacher_Candidate_1_Sound",
+        "verdict": "ACCEPTED",
+        "passed": true,
+        "pass_ratio": 1.0,
+        "error": null
+      },
+      {
+        "candidate_id": "Teacher_Candidate_2_Hallucinated_Tool",
+        "verdict": "REJECTED_UNREGISTERED",
+        "passed": false,
+        "pass_ratio": 0.0,
+        "error": "Execution crash on example 0: Capability MAGIC_SQL_OPTIMIZER not registered"
+      },
+      {
+        "candidate_id": "Teacher_Candidate_3_Semantic_Bug",
+        "verdict": "REJECTED_MISMATCH",
+        "passed": false,
+        "pass_ratio": 0.0,
+        "error": "Output mismatch on example 0"
+      },
+      {
+        "candidate_id": "Teacher_Candidate_4_Redundant_Step",
+        "verdict": "ACCEPTED_WITH_REDUNDANCY",
+        "passed": true,
+        "pass_ratio": 1.0,
+        "error": null
+      }
+    ]
+  },
+  "protocol_9_baseline_comparison": {
+    "Baseline_A_Uninformed_BFS": {
+      "overall_success_rate": 0.5,
+      "avg_nodes_explored": 320.5,
+      "deep_task_solvable": false,
+      "catastrophic_forgetting": 0.0,
+      "adaptation_overhead": "None"
+    },
+    "Baseline_B_Proposal_No_Accumulation": {
+      "overall_success_rate": 0.67,
+      "avg_nodes_explored": 78.4,
+      "deep_task_solvable": false,
+      "catastrophic_forgetting": 0.0,
+      "adaptation_overhead": "None"
+    },
+    "Baseline_C_Proposal_Plus_Accumulation": {
+      "overall_success_rate": 1.0,
+      "avg_nodes_explored": 21.2,
+      "deep_task_solvable": true,
+      "catastrophic_forgetting": 0.0,
+      "adaptation_overhead": "None (Frozen Substrate)"
+    },
+    "Baseline_D_Direct_EndToEnd_Policy": {
+      "overall_success_rate": 0.33,
+      "avg_nodes_explored": 1.0,
+      "deep_task_solvable": false,
+      "catastrophic_forgetting": 0.42,
+      "adaptation_overhead": "High (Backprop)"
+    },
+    "Baseline_E_Accumulation_Plus_Local_Adaptation": {
+      "overall_success_rate": 1.0,
+      "avg_nodes_explored": 17.8,
+      "deep_task_solvable": true,
+      "catastrophic_forgetting": 0.0,
+      "adaptation_overhead": "Low (O(vocab) index update)"
+    }
+  }
+}
