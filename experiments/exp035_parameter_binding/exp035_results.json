@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "experiment": "EXP-035",
+    "seed": 42,
+    "timestamp": "2026-09-24 23:08:28"
+  },
+  "protocol_1_formal_binding_stages": {
+    "stage_1_syntactic_tokens": 6,
+    "stage_2_semantic_mapping": {
+      "$filter_col": "spending",
+      "$threshold": "50 lakh",
+      "$k": "3"
+    },
+    "stage_3_typed_and_normalized": {
+      "$filter_col": "spending",
+      "$threshold": 5000000.0,
+      "$k": 3
+    },
+    "stage_4_constraints_passed": true,
+    "stage_5_executed_rows": 2,
+    "stages_decoupled_and_verified": true
+  },
+  "protocol_2_unit_normalization": {
+    "total_test_cases": 8,
+    "passed": 8,
+    "accuracy": 1.0,
+    "details": [
+      {
+        "input": "\u20b950 lakh",
+        "expected": 5000000.0,
+        "matched": true
+      },
+      {
+        "input": "50L",
+        "expected": 5000000.0,
+        "matched": true
+      },
+      {
+        "input": "\u20b95,000,000",
+        "expected": 5000000.0,
+        "matched": true
+      },
+      {
+        "input": "5 million INR",
+        "expected": 5000000.0,
+        "matched": true
+      },
+      {
+        "input": "2.5 crore",
+        "expected": 25000000.0,
+        "matched": true
+      },
+      {
+        "input": "$1000",
+        "expected": 1000.0,
+        "matched": true
+      },
+      {
+        "input": "15%",
+        "expected": 0.15,
+        "matched": true
+      },
+      {
+        "input": "top 5",
+        "expected": 5.0,
+        "matched": true
+      }
+    ]
+  },
+  "protocol_3_ambiguity_and_jev_lite": {
+    "ambiguous_branching_triggered": true,
+    "ambiguous_candidates": [
+      "spending",
+      "total_spending"
+    ],
+    "unambiguous_commit_triggered": true,
+    "jev_lite_calibration_effective": true
+  },
+  "protocol_4_parameter_dependencies": {
+    "valid_assignment_passed": true,
+    "invalid_assignment_rejected": true,
+    "joint_dependency_enforced": true
+  },
+  "protocol_5_architectural_ablations": {
+    "System_A_SymbolicBinder": {
+      "valid_executable_rate": 0.75,
+      "execution_crash_rate": 0.25
+    },
+    "System_B_EmbeddingMatcher": {
+      "valid_executable_rate": 0.0,
+      "execution_crash_rate": 1.0
+    },
+    "System_C_NeuralParser": {
+      "valid_executable_rate": 0.75,
+      "execution_crash_rate": 0.25
+    },
+    "System_D_HybridResolver": {
+      "valid_executable_rate": 1.0,
+      "execution_crash_rate": 0.0
+    }
+  },
+  "protocol_6_unseen_capability_zero_shot": {
+    "unseen_capability_retrieved_and_bound": true,
+    "bound_assignment": {
+      "$source_col": "spending",
+      "$threshold": 5000000.0,
+      "$window_size": 3
+    },
+    "execution_success": true,
+    "anomalies_detected": 2,
+    "zero_shot_binding_verified": true
+  },
+  "protocol_7_derived_parameters": {
+    "dataset_rows": 5,
+    "requested_percentage": "20%",
+    "computed_k": 1,
+    "expected_k": 1,
+    "derived_binding_success": true
+  },
+  "protocol_8_nested_capability_propagation": {
+    "inner_params": [
+      "$col",
+      "$val"
+    ],
+    "outer_params": [
+      "$sort_col",
+      "$k"
+    ],
+    "shared_parameter": "$col -> $sort_col",
+    "wire_propagation_verified": true
+  },
+  "protocol_9_binding_failure_taxonomy": {
+    "total_failures_tested": 6,
+    "all_handled": true,
+    "taxonomy": [
+      {
+        "failure_type": "MISSING_PARAMETER",
+        "strategy": "APPLY_DEFAULT_K",
+        "status": "HANDLED"
+      },
+      {
+        "failure_type": "AMBIGUOUS_PARAMETER",
+        "strategy": "ASK_CLARIFICATION",
+        "status": "HANDLED"
+      },
+      {
+        "failure_type": "TYPE_MISMATCH",
+        "strategy": "PARSE_ERROR_REPAIR",
+        "status": "REPAIRED_VIA_TYPE_SYSTEM"
+      },
+      {
+        "failure_type": "INVALID_UNIT",
+        "strategy": "UNIT_INCOMPATIBLE_REJECT",
+        "status": "HANDLED"
+      },
+      {
+        "failure_type": "OUT_OF_RANGE",
+        "strategy": "CSP_CONSTRAINT_REJECT",
+        "status": "CAUGHT_BY_CSP_CONSTRAINTS"
+      },
+      {
+        "failure_type": "MISSING_SCHEMA_FIELD",
+        "strategy": "SCHEMA_VALIDATION_REJECT",
+        "status": "CAUGHT_BY_SCHEMA_VALIDATOR"
+      }
+    ]
+  },
+  "protocol_10_computational_primitive": {
+    "primitive_name": "RESOLVE",
+    "signature": "RESOLVE(Goal G, State S, CapabilityContract C) -> BoundExecutableCapability",
+    "sub_operations": [
+      {
+        "op": "MATCH",
+        "role": "Semantic alignment between goal concepts and contract parameter slots"
+      },
+      {
+        "op": "GROUND",
+        "role": "Anchor concepts to concrete schema columns and working state entities"
+      },
+      {
+        "op": "NORMALIZE",
+        "role": "Transform physical/financial units into canonical typed representations"
+      },
+      {
+        "op": "CONSTRAIN",
+        "role": "Joint CSP verification across inter-parameter dependencies"
+      },
+      {
+        "op": "VERIFY",
+        "role": "Synthetic contract dry-run before live state modification"
+      }
+    ],
+    "irreducible_primitive_identified": true
+  },
+  "protocol_11_end_to_end_pipeline": {
+    "nl_goal": "Find top 2 departments where total_spending exceeds \u20b91.5 crore",
+    "retrieved_capability": "TOP_FILTERED",
+    "resolved_parameters": {
+      "$filter_col": "total_spending",
+      "$threshold": 15000000.0,
+      "$k": 2
+    },
+    "output_rows": 2,
+    "verified_correct": true,
+    "pipeline_latency_ms": 0.051
+  },
+  "summary": {
+    "total_runtime_ms": 1.95,
+    "falsification_verdict": "CONFIRMED_HYBRID_RESOLVER_PRIMITIVE",
+    "optimal_primitive": "RESOLVE"
+  }
+}
