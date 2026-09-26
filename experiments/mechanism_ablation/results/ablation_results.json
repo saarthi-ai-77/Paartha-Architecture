@@ -1,0 +1,2887 @@
+{
+  "metadata": {
+    "experiment": "PAARTHA_MECHANISM_ABLATION",
+    "provider": "sarvam",
+    "model_name": "sarvam-105b-conversations",
+    "timestamp": "2026-09-26 14:39:27"
+  },
+  "primary_matrix_a1_a9": {
+    "A1": {
+      "name": "A1_LLM_Alone",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 2,
+        "success_rate": 0.3333,
+        "avg_partial_score": 0.555,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 0,
+        "invalid_tool_call_rate": 0.0,
+        "total_tool_calls": 0,
+        "total_search_expansions": 0,
+        "avg_latency_ms": 626.68,
+        "total_tokens": 5051
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 0,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 4
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A1_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.53,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 764.2125999554992,
+          "tokens": 818,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A1_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.2,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 643.8686000183225,
+          "tokens": 748,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A1_LLM_Alone",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 667.2035999945365,
+          "tokens": 865,
+          "trace": [],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A1_LLM_Alone",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 704.0874999947846,
+          "tokens": 912,
+          "trace": [],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A1_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.3,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 577.6853999705054,
+          "tokens": 924,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A1_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.3,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 403.0403000069782,
+          "tokens": 784,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A2": {
+      "name": "A2_LLM_Primitive_Tools",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 3,
+        "success_rate": 0.5,
+        "avg_partial_score": 0.795,
+        "total_crashes": 1,
+        "crash_rate": 0.1667,
+        "total_invalid_tool_calls": 1,
+        "invalid_tool_call_rate": 0.0455,
+        "total_tool_calls": 22,
+        "total_search_expansions": 22,
+        "avg_latency_ms": 1761.18,
+        "total_tokens": 45360
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 1,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 2809.380599996075,
+          "tokens": 8901,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "threshold": 500,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 1,
+          "crashes": 1,
+          "search_expansions": 2,
+          "latency_ms": 622.9661000543274,
+          "tokens": 3262,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "ExecutionCrash: Column 'hub' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1469.2533999914303,
+          "tokens": 6869,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "threshold": 1000,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 1710.1998999714851,
+          "tokens": 8842,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "absorbance_nm",
+                  "quantum_noise",
+                  "temp_kelvin",
+                  "chamber"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.82,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 1878.7705000140704,
+          "tokens": 8741,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A2_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2076.487799989991,
+          "tokens": 8745,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "cumulative_absorbance"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "cumulative_absorbance",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A3": {
+      "name": "A3_LLM_Tools_Contracts",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 3,
+        "success_rate": 0.5,
+        "avg_partial_score": 0.795,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 1,
+        "invalid_tool_call_rate": 0.05,
+        "total_tool_calls": 20,
+        "total_search_expansions": 21,
+        "avg_latency_ms": 1931.27,
+        "total_tokens": 43670
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 1,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 2295.2118000248447,
+          "tokens": 8833,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "threshold": 500,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 905.1329000503756,
+          "tokens": 3262,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "ContractViolation: Column 'hub' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1636.1617000075057,
+          "tokens": 6832,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1685.729300021194,
+          "tokens": 6973,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "threshold": 400,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": false,
+          "partial_score": 0.82,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 1695.3269999939948,
+          "tokens": 8741,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A3_LLM_Tools_Contracts",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 3370.0524999876507,
+          "tokens": 9029,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "cumulative_absorbance_nm"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "cumulative_absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance_nm"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance_nm"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A4": {
+      "name": "A4_LLM_Tools_RESOLVE",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 2,
+        "success_rate": 0.3333,
+        "avg_partial_score": 0.7546,
+        "total_crashes": 1,
+        "crash_rate": 0.1667,
+        "total_invalid_tool_calls": 1,
+        "invalid_tool_call_rate": 0.0476,
+        "total_tool_calls": 21,
+        "total_search_expansions": 21,
+        "avg_latency_ms": 1898.7,
+        "total_tokens": 41500
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 1,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 1,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 1,
+          "crashes": 1,
+          "search_expansions": 1,
+          "latency_ms": 492.65420000301674,
+          "tokens": 1653,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": 3
+              },
+              "success": false,
+              "error": "ExecutionCrash: Column '3' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": false,
+          "partial_score": 0.25,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2517.160099989269,
+          "tokens": 8496,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "weight_kg"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "weight_kg",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "weight_kg"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 2360.258899978362,
+          "tokens": 6838,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1850.4619000013918,
+          "tokens": 7002,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": false,
+          "partial_score": 0.82,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 2340.242800011765,
+          "tokens": 8872,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "threshold": 10.0,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A4_LLM_Tools_RESOLVE",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 1831.4383999677375,
+          "tokens": 8639,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "quantum_noise"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A5": {
+      "name": "A5_LLM_Tools_Verification",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 3,
+        "success_rate": 0.5,
+        "avg_partial_score": 0.795,
+        "total_crashes": 1,
+        "crash_rate": 0.1667,
+        "total_invalid_tool_calls": 1,
+        "invalid_tool_call_rate": 0.0476,
+        "total_tool_calls": 21,
+        "total_search_expansions": 21,
+        "avg_latency_ms": 1920.28,
+        "total_tokens": 43884
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 1,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 1773.11050001299,
+          "tokens": 8789,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "operator": ">",
+                "threshold": 500
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 1,
+          "crashes": 1,
+          "search_expansions": 2,
+          "latency_ms": 1058.3976000198163,
+          "tokens": 3262,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "ExecutionCrash: Column 'hub' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1636.6481999866664,
+          "tokens": 6832,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1748.9362999913283,
+          "tokens": 6977,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "threshold": 400,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": false,
+          "partial_score": 0.82,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 1945.6286000204273,
+          "tokens": 8788,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "threshold": 10,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A5_LLM_Tools_Verification",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 3358.9689999935217,
+          "tokens": 9236,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "cumulative_absorbance"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "cumulative_absorbance",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A6": {
+      "name": "A6_LLM_Tools_SETCR",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 5,
+        "success_rate": 0.8333,
+        "avg_partial_score": 0.9667,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 0,
+        "invalid_tool_call_rate": 0.0,
+        "total_tool_calls": 22,
+        "total_search_expansions": 22,
+        "avg_latency_ms": 1696.12,
+        "total_tokens": 44953
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 0,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 1
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1477.7968000271358,
+          "tokens": 6876,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "threshold": 500,
+                "operator": ">"
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 1788.4040999924764,
+          "tokens": 8619,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "avg_transit_hours",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "avg_transit_hours"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 2020.0220000115223,
+          "tokens": 6896,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1485.126700019464,
+          "tokens": 6912,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "threshold": 400,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1504.802400013432,
+          "tokens": 6910,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "threshold": 10,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A6_LLM_Tools_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 1900.5905999802053,
+          "tokens": 8740,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "total_absorbance"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "total_absorbance",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "total_absorbance"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "total_absorbance"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        }
+      ]
+    },
+    "A7": {
+      "name": "A7_Contracts_RESOLVE_Verification",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 3,
+        "success_rate": 0.5,
+        "avg_partial_score": 0.7679,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 2,
+        "invalid_tool_call_rate": 0.125,
+        "total_tool_calls": 16,
+        "total_search_expansions": 18,
+        "avg_latency_ms": 3176.91,
+        "total_tokens": 36164
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 1,
+        "CONTRACT_VIOLATION": 1,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 1
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 464.65750003699213,
+          "tokens": 1646,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": 3
+              },
+              "success": false,
+              "error": "ContractViolation: Column '3' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1195.5738000106066,
+          "tokens": 5002,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "weight_kg"
+              },
+              "success": false,
+              "error": "ContractViolation: State is already GROUPED"
+            }
+          ],
+          "failure_attribution": "CONTRACT_VIOLATION"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 4238.108999968972,
+          "tokens": 6877,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 3894.783199997619,
+          "tokens": 6946,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 4306.190399976913,
+          "tokens": 6975,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A7_Contracts_RESOLVE_Verification",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 4962.132000015117,
+          "tokens": 8718,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "quantum_noise"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "quantum_noise",
+                  "group"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A8": {
+      "name": "A8_Contracts_RESOLVE_SETCR",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 2,
+        "success_rate": 0.3333,
+        "avg_partial_score": 0.7354,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 2,
+        "invalid_tool_call_rate": 0.125,
+        "total_tool_calls": 16,
+        "total_search_expansions": 18,
+        "avg_latency_ms": 1963.37,
+        "total_tokens": 36350
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 2,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 431.7015000269748,
+          "tokens": 1656,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": 3
+              },
+              "success": false,
+              "error": "ContractViolation: Column '3' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": false,
+          "partial_score": 0.075,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 667.3964000074193,
+          "tokens": 3264,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": []
+              },
+              "success": false,
+              "error": "ContractViolation: Empty cols list"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1457.0707000093535,
+          "tokens": 6887,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 2126.1707000085153,
+          "tokens": 6979,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": false,
+          "partial_score": 0.88,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 5091.742800024804,
+          "tokens": 8925,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A8_Contracts_RESOLVE_SETCR",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2006.1471000080928,
+          "tokens": 8639,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "quantum_noise"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "quantum_noise",
+                  "group"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    },
+    "A9": {
+      "name": "A9_Full_Paartha_Runtime",
+      "metrics": {
+        "tasks_evaluated": 6,
+        "exact_success_count": 2,
+        "success_rate": 0.3333,
+        "avg_partial_score": 0.7254,
+        "total_crashes": 0,
+        "crash_rate": 0.0,
+        "total_invalid_tool_calls": 2,
+        "invalid_tool_call_rate": 0.125,
+        "total_tool_calls": 16,
+        "total_search_expansions": 18,
+        "avg_latency_ms": 1593.19,
+        "total_tokens": 36132
+      },
+      "failures": {
+        "REPRESENTATION": 0,
+        "UNDERSTANDING": 0,
+        "TOOL_SELECTION": 0,
+        "PARAMETER_BINDING": 2,
+        "CONTRACT_VIOLATION": 0,
+        "EXECUTION": 0,
+        "VERIFICATION": 0,
+        "SEARCH": 0,
+        "RECOVERY": 0,
+        "GENERATION": 0,
+        "MODEL_LIMITATION": 2
+      },
+      "details": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 842.9987999843433,
+          "tokens": 1613,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": 3
+              },
+              "success": false,
+              "error": "ContractViolation: Column '3' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.075,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 868.5599999735132,
+          "tokens": 3264,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": []
+              },
+              "success": false,
+              "error": "ContractViolation: Empty cols list"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1583.2822000375018,
+          "tokens": 6888,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "threshold": 1000.0,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1353.0894999857992,
+          "tokens": 6918,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "threshold": 400.0,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "NONE"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.82,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 4,
+          "latency_ms": 2281.8798000225797,
+          "tokens": 8749,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10.0
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "A9_Full_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2629.342900007032,
+          "tokens": 8700,
+          "trace": [
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "quantum_noise"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ]
+    }
+  },
+  "search_budget_sweep": {
+    "0": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7269,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1829.61,
+      "total_tokens": 24033
+    },
+    "1": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.8644,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1956.96,
+      "total_tokens": 24050
+    },
+    "2": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7269,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1923.6,
+      "total_tokens": 24105
+    },
+    "4": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7269,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0833,
+      "total_tool_calls": 12,
+      "total_search_expansions": 13,
+      "avg_latency_ms": 2141.49,
+      "total_tokens": 26128
+    },
+    "8": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7019,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 2,
+      "invalid_tool_call_rate": 0.1818,
+      "total_tool_calls": 11,
+      "total_search_expansions": 13,
+      "avg_latency_ms": 2296.61,
+      "total_tokens": 25599
+    },
+    "16": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7269,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1744.99,
+      "total_tokens": 24130
+    }
+  },
+  "verification_sweep": {
+    "None": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.8644,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1958.87,
+      "total_tokens": 23973
+    },
+    "Invariant_Check_Only": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.8394,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.1,
+      "total_tool_calls": 10,
+      "total_search_expansions": 11,
+      "avg_latency_ms": 2046.46,
+      "total_tokens": 24048
+    },
+    "Invariant_Plus_Rollback": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7019,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 2585.27,
+      "total_tokens": 24290
+    }
+  },
+  "resolve_sweep": {
+    "Direct_LLM": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 3,
+      "success_rate": 0.75,
+      "avg_partial_score": 0.9625,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 15,
+      "total_search_expansions": 15,
+      "avg_latency_ms": 2334.77,
+      "total_tokens": 31249
+    },
+    "LLM_Plus_Contracts": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 3,
+      "success_rate": 0.75,
+      "avg_partial_score": 0.95,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 15,
+      "total_search_expansions": 15,
+      "avg_latency_ms": 2699.39,
+      "total_tokens": 31258
+    },
+    "LLM_Plus_RESOLVE": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7269,
+      "total_crashes": 1,
+      "crash_rate": 0.25,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0833,
+      "total_tool_calls": 12,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1987.79,
+      "total_tokens": 24013
+    },
+    "RESOLVE_Plus_Verification": {
+      "tasks_evaluated": 4,
+      "exact_success_count": 2,
+      "success_rate": 0.5,
+      "avg_partial_score": 0.7019,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 2,
+      "invalid_tool_call_rate": 0.2,
+      "total_tool_calls": 10,
+      "total_search_expansions": 12,
+      "avg_latency_ms": 1883.3,
+      "total_tokens": 24057
+    }
+  }
+}

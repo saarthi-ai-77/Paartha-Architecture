@@ -1,0 +1,1158 @@
+{
+  "metadata": {
+    "experiment": "PAARTHA_GENUINE_ABSTRACTION_TRANSFER",
+    "provider": "sarvam",
+    "model_name": "sarvam-105b-conversations",
+    "timestamp": "2026-09-26 14:40:25"
+  },
+  "leakage_audit": {
+    "verdict": "PASSED_CLEAN",
+    "files_scanned": 5,
+    "total_leakages": 0,
+    "details": []
+  },
+  "domain_a_discovery": {
+    "traces_captured": 6,
+    "motifs_mined": 3,
+    "abstractions_accepted": []
+  },
+  "cross_domain_evaluations": {
+    "domain_b_spectroscopy": {
+      "name": "Domain B: Spectroscopy",
+      "metrics": {
+        "System_B1_LLM_Primitives": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.7042,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 7,
+          "total_search_expansions": 0,
+          "avg_latency_ms": 1774.9,
+          "total_tokens": 17270
+        },
+        "System_B2_LLM_Primitives_CleanAbstractions": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.7042,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 7,
+          "total_search_expansions": 0,
+          "avg_latency_ms": 1582.14,
+          "total_tokens": 17268
+        },
+        "System_C_Paartha_Runtime_Primitives": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 1,
+          "success_rate": 0.3333,
+          "avg_partial_score": 0.8833,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 8,
+          "total_search_expansions": 8,
+          "avg_latency_ms": 1814.55,
+          "total_tokens": 19203
+        },
+        "System_D_Paartha_Runtime_Abstractions": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.9333,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 11,
+          "total_search_expansions": 11,
+          "avg_latency_ms": 3558.96,
+          "total_tokens": 23349
+        }
+      },
+      "transfer_ratio_d_over_b1": 1.0,
+      "details": {
+        "System_B1_LLM_Primitives": [
+          {
+            "task_id": "TASK_B_01",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 2285.533900023438,
+            "tokens": 6980,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "absorbance_nm",
+                  "threshold": 300,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "quantum_noise",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_02",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1900.229299964849,
+            "tokens": 6972,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "temp_kelvin",
+                  "operator": ">",
+                  "threshold": 12
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "absorbance_nm",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_03",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": false,
+            "partial_score": 0.1125,
+            "tool_calls_count": 1,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1138.9379000174813,
+            "tokens": 3318,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "GroupBy",
+                "args": {
+                  "group_col": "chamber"
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_B2_LLM_Primitives_CleanAbstractions": [
+          {
+            "task_id": "TASK_B_01",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1873.9000999485143,
+            "tokens": 6980,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "absorbance_nm",
+                  "threshold": 300,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "quantum_noise",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_02",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1663.51109999232,
+            "tokens": 6970,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "temp_kelvin",
+                  "threshold": 12,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "absorbance_nm",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_03",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": false,
+            "partial_score": 0.1125,
+            "tool_calls_count": 1,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1209.0213000192307,
+            "tokens": 3318,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "GroupBy",
+                "args": {
+                  "group_col": "chamber"
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_C_Paartha_Runtime_Primitives": [
+          {
+            "task_id": "TASK_B_01",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": false,
+            "partial_score": 0.85,
+            "tool_calls_count": 2,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 2,
+            "latency_ms": 1485.9097999869846,
+            "tokens": 5136,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "absorbance_nm",
+                  "operator": ">",
+                  "threshold": 300.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "quantum_noise",
+                  "ascending": true
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          },
+          {
+            "task_id": "TASK_B_02",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 1429.9299999838695,
+            "tokens": 6960,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "temp_kelvin",
+                  "operator": ">",
+                  "threshold": 12.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "absorbance_nm",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_03",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": false,
+            "partial_score": 0.8,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 2527.825199998915,
+            "tokens": 7107,
+            "trace": [
+              {
+                "step": "GroupBy",
+                "params": {
+                  "group_col": "chamber"
+                },
+                "success": true
+              },
+              {
+                "step": "AggregateSum",
+                "params": {
+                  "num_col": "absorbance_nm",
+                  "out_col": "probe_id"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "probe_id",
+                  "ascending": false
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_D_Paartha_Runtime_Abstractions": [
+          {
+            "task_id": "TASK_B_01",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 2544.824500044342,
+            "tokens": 6968,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "absorbance_nm",
+                  "operator": ">",
+                  "threshold": 300.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "quantum_noise",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_02",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 1746.897800010629,
+            "tokens": 6960,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "temp_kelvin",
+                  "operator": ">",
+                  "threshold": 12.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "absorbance_nm",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_B_03",
+            "level": "Domain_B_Spectroscopy",
+            "domain": "Domain_B_Spectroscopy",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": false,
+            "partial_score": 0.8,
+            "tool_calls_count": 5,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 5,
+            "latency_ms": 6385.171200032346,
+            "tokens": 9421,
+            "trace": [
+              {
+                "step": "GroupBy",
+                "params": {
+                  "group_col": "chamber"
+                },
+                "success": true
+              },
+              {
+                "step": "AggregateSum",
+                "params": {
+                  "num_col": "absorbance_nm",
+                  "out_col": "probe_id"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "probe_id",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "probe_id",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "ProjectColumns",
+                "params": {
+                  "cols": [
+                    "group",
+                    "probe_id"
+                  ]
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SEARCH"
+          }
+        ]
+      }
+    },
+    "domain_c_finance": {
+      "name": "Domain C: Finance",
+      "metrics": {
+        "System_B1_LLM_Primitives": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.7042,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 7,
+          "total_search_expansions": 0,
+          "avg_latency_ms": 1253.93,
+          "total_tokens": 17297
+        },
+        "System_B2_LLM_Primitives_CleanAbstractions": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 1,
+          "success_rate": 0.3333,
+          "avg_partial_score": 0.6442,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 6,
+          "total_search_expansions": 0,
+          "avg_latency_ms": 1011.02,
+          "total_tokens": 15363
+        },
+        "System_C_Paartha_Runtime_Primitives": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.8444,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 10,
+          "total_search_expansions": 10,
+          "avg_latency_ms": 1523.68,
+          "total_tokens": 22490
+        },
+        "System_D_Paartha_Runtime_Abstractions": {
+          "tasks_evaluated": 3,
+          "exact_success_count": 2,
+          "success_rate": 0.6667,
+          "avg_partial_score": 0.8444,
+          "total_crashes": 0,
+          "crash_rate": 0.0,
+          "total_invalid_tool_calls": 0,
+          "invalid_tool_call_rate": 0.0,
+          "total_tool_calls": 10,
+          "total_search_expansions": 10,
+          "avg_latency_ms": 1762.92,
+          "total_tokens": 22488
+        }
+      },
+      "transfer_ratio_d_over_b1": 1.0,
+      "details": {
+        "System_B1_LLM_Primitives": [
+          {
+            "task_id": "TASK_C_01",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1576.3212000019848,
+            "tokens": 6923,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "spread_bps",
+                  "threshold": 3,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "latency_micros",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_02",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1544.95599999791,
+            "tokens": 7066,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "fill_volume",
+                  "threshold": 10000,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "spread_bps",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_03",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B1_LLM_Primitive_Tools",
+            "exact_match": false,
+            "partial_score": 0.1125,
+            "tool_calls_count": 1,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 640.507299976889,
+            "tokens": 3308,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "GroupBy",
+                "args": {
+                  "group_col": "exchange"
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_B2_LLM_Primitives_CleanAbstractions": [
+          {
+            "task_id": "TASK_C_01",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1292.021900007967,
+            "tokens": 6923,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "spread_bps",
+                  "threshold": 3,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "latency_micros",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "turn": 2,
+                "tool": "TopK",
+                "args": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_02",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": false,
+            "partial_score": 0.82,
+            "tool_calls_count": 2,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 1056.9525000173599,
+            "tokens": 5132,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "FilterByThreshold",
+                "args": {
+                  "col": "fill_volume",
+                  "operator": ">",
+                  "threshold": 10000
+                },
+                "success": true
+              },
+              {
+                "turn": 1,
+                "tool": "SortByColumn",
+                "args": {
+                  "col": "spread_bps",
+                  "ascending": false
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          },
+          {
+            "task_id": "TASK_C_03",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_B2_LLM_Tools_Abstractions",
+            "exact_match": false,
+            "partial_score": 0.1125,
+            "tool_calls_count": 1,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 0,
+            "latency_ms": 684.0714999707416,
+            "tokens": 3308,
+            "trace": [
+              {
+                "turn": 0,
+                "tool": "GroupBy",
+                "args": {
+                  "group_col": "exchange"
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_C_Paartha_Runtime_Primitives": [
+          {
+            "task_id": "TASK_C_01",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 1469.0169999958016,
+            "tokens": 6913,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "spread_bps",
+                  "operator": ">",
+                  "threshold": 3.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "latency_micros",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_02",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 1499.67230000766,
+            "tokens": 6944,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "fill_volume",
+                  "threshold": 10000.0,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "spread_bps",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_03",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": false,
+            "partial_score": 0.5333,
+            "tool_calls_count": 4,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 4,
+            "latency_ms": 1602.3400999838486,
+            "tokens": 8633,
+            "trace": [
+              {
+                "step": "GroupBy",
+                "params": {
+                  "group_col": "exchange"
+                },
+                "success": true
+              },
+              {
+                "step": "AggregateSum",
+                "params": {
+                  "num_col": "fill_volume",
+                  "out_col": "exchange"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "group",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "ProjectColumns",
+                "params": {
+                  "cols": [
+                    "exchange",
+                    "group"
+                  ]
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ],
+        "System_D_Paartha_Runtime_Abstractions": [
+          {
+            "task_id": "TASK_C_01",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 2066.4682000060566,
+            "tokens": 6911,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "spread_bps",
+                  "operator": ">",
+                  "threshold": 3.0
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "latency_micros",
+                  "ascending": true
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 3
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_02",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": true,
+            "partial_score": 1.0,
+            "tool_calls_count": 3,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 3,
+            "latency_ms": 1361.8535000132397,
+            "tokens": 6944,
+            "trace": [
+              {
+                "step": "FilterByThreshold",
+                "params": {
+                  "col": "fill_volume",
+                  "threshold": 10000.0,
+                  "operator": ">"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "spread_bps",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "TopK",
+                "params": {
+                  "k": 2
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "SUCCESS"
+          },
+          {
+            "task_id": "TASK_C_03",
+            "level": "Domain_C_Finance",
+            "domain": "Domain_C_Finance",
+            "system": "System_C_Paartha_Runtime",
+            "exact_match": false,
+            "partial_score": 0.5333,
+            "tool_calls_count": 4,
+            "invalid_tool_calls": 0,
+            "crashes": 0,
+            "search_expansions": 4,
+            "latency_ms": 1860.4361999896355,
+            "tokens": 8633,
+            "trace": [
+              {
+                "step": "GroupBy",
+                "params": {
+                  "group_col": "exchange"
+                },
+                "success": true
+              },
+              {
+                "step": "AggregateSum",
+                "params": {
+                  "num_col": "fill_volume",
+                  "out_col": "exchange"
+                },
+                "success": true
+              },
+              {
+                "step": "SortByColumn",
+                "params": {
+                  "col": "group",
+                  "ascending": false
+                },
+                "success": true
+              },
+              {
+                "step": "ProjectColumns",
+                "params": {
+                  "cols": [
+                    "exchange",
+                    "group"
+                  ]
+                },
+                "success": true
+              }
+            ],
+            "failure_attribution": "UNDERSTANDING"
+          }
+        ]
+      }
+    }
+  },
+  "system_b2_diagnostics": {
+    "domain_b_spectroscopy": [
+      {
+        "task_id": "TASK_B_01",
+        "diagnosis": "NONE_SUCCESS"
+      },
+      {
+        "task_id": "TASK_B_02",
+        "diagnosis": "NONE_SUCCESS"
+      },
+      {
+        "task_id": "TASK_B_03",
+        "diagnosis": "CAPABILITY_SELECTION"
+      }
+    ],
+    "domain_c_finance": [
+      {
+        "task_id": "TASK_C_01",
+        "diagnosis": "NONE_SUCCESS"
+      },
+      {
+        "task_id": "TASK_C_02",
+        "diagnosis": "CAPABILITY_SELECTION"
+      },
+      {
+        "task_id": "TASK_C_03",
+        "diagnosis": "CAPABILITY_SELECTION"
+      }
+    ]
+  }
+}
