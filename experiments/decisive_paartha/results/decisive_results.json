@@ -1,0 +1,2258 @@
+{
+  "metadata": {
+    "experiment": "PAARTHA_DECISIVE_BENCHMARK",
+    "provider": "sarvam",
+    "model_name": "sarvam-105b-conversations",
+    "timestamp": "2026-09-26 14:19:14"
+  },
+  "phase_0_leakage_audit": {
+    "verdict": "PASSED_CLEAN",
+    "files_scanned": 6,
+    "total_leakages": 0,
+    "details": []
+  },
+  "phase_1_baseline_heldout": {
+    "metrics_system_a": {
+      "tasks_evaluated": 5,
+      "exact_success_count": 1,
+      "success_rate": 0.2,
+      "avg_partial_score": 0.6913,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 0,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 577.17,
+      "total_tokens": 4415
+    },
+    "metrics_system_b1": {
+      "tasks_evaluated": 5,
+      "exact_success_count": 3,
+      "success_rate": 0.6,
+      "avg_partial_score": 0.806,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 5,
+      "invalid_tool_call_rate": 0.2778,
+      "total_tool_calls": 18,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 2087.93,
+      "total_tokens": 38787
+    },
+    "metrics_system_c": {
+      "tasks_evaluated": 5,
+      "exact_success_count": 2,
+      "success_rate": 0.4,
+      "avg_partial_score": 0.7375,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 2,
+      "invalid_tool_call_rate": 0.2222,
+      "total_tool_calls": 9,
+      "total_search_expansions": 11,
+      "avg_latency_ms": 1232.85,
+      "total_tokens": 23649
+    },
+    "details": {
+      "System_A": [
+        {
+          "task_id": "TASK_L1_01",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.7867,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 485.87750003207475,
+          "tokens": 885,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L1_02",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.92,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 587.6521999598481,
+          "tokens": 935,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.45,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 524.0381000330672,
+          "tokens": 880,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.3,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 699.3936999933794,
+          "tokens": 783,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 588.898700021673,
+          "tokens": 932,
+          "trace": [],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_B1": [
+        {
+          "task_id": "TASK_L1_01",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.88,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1503.9327999693342,
+          "tokens": 6903,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterEquals",
+              "args": {
+                "col": "hub",
+                "val": "Central"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "transit_hours",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "shipment_id",
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L1_02",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1313.8202999834903,
+          "tokens": 5024,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "freight_cost",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "TopK",
+              "args": {
+                "k": 4
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2822.552600002382,
+          "tokens": 9072,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "operator": ">",
+                "threshold": 500
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 6,
+          "invalid_tool_calls": 5,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2079.619099968113,
+          "tokens": 10332,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 3,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": false,
+              "error": "Column 'hub' not found in state"
+            },
+            {
+              "turn": 5,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2719.732700032182,
+          "tokens": 7456,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_C": [
+        {
+          "task_id": "TASK_L1_01",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.88,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1467.3442000057548,
+          "tokens": 6827,
+          "trace": [
+            {
+              "step": "FilterEquals",
+              "params": {
+                "col": "hub",
+                "val": "Central"
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "transit_hours",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "shipment_id",
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L1_02",
+          "level": "Level_1_Familiar",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 1285.9829999506474,
+          "tokens": 5009,
+          "trace": [
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "freight_cost",
+                "ascending": true
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 4
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 397.5161000271328,
+          "tokens": 1625,
+          "trace": [
+            {
+              "step": "Deduplicate",
+              "params": {
+                "key_col": "hub"
+              },
+              "success": false,
+              "error": "RESOLVE failed CSP constraints"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 1684.613699966576,
+          "tokens": 3290,
+          "trace": [
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": false,
+              "error": "RESOLVE failed CSP constraints"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1328.8001000182703,
+          "tokens": 6898,
+          "trace": [
+            {
+              "step": "FilterByThreshold",
+              "params": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000.0
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ]
+    }
+  },
+  "phase_2_discovery_metrics": {
+    "motifs_mined": 6,
+    "abstractions_accepted": 2,
+    "abstractions_rejected": 4,
+    "total_mdl_gain": 56
+  },
+  "phase_4_level2_heldout": {
+    "metrics_system_a": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.5833,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 0,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 502.46,
+      "total_tokens": 2597
+    },
+    "metrics_system_b1": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 2,
+      "success_rate": 0.6667,
+      "avg_partial_score": 0.7167,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 4,
+      "invalid_tool_call_rate": 0.3333,
+      "total_tool_calls": 12,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 2691.89,
+      "total_tokens": 26780
+    },
+    "metrics_system_c": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.6358,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.125,
+      "total_tool_calls": 8,
+      "total_search_expansions": 9,
+      "avg_latency_ms": 1612.96,
+      "total_tokens": 17099
+    },
+    "metrics_system_d": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.6358,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.1667,
+      "total_tool_calls": 6,
+      "total_search_expansions": 7,
+      "avg_latency_ms": 1098.6,
+      "total_tokens": 16309
+    },
+    "details": {
+      "System_A": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.45,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 489.5159999723546,
+          "tokens": 882,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.3,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 382.82479997724295,
+          "tokens": 783,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_A_LLM_Alone",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 635.0331000285223,
+          "tokens": 932,
+          "trace": [],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_B1": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2510.3686000220478,
+          "tokens": 8972,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "threshold": 500,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 4,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 3481.720999989193,
+          "tokens": 10678,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 2,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": false,
+              "error": "Column 'transit_hours' missing"
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": false,
+              "error": "Column 'hub' not found in state"
+            },
+            {
+              "turn": 4,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": false,
+              "error": "Column 'transit_hours' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2083.583900006488,
+          "tokens": 7130,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "threshold": 1000,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_C": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 605.5842000059783,
+          "tokens": 1625,
+          "trace": [
+            {
+              "step": "Deduplicate",
+              "params": {
+                "key_col": "hub"
+              },
+              "success": false,
+              "error": "RESOLVE failed CSP constraints"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.25,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2582.233399967663,
+          "tokens": 8576,
+          "trace": [
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "weight_kg"
+                ]
+              },
+              "success": true
+            },
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "weight_kg",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "group",
+                  "weight_kg"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SEARCH"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1651.053299952764,
+          "tokens": 6898,
+          "trace": [
+            {
+              "step": "FilterByThreshold",
+              "params": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000.0
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_D": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 351.5746999764815,
+          "tokens": 1940,
+          "trace": [
+            {
+              "step": "Deduplicate",
+              "params": {
+                "key_col": "hub"
+              },
+              "success": false,
+              "error": "RESOLVE failed CSP constraints"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": false,
+          "partial_score": 0.25,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2280.2587999613024,
+          "tokens": 10386,
+          "trace": [
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "weight_kg",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "weight_kg",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SEARCH"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 663.9602999784984,
+          "tokens": 3983,
+          "trace": [
+            {
+              "step": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "params": {
+                "p_col_0": "weight_kg",
+                "p_threshold_0": 1000.0,
+                "p_k_2": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ]
+    }
+  },
+  "phase_5_abstraction_control": {
+    "metrics_system_b1": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 2,
+      "success_rate": 0.6667,
+      "avg_partial_score": 0.7167,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 5,
+      "invalid_tool_call_rate": 0.3571,
+      "total_tool_calls": 14,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 3006.73,
+      "total_tokens": 28558
+    },
+    "metrics_system_b2": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 2,
+      "success_rate": 0.6667,
+      "avg_partial_score": 0.9333,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 12,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 2011.32,
+      "total_tokens": 31437
+    },
+    "metrics_system_d": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.8192,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.1667,
+      "total_tool_calls": 6,
+      "total_search_expansions": 7,
+      "avg_latency_ms": 1136.08,
+      "total_tokens": 16138
+    },
+    "hypothesis_verdict": "Case 3: B1 ~= B2 ~= D (Discovered abstractions provided no significant advantage)",
+    "details": {
+      "System_B1": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2624.7227999847382,
+          "tokens": 9101,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "freight_cost",
+                "operator": ">",
+                "threshold": 500
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.15,
+          "tool_calls_count": 6,
+          "invalid_tool_calls": 5,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 2716.8712000129744,
+          "tokens": 10332,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 2,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 3,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "hub",
+                  "transit_hours"
+                ]
+              },
+              "success": false,
+              "error": "Column 'hub' not found in state"
+            },
+            {
+              "turn": 5,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": false,
+              "error": "Column 'hub' missing"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 3678.6104000057094,
+          "tokens": 9125,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "shipment_id",
+                  "weight_kg",
+                  "hub",
+                  "freight_cost",
+                  "transit_hours"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_B2": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 3040.1425000163727,
+          "tokens": 13029,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "Deduplicate",
+              "args": {
+                "key_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "ScaleColumn",
+              "args": {
+                "col": "freight_cost",
+                "factor": 1.15
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "args": {
+                "p_col_0": "freight_cost",
+                "p_threshold_0": "500",
+                "p_k_2": "2"
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TailK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "shipment_id",
+                  "hub",
+                  "freight_cost",
+                  "weight_kg",
+                  "transit_hours"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 4,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1610.351100040134,
+          "tokens": 10238,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "AggregateMean",
+              "args": {
+                "num_col": "transit_hours",
+                "out_col": "avg_transit_hours"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "avg_transit_hours",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1383.460599987302,
+          "tokens": 8170,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "weight_kg",
+                "operator": ">",
+                "threshold": 1000
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ],
+      "System_D": [
+        {
+          "task_id": "TASK_L2_01",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": false,
+          "partial_score": 0.6575,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 298.95279998891056,
+          "tokens": 1940,
+          "trace": [
+            {
+              "step": "Deduplicate",
+              "params": {
+                "key_col": "hub"
+              },
+              "success": false,
+              "error": "RESOLVE failed CSP constraints"
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        },
+        {
+          "task_id": "TASK_L2_02",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 2438.324199989438,
+          "tokens": 10215,
+          "trace": [
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "hub"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateMean",
+              "params": {
+                "num_col": "transit_hours",
+                "out_col": "weight_kg"
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "group",
+                  "weight_kg"
+                ]
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "weight_kg",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SEARCH"
+        },
+        {
+          "task_id": "TASK_L2_03",
+          "level": "Level_2_HeldOut",
+          "domain": "Domain_A_Logistics",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 670.9592000115663,
+          "tokens": 3983,
+          "trace": [
+            {
+              "step": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "params": {
+                "p_col_0": "weight_kg",
+                "p_threshold_0": 1000.0,
+                "p_k_2": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        }
+      ]
+    }
+  },
+  "phase_6_cross_domain_transfer": {
+    "metrics_system_a": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.7,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 0,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 556.56,
+      "total_tokens": 2695
+    },
+    "metrics_system_b1": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 1,
+      "success_rate": 0.3333,
+      "avg_partial_score": 0.7378,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 8,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 2540.82,
+      "total_tokens": 19072
+    },
+    "metrics_system_b2": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 0,
+      "success_rate": 0.0,
+      "avg_partial_score": 0.7289,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 1,
+      "invalid_tool_call_rate": 0.0909,
+      "total_tool_calls": 11,
+      "total_search_expansions": 0,
+      "avg_latency_ms": 3319.07,
+      "total_tokens": 26994
+    },
+    "metrics_system_c": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 2,
+      "success_rate": 0.6667,
+      "avg_partial_score": 0.9333,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 9,
+      "total_search_expansions": 9,
+      "avg_latency_ms": 3176.24,
+      "total_tokens": 20787
+    },
+    "metrics_system_d": {
+      "tasks_evaluated": 3,
+      "exact_success_count": 2,
+      "success_rate": 0.6667,
+      "avg_partial_score": 0.9333,
+      "total_crashes": 0,
+      "crash_rate": 0.0,
+      "total_invalid_tool_calls": 0,
+      "invalid_tool_call_rate": 0.0,
+      "total_tool_calls": 8,
+      "total_search_expansions": 8,
+      "avg_latency_ms": 2159.51,
+      "total_tokens": 20491
+    },
+    "transfer_ratio_d_over_b1": 2.0,
+    "details": {
+      "System_A": [
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_A_LLM_Alone",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 564.7905999794602,
+          "tokens": 974,
+          "trace": [],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 627.3621000000276,
+          "tokens": 896,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_A_LLM_Alone",
+          "exact_match": false,
+          "partial_score": 0.3,
+          "tool_calls_count": 0,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 477.51850000349805,
+          "tokens": 825,
+          "trace": [],
+          "failure_attribution": "MODEL_LIMITATION"
+        }
+      ],
+      "System_B1": [
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1578.5787000204436,
+          "tokens": 6990,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.68,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 4449.002599983942,
+          "tokens": 6997,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "temp_kelvin",
+                "threshold": 10,
+                "operator": ">"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "TopK",
+              "args": {
+                "k": 2
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id",
+                  "temp_kelvin",
+                  "chamber"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B1_LLM_Primitive_Tools",
+          "exact_match": false,
+          "partial_score": 0.5333,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1594.8780000326224,
+          "tokens": 5085,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "cumulative_absorbance"
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        }
+      ],
+      "System_B2": [
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": false,
+          "partial_score": 0.6267,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 1703.2222999841906,
+          "tokens": 8244,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "FilterByThreshold",
+              "args": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "quantum_noise",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "TopK",
+              "args": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": false,
+          "partial_score": 0.76,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 3344.064000004437,
+          "tokens": 6154,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "args": {
+                "p_col_0": "temp_kelvin",
+                "p_threshold_0": "10",
+                "p_k_2": "2"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "probe_id"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_B2_LLM_Tools_Abstractions",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 6,
+          "invalid_tool_calls": 1,
+          "crashes": 0,
+          "search_expansions": 0,
+          "latency_ms": 4909.909999987576,
+          "tokens": 12596,
+          "trace": [
+            {
+              "turn": 0,
+              "tool": "GroupBy",
+              "args": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "turn": 1,
+              "tool": "AggregateSum",
+              "args": {
+                "num_col": "absorbance_nm",
+                "out_col": "cumulative_absorbance"
+              },
+              "success": true
+            },
+            {
+              "turn": 2,
+              "tool": "SortByColumn",
+              "args": {
+                "col": "cumulative_absorbance",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "turn": 3,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            },
+            {
+              "turn": 4,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "chamber",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": false,
+              "error": "Column 'chamber' not found in state"
+            },
+            {
+              "turn": 5,
+              "tool": "ProjectColumns",
+              "args": {
+                "cols": [
+                  "group",
+                  "cumulative_absorbance"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "PARAMETER_BINDING"
+        }
+      ],
+      "System_C": [
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 3999.779600009788,
+          "tokens": 6978,
+          "trace": [
+            {
+              "step": "FilterByThreshold",
+              "params": {
+                "col": "absorbance_nm",
+                "operator": ">",
+                "threshold": 400.0
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "absorbance_nm",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 3
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 3915.295399958268,
+          "tokens": 6935,
+          "trace": [
+            {
+              "step": "FilterByThreshold",
+              "params": {
+                "col": "temp_kelvin",
+                "operator": ">",
+                "threshold": 10.0
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "temp_kelvin",
+                "ascending": false
+              },
+              "success": true
+            },
+            {
+              "step": "TopK",
+              "params": {
+                "k": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_C_Paartha_Runtime",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 3,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 3,
+          "latency_ms": 1613.632199994754,
+          "tokens": 6874,
+          "trace": [
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateSum",
+              "params": {
+                "num_col": "absorbance_nm",
+                "out_col": "temp_kelvin"
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "temp_kelvin",
+                "ascending": false
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "UNDERSTANDING"
+        }
+      ],
+      "System_D": [
+        {
+          "task_id": "TASK_L3_01_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 2,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 2,
+          "latency_ms": 3880.5338999954984,
+          "tokens": 6173,
+          "trace": [
+            {
+              "step": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "params": {
+                "p_col_0": "absorbance_nm",
+                "p_threshold_0": 400.0,
+                "p_k_2": 3
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "probe_id",
+                  "absorbance_nm",
+                  "temp_kelvin",
+                  "chamber",
+                  "quantum_noise"
+                ]
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_02_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": true,
+          "partial_score": 1.0,
+          "tool_calls_count": 1,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 1,
+          "latency_ms": 641.694699996151,
+          "tokens": 3998,
+          "trace": [
+            {
+              "step": "ABS_FilterByThreshold_SortByColumn_TopK",
+              "params": {
+                "p_col_0": "temp_kelvin",
+                "p_threshold_0": 10.0,
+                "p_k_2": 2
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SUCCESS"
+        },
+        {
+          "task_id": "TASK_L3_03_TRANSFER",
+          "level": "Level_3_Transfer",
+          "domain": "Domain_B_Spectroscopy",
+          "system": "System_D_Paartha_Discovery",
+          "exact_match": false,
+          "partial_score": 0.8,
+          "tool_calls_count": 5,
+          "invalid_tool_calls": 0,
+          "crashes": 0,
+          "search_expansions": 5,
+          "latency_ms": 1956.3105000415817,
+          "tokens": 10320,
+          "trace": [
+            {
+              "step": "GroupBy",
+              "params": {
+                "group_col": "chamber"
+              },
+              "success": true
+            },
+            {
+              "step": "AggregateSum",
+              "params": {
+                "num_col": "absorbance_nm",
+                "out_col": "temp_kelvin"
+              },
+              "success": true
+            },
+            {
+              "step": "ScaleColumn",
+              "params": {
+                "col": "temp_kelvin",
+                "factor": 1.0
+              },
+              "success": true
+            },
+            {
+              "step": "ProjectColumns",
+              "params": {
+                "cols": [
+                  "group",
+                  "temp_kelvin"
+                ]
+              },
+              "success": true
+            },
+            {
+              "step": "SortByColumn",
+              "params": {
+                "col": "temp_kelvin",
+                "ascending": false
+              },
+              "success": true
+            }
+          ],
+          "failure_attribution": "SEARCH"
+        }
+      ]
+    }
+  }
+}
